@@ -1,0 +1,95 @@
+const map = L.map('map').setView([60.39299, 5.32415], 11);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
+
+const format = (v, unit = '') => (v === null || v === undefined || Number.isNaN(v) ? '—' : `${v}${unit}`);
+
+function renderDetail(p) {
+  const panel = document.getElementById('detail-panel');
+  document.getElementById('detail-title').textContent = p.school_name;
+  document.getElementById('detail-content').innerHTML = `
+    <table>
+      <tr><td>組織編號</td><td>${format(p.organization_number)}</td></tr>
+      <tr><td>城市 / 郡</td><td>${format(p.municipality)} / ${format(p.county)}</td></tr>
+      <tr><td>學生數 (2025-26)</td><td>${format(p.students_2025_26)}</td></tr>
+      <tr><td>特教學生數 (2025-26)</td><td>${format(p.special_education_2025_26)}</td></tr>
+      <tr><td>加強挪威語學生數 (2025-26)</td><td>${format(p.enhanced_norwegian_2025_26)}</td></tr>
+      <tr><td>教師數 (2025-26)</td><td>${format(p.teachers_2025_26)}</td></tr>
+      <tr><td>師生密度 (2025-26)</td><td>${format(p.teacher_density_2025_26)}</td></tr>
+      <tr><td>學生霸凌比例</td><td>${format(p.mobbing_by_students_pct, '%')}</td></tr>
+      <tr><td>成人霸凌比例</td><td>${format(p.mobbing_by_adults_pct, '%')}</td></tr>
+      <tr><td>數位霸凌比例</td><td>${format(p.mobbing_digital_pct, '%')}</td></tr>
+      <tr><td>地理定位狀態</td><td>${format(p.geocoding_status)}</td></tr>
+      <tr><td>地址 (若有)</td><td>${format(p.geocoded_address)}</td></tr>
+    </table>
+  `;
+  panel.classList.remove('hidden');
+}
+
+document.getElementById('close-detail').addEventListener('click', () => {
+  document.getElementById('detail-panel').classList.add('hidden');
+});
+
+async function loadSchoolGeoJson() {
+  const candidates = [
+    '../data/bergen_primary_schools_geocoded.geojson',
+    './data/bergen_primary_schools_geocoded.geojson',
+    '/data/bergen_primary_schools_geocoded.geojson',
+    'data/bergen_primary_schools_geocoded.geojson',
+    '../data/bergen_primary_schools.geojson',
+    './data/bergen_primary_schools.geojson',
+    '/data/bergen_primary_schools.geojson',
+    'data/bergen_primary_schools.geojson'
+  ];
+
+  for (const path of candidates) {
+    try {
+      const r = await fetch(path);
+      if (!r.ok) continue;
+      return await r.json();
+    } catch (_) {}
+  }
+  throw new Error('資料檔載入失敗：請確認 data/bergen_primary_schools_geocoded.geojson 或 data/bergen_primary_schools.geojson 可被伺服器存取。');
+}
+
+loadSchoolGeoJson()
+  .then(fc => {
+    const listEl = document.getElementById('school-list');
+    const countEl = document.getElementById('count');
+    const searchEl = document.getElementById('search');
+    let markerEntries = [];
+
+    const redraw = (query = '') => {
+      markerEntries.forEach(({ marker }) => marker.remove());
+      markerEntries = [];
+      listEl.innerHTML = '';
+
+      const q = query.trim().toLowerCase();
+      const filtered = fc.features.filter(f => f.properties.school_name.toLowerCase().includes(q));
+      countEl.textContent = `顯示 ${filtered.length} / ${fc.features.length} 所學校`;
+
+      filtered.forEach((f) => {
+        const marker = L.marker([f.geometry.coordinates[1], f.geometry.coordinates[0]]).addTo(map);
+        marker.on('click', () => renderDetail(f.properties));
+        markerEntries.push({ marker, feature: f });
+
+        const li = document.createElement('li');
+        li.textContent = f.properties.school_name;
+        li.onclick = () => {
+          map.setView([f.geometry.coordinates[1], f.geometry.coordinates[0]], 14);
+          renderDetail(f.properties);
+        };
+        listEl.appendChild(li);
+      });
+    };
+
+    redraw();
+    searchEl.addEventListener('input', (e) => redraw(e.target.value));
+  })
+  .catch((err) => {
+    const countEl = document.getElementById('count');
+    const listEl = document.getElementById('school-list');
+    countEl.textContent = '資料載入失敗';
+    listEl.innerHTML = `<li>${err.message}</li>`;
+  });

@@ -1,0 +1,667 @@
+{
+  "Alvøen skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Apeltun skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Aurdalslia skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Bergen kompetansesenter for Læringsmiljø": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Bergen Kristne grunnskole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Bjørgvin montessoriskole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Bjørndalsskogen skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Blokkhaugen skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Breimyra skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Bønes skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Christi Krybbe Skoler": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Damsgård skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Eidsvåg skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Fjellsdalen skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Flaktveit skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Foreningen Danielsen ungdomsskole Bergen": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Fridalen skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Garnes skule": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Garnes ungdomsskule": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Gimle Oppveksttun skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Haukedalen skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Haukeland skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Haukås skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Hellen skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Hjellestad skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Holen skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Hop Oppveksttun skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Hordvik skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "International School Of Bergen avd skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Kaland skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Kalvatræet skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Kirkevoll skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Kjøkkelvik skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Kringlebotn skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Krohnengen skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Krokeide skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Kronstad Oppveksttun skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Kyrkjekrinsen skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Landås skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Li skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Liland skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Loddefjord skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Lone skule": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Lynghaug skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Lyshovden Oppveksttun avd skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Løvås Oppveksttun - skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Mathopen skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Midtun skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Minde skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Mjølkeråen skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Møhlenpris Oppveksttun avd skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Møllebakken skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Nattland skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Nordnes skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Norges Toppidrettsgymnas ungdomsskole Bergen AS": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Ny Krohnborg skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Nygårdslien skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Olsvik skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Ortun skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Paradis skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Rolland skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Rothaugen skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Rudolf steinerskolen i Bergen skolen": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Rå skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Rådalslien skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Salhus skule": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Sandgotna skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Seljedalen skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Skeie skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Skjold skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Skranevatnet skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Slettebakken skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Slåtthaug skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Smørås skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "St Paul skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Steinerskolen på Skjold Helseped Avdeling": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Stiftelsen Davinci montessoriskole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Stiftelsen montessoriskolen i Bergen": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Stiftelsen steinerskolen på Skjold": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Storetveit skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Sædalen skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Sælen Oppveksttun avd skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Søreide skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Søråshøgda skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Tertnes skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Trengereid Oppveksttun Avd skule (Nedlagt)": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Tveiterås skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Ulsetskogen skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Ulsmåg skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Vadmyra skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Varden skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Ytre Arna skule": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Ytrebygda skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Ådnamarka skule": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Åstveit skole": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  }
+}
