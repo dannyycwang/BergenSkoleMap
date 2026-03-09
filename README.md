@@ -21,7 +21,7 @@ python scripts/prepare_data.py
 python -m http.server 4173
 ```
 開啟（兩種都可）：
-- `http://localhost:4173/`（會自動轉到 `/web/`）
+- `http://localhost:4173/`（根目錄直接是完整地圖頁）
 - `http://localhost:4173/web/`
 
 ## 3) 功能
