@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bergen 小學地圖</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Bergen 小學互動地圖</h1>
+    <p>可搜尋、點擊查看學校資料（來源：educationBergen.xlsx）</p>
+  </header>
+
+  <main>
+    <aside>
+      <input id="search" type="text" placeholder="搜尋學校名稱..." />
+      <p id="count"></p>
+      <div class="note">目前環境無法連外地理編碼 API，座標為 Bergen 區域近似定位（可後續一鍵重跑真實 geocoding）。</div>
+      <ul id="school-list"></ul>
+    </aside>
+    <section id="map"></section>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
