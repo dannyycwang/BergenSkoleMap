@@ -34,11 +34,12 @@ document.getElementById('close-detail').addEventListener('click', () => {
 });
 
 async function geocodeSchool(schoolName) {
+  const base = schoolName.replace(' avd skole', '').replace(' - skole', '').replace('(Nedlagt)', '').trim();
   const variants = [
     `${schoolName}, Bergen, Norway`,
-    `${schoolName.replace(' avd skole', '').replace(' - skole', '').replace('(Nedlagt)', '').trim()}, Bergen, Norway`,
-    `${schoolName} skole, Bergen, Norway`,
-    `${schoolName} skule, Bergen, Norway`
+    `${base}, Bergen, Norway`,
+    `${base} skole, Bergen, Norway`,
+    `${base} skule, Bergen, Norway`
   ];
 
   for (const q of variants) {
@@ -60,8 +61,26 @@ async function geocodeSchool(schoolName) {
   return null;
 }
 
-fetch('../data/bergen_primary_schools.geojson')
-  .then(r => r.json())
+async function loadSchoolGeoJson() {
+  const candidates = [
+    '../data/bergen_primary_schools.geojson',
+    './data/bergen_primary_schools.geojson',
+    '/data/bergen_primary_schools.geojson',
+    'data/bergen_primary_schools.geojson'
+  ];
+
+  for (const path of candidates) {
+    try {
+      const r = await fetch(path);
+      if (!r.ok) continue;
+      const data = await r.json();
+      return data;
+    } catch (_) {}
+  }
+  throw new Error('資料檔載入失敗：請確認 data/bergen_primary_schools.geojson 可被伺服器存取。');
+}
+
+loadSchoolGeoJson()
   .then(fc => {
     const listEl = document.getElementById('school-list');
     const countEl = document.getElementById('count');
@@ -101,7 +120,6 @@ fetch('../data/bergen_primary_schools.geojson')
     redraw();
     searchEl.addEventListener('input', (e) => redraw(e.target.value));
 
-    // Background: improve coordinates with real geocoding + cache.
     (async () => {
       for (const feature of fc.features) {
         const name = feature.properties.school_name;
@@ -112,7 +130,6 @@ fetch('../data/bergen_primary_schools.geojson')
           feature.properties.geocoding_status = c.geocoding_status;
           continue;
         }
-
         const found = await geocodeSchool(name);
         if (found) {
           feature.geometry.coordinates = [found.lon, found.lat];
@@ -125,4 +142,10 @@ fetch('../data/bergen_primary_schools.geojson')
       }
       redraw(searchEl.value);
     })();
+  })
+  .catch((err) => {
+    const countEl = document.getElementById('count');
+    const listEl = document.getElementById('school-list');
+    countEl.textContent = '資料載入失敗';
+    listEl.innerHTML = `<li>${err.message}</li>`;
   });
