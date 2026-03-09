@@ -4,8 +4,6 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 const format = (v, unit = '') => (v === null || v === undefined || Number.isNaN(v) ? '—' : `${v}${unit}`);
-const geocodeCacheKey = 'bergenSchoolGeocodeCacheV1';
-const geocodeCache = JSON.parse(localStorage.getItem(geocodeCacheKey) || '{}');
 
 function renderDetail(p) {
   const panel = document.getElementById('detail-panel');
@@ -33,36 +31,12 @@ document.getElementById('close-detail').addEventListener('click', () => {
   document.getElementById('detail-panel').classList.add('hidden');
 });
 
-async function geocodeSchool(schoolName) {
-  const base = schoolName.replace(' avd skole', '').replace(' - skole', '').replace('(Nedlagt)', '').trim();
-  const variants = [
-    `${schoolName}, Bergen, Norway`,
-    `${base}, Bergen, Norway`,
-    `${base} skole, Bergen, Norway`,
-    `${base} skule, Bergen, Norway`
-  ];
-
-  for (const q of variants) {
-    try {
-      const url = `https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&q=${encodeURIComponent(q)}`;
-      const r = await fetch(url, { headers: { Accept: 'application/json' } });
-      if (!r.ok) continue;
-      const arr = await r.json();
-      if (arr.length) {
-        return {
-          lat: Number(arr[0].lat),
-          lon: Number(arr[0].lon),
-          geocoded_address: arr[0].display_name,
-          geocoding_status: 'matched_nominatim'
-        };
-      }
-    } catch (_) {}
-  }
-  return null;
-}
-
 async function loadSchoolGeoJson() {
   const candidates = [
+    '../data/bergen_primary_schools_geocoded.geojson',
+    './data/bergen_primary_schools_geocoded.geojson',
+    '/data/bergen_primary_schools_geocoded.geojson',
+    'data/bergen_primary_schools_geocoded.geojson',
     '../data/bergen_primary_schools.geojson',
     './data/bergen_primary_schools.geojson',
     '/data/bergen_primary_schools.geojson',
@@ -73,11 +47,10 @@ async function loadSchoolGeoJson() {
     try {
       const r = await fetch(path);
       if (!r.ok) continue;
-      const data = await r.json();
-      return data;
+      return await r.json();
     } catch (_) {}
   }
-  throw new Error('資料檔載入失敗：請確認 data/bergen_primary_schools.geojson 可被伺服器存取。');
+  throw new Error('資料檔載入失敗：請確認 data/bergen_primary_schools_geocoded.geojson 或 data/bergen_primary_schools.geojson 可被伺服器存取。');
 }
 
 loadSchoolGeoJson()
@@ -86,13 +59,6 @@ loadSchoolGeoJson()
     const countEl = document.getElementById('count');
     const searchEl = document.getElementById('search');
     let markerEntries = [];
-
-    const addMarker = (feature) => {
-      const p = feature.properties;
-      const marker = L.marker([feature.geometry.coordinates[1], feature.geometry.coordinates[0]]).addTo(map);
-      marker.on('click', () => renderDetail(p));
-      return { marker, feature };
-    };
 
     const redraw = (query = '') => {
       markerEntries.forEach(({ marker }) => marker.remove());
@@ -104,8 +70,9 @@ loadSchoolGeoJson()
       countEl.textContent = `顯示 ${filtered.length} / ${fc.features.length} 所學校`;
 
       filtered.forEach((f) => {
-        const entry = addMarker(f);
-        markerEntries.push(entry);
+        const marker = L.marker([f.geometry.coordinates[1], f.geometry.coordinates[0]]).addTo(map);
+        marker.on('click', () => renderDetail(f.properties));
+        markerEntries.push({ marker, feature: f });
 
         const li = document.createElement('li');
         li.textContent = f.properties.school_name;
@@ -119,29 +86,6 @@ loadSchoolGeoJson()
 
     redraw();
     searchEl.addEventListener('input', (e) => redraw(e.target.value));
-
-    (async () => {
-      for (const feature of fc.features) {
-        const name = feature.properties.school_name;
-        if (geocodeCache[name]) {
-          const c = geocodeCache[name];
-          feature.geometry.coordinates = [c.lon, c.lat];
-          feature.properties.geocoded_address = c.geocoded_address;
-          feature.properties.geocoding_status = c.geocoding_status;
-          continue;
-        }
-        const found = await geocodeSchool(name);
-        if (found) {
-          feature.geometry.coordinates = [found.lon, found.lat];
-          feature.properties.geocoded_address = found.geocoded_address;
-          feature.properties.geocoding_status = found.geocoding_status;
-          geocodeCache[name] = found;
-          localStorage.setItem(geocodeCacheKey, JSON.stringify(geocodeCache));
-        }
-        await new Promise((r) => setTimeout(r, 1100));
-      }
-      redraw(searchEl.value);
-    })();
   })
   .catch((err) => {
     const countEl = document.getElementById('count');

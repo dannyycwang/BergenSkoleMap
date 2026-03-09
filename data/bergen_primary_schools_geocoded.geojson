@@ -1,0 +1,2570 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.346623309154585,
+          60.325922824453954
+        ]
+      },
+      "properties": {
+        "school_name": "Alvøen skole",
+        "organization_number": "874738352",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 7.5,
+        "mobbing_by_adults_pct": 0.0,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 351,
+        "special_education_2025_26": 15,
+        "enhanced_norwegian_2025_26": 8,
+        "teachers_2025_26": 30,
+        "teacher_density_2025_26": 1485.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.206368636334903,
+          60.315432258759735
+        ]
+      },
+      "properties": {
+        "school_name": "Apeltun skole",
+        "organization_number": "986171096",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 313,
+        "special_education_2025_26": 8,
+        "enhanced_norwegian_2025_26": 20,
+        "teachers_2025_26": 26,
+        "teacher_density_2025_26": 1521.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.388778366592814,
+          60.43590485932005
+        ]
+      },
+      "properties": {
+        "school_name": "Aurdalslia skole",
+        "organization_number": "974222078",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": 0.0,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 412,
+        "special_education_2025_26": 21,
+        "enhanced_norwegian_2025_26": 61,
+        "teachers_2025_26": 36,
+        "teacher_density_2025_26": 1676.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.289556946203987,
+          60.42734355892839
+        ]
+      },
+      "properties": {
+        "school_name": "Bergen kompetansesenter for Læringsmiljø",
+        "organization_number": "974737884",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 23,
+        "special_education_2025_26": null,
+        "enhanced_norwegian_2025_26": 0,
+        "teachers_2025_26": 11,
+        "teacher_density_2025_26": 0.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.360366566760561,
+          60.29394317940263
+        ]
+      },
+      "properties": {
+        "school_name": "Bergen Kristne grunnskole",
+        "organization_number": "974309424",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 237,
+        "special_education_2025_26": 26,
+        "enhanced_norwegian_2025_26": 26,
+        "teachers_2025_26": 35,
+        "teacher_density_2025_26": 1609.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.430684647629202,
+          60.36738724014638
+        ]
+      },
+      "properties": {
+        "school_name": "Bjørgvin montessoriskole",
+        "organization_number": "992780010",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": 0.0,
+        "mobbing_digital_pct": 0.0,
+        "students_2025_26": 101,
+        "special_education_2025_26": 8,
+        "enhanced_norwegian_2025_26": 0,
+        "teachers_2025_26": 12,
+        "teacher_density_2025_26": 1300.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.528349778988192,
+          60.375672992196414
+        ]
+      },
+      "properties": {
+        "school_name": "Bjørndalsskogen skole",
+        "organization_number": "974738627",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": 0.0,
+        "mobbing_digital_pct": 7.3,
+        "students_2025_26": 318,
+        "special_education_2025_26": 7,
+        "enhanced_norwegian_2025_26": 22,
+        "teachers_2025_26": 26,
+        "teacher_density_2025_26": 1527.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.412395939450194,
+          60.409074059642386
+        ]
+      },
+      "properties": {
+        "school_name": "Blokkhaugen skole",
+        "organization_number": "974737817",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 299,
+        "special_education_2025_26": 14,
+        "enhanced_norwegian_2025_26": 0,
+        "teachers_2025_26": 25,
+        "teacher_density_2025_26": 1946.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.41758721861957,
+          60.367053025000416
+        ]
+      },
+      "properties": {
+        "school_name": "Breimyra skole",
+        "organization_number": "980155307",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 197,
+        "special_education_2025_26": 21,
+        "enhanced_norwegian_2025_26": null,
+        "teachers_2025_26": 20,
+        "teacher_density_2025_26": 2022.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.496740818924242,
+          60.42683616987546
+        ]
+      },
+      "properties": {
+        "school_name": "Bønes skole",
+        "organization_number": "974738287",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 10.2,
+        "mobbing_by_adults_pct": 0.0,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 395,
+        "special_education_2025_26": 13,
+        "enhanced_norwegian_2025_26": 12,
+        "teachers_2025_26": 30,
+        "teacher_density_2025_26": 1635.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.499171004189417,
+          60.347746753864804
+        ]
+      },
+      "properties": {
+        "school_name": "Christi Krybbe Skoler",
+        "organization_number": "974737957",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": 0.0,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 172,
+        "special_education_2025_26": 7,
+        "enhanced_norwegian_2025_26": 10,
+        "teachers_2025_26": 15,
+        "teacher_density_2025_26": 1431.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.2069972974977885,
+          60.391433947091684
+        ]
+      },
+      "properties": {
+        "school_name": "Damsgård skole",
+        "organization_number": "974738392",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 22.7,
+        "mobbing_by_adults_pct": 9.1,
+        "mobbing_digital_pct": 6.8,
+        "students_2025_26": 401,
+        "special_education_2025_26": 20,
+        "enhanced_norwegian_2025_26": 75,
+        "teachers_2025_26": 36,
+        "teacher_density_2025_26": 1571.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.283134423423464,
+          60.328288968062935
+        ]
+      },
+      "properties": {
+        "school_name": "Eidsvåg skole",
+        "organization_number": "974738554",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": 0.0,
+        "mobbing_digital_pct": 0.0,
+        "students_2025_26": 231,
+        "special_education_2025_26": 11,
+        "enhanced_norwegian_2025_26": 23,
+        "teachers_2025_26": 17,
+        "teacher_density_2025_26": 1605.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3922440023216405,
+          60.39977947161338
+        ]
+      },
+      "properties": {
+        "school_name": "Fjellsdalen skole",
+        "organization_number": "976654773",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 6.0,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": 6.1,
+        "students_2025_26": 407,
+        "special_education_2025_26": 11,
+        "enhanced_norwegian_2025_26": null,
+        "teachers_2025_26": 34,
+        "teacher_density_2025_26": 1645.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.279892504291862,
+          60.43235505929699
+        ]
+      },
+      "properties": {
+        "school_name": "Flaktveit skole",
+        "organization_number": "974738740",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 25.7,
+        "mobbing_by_adults_pct": 5.6,
+        "mobbing_digital_pct": 5.7,
+        "students_2025_26": 269,
+        "special_education_2025_26": 31,
+        "enhanced_norwegian_2025_26": 17,
+        "teachers_2025_26": 28,
+        "teacher_density_2025_26": 1592.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.435208624435841,
+          60.38046378572762
+        ]
+      },
+      "properties": {
+        "school_name": "Foreningen Danielsen ungdomsskole Bergen",
+        "organization_number": "973159658",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 270,
+        "special_education_2025_26": 20,
+        "enhanced_norwegian_2025_26": 0,
+        "teachers_2025_26": 28,
+        "teacher_density_2025_26": 2573.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.394637464137639,
+          60.4759145328474
+        ]
+      },
+      "properties": {
+        "school_name": "Fridalen skole",
+        "organization_number": "974737949",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 16.7,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": 0.0,
+        "students_2025_26": 440,
+        "special_education_2025_26": 30,
+        "enhanced_norwegian_2025_26": 62,
+        "teachers_2025_26": 39,
+        "teacher_density_2025_26": 1478.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.112663545886576,
+          60.33734099889251
+        ]
+      },
+      "properties": {
+        "school_name": "Garnes skule",
+        "organization_number": "974738120",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 8.5,
+        "mobbing_by_adults_pct": 0.0,
+        "mobbing_digital_pct": 4.3,
+        "students_2025_26": 308,
+        "special_education_2025_26": 19,
+        "enhanced_norwegian_2025_26": 24,
+        "teachers_2025_26": 28,
+        "teacher_density_2025_26": 1652.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.4024059787372325,
+          60.39069981194838
+        ]
+      },
+      "properties": {
+        "school_name": "Garnes ungdomsskule",
+        "organization_number": "974738473",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 438,
+        "special_education_2025_26": 11,
+        "enhanced_norwegian_2025_26": 8,
+        "teachers_2025_26": 37,
+        "teacher_density_2025_26": 1991.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.440332753605184,
+          60.33942626914882
+        ]
+      },
+      "properties": {
+        "school_name": "Gimle Oppveksttun skole",
+        "organization_number": "974738015",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 565,
+        "special_education_2025_26": 25,
+        "enhanced_norwegian_2025_26": 13,
+        "teachers_2025_26": 54,
+        "teacher_density_2025_26": 1886.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.1341810696923265,
+          60.341521341971976
+        ]
+      },
+      "properties": {
+        "school_name": "Haukedalen skole",
+        "organization_number": "974738562",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 14.0,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": 5.3,
+        "students_2025_26": 365,
+        "special_education_2025_26": 6,
+        "enhanced_norwegian_2025_26": 13,
+        "teachers_2025_26": 31,
+        "teacher_density_2025_26": 1638.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.37887969714726,
+          60.31450722105921
+        ]
+      },
+      "properties": {
+        "school_name": "Haukeland skole",
+        "organization_number": "974737930",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 0.0,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": 0.0,
+        "students_2025_26": 361,
+        "special_education_2025_26": 11,
+        "enhanced_norwegian_2025_26": 9,
+        "teachers_2025_26": 28,
+        "teacher_density_2025_26": 1683.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.336901564924839,
+          60.479190094593925
+        ]
+      },
+      "properties": {
+        "school_name": "Haukås skole",
+        "organization_number": "974738066",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 10.3,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 233,
+        "special_education_2025_26": 26,
+        "enhanced_norwegian_2025_26": 50,
+        "teachers_2025_26": 25,
+        "teacher_density_2025_26": 1471.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.345392433805027,
+          60.32318450205362
+        ]
+      },
+      "properties": {
+        "school_name": "Hellen skole",
+        "organization_number": "974737892",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": 0.0,
+        "students_2025_26": 402,
+        "special_education_2025_26": 22,
+        "enhanced_norwegian_2025_26": 33,
+        "teachers_2025_26": 37,
+        "teacher_density_2025_26": 1609.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.082449887614053,
+          60.38426287260774
+        ]
+      },
+      "properties": {
+        "school_name": "Hjellestad skole",
+        "organization_number": "874738182",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": 0.0,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 175,
+        "special_education_2025_26": 10,
+        "enhanced_norwegian_2025_26": 6,
+        "teachers_2025_26": 16,
+        "teacher_density_2025_26": 1621.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.264047462794446,
+          60.49919720933186
+        ]
+      },
+      "properties": {
+        "school_name": "Holen skole",
+        "organization_number": "974738368",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": 0.0,
+        "students_2025_26": 540,
+        "special_education_2025_26": 37,
+        "enhanced_norwegian_2025_26": 26,
+        "teachers_2025_26": 45,
+        "teacher_density_2025_26": 1845.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.374500416485649,
+          60.37218344653147
+        ]
+      },
+      "properties": {
+        "school_name": "Hop Oppveksttun skole",
+        "organization_number": "874738522",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 434,
+        "special_education_2025_26": 33,
+        "enhanced_norwegian_2025_26": 36,
+        "teachers_2025_26": 47,
+        "teacher_density_2025_26": 1922.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.224072713923856,
+          60.3657297612016
+        ]
+      },
+      "properties": {
+        "school_name": "Hordvik skole",
+        "organization_number": "974738023",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 0.0,
+        "mobbing_by_adults_pct": 0.0,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 264,
+        "special_education_2025_26": 11,
+        "enhanced_norwegian_2025_26": 8,
+        "teachers_2025_26": 23,
+        "teacher_density_2025_26": 1667.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3906515723031525,
+          60.38371155392329
+        ]
+      },
+      "properties": {
+        "school_name": "International School Of Bergen avd skole",
+        "organization_number": "974187442",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 199,
+        "special_education_2025_26": 0,
+        "enhanced_norwegian_2025_26": 0,
+        "teachers_2025_26": 26,
+        "teacher_density_2025_26": 1087.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.252874302687766,
+          60.42507690771453
+        ]
+      },
+      "properties": {
+        "school_name": "Kaland skole",
+        "organization_number": "974738333",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": 0.0,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 247,
+        "special_education_2025_26": 18,
+        "enhanced_norwegian_2025_26": 8,
+        "teachers_2025_26": 24,
+        "teacher_density_2025_26": 1544.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.433044784938161,
+          60.33531752242007
+        ]
+      },
+      "properties": {
+        "school_name": "Kalvatræet skole",
+        "organization_number": "974738503",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 0.0,
+        "mobbing_by_adults_pct": 0.0,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 145,
+        "special_education_2025_26": 35,
+        "enhanced_norwegian_2025_26": 7,
+        "teachers_2025_26": 18,
+        "teacher_density_2025_26": 1615.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.525463208598835,
+          60.343704918182205
+        ]
+      },
+      "properties": {
+        "school_name": "Kirkevoll skole",
+        "organization_number": "974738252",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 5.6,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 558,
+        "special_education_2025_26": 11,
+        "enhanced_norwegian_2025_26": 18,
+        "teachers_2025_26": 46,
+        "teacher_density_2025_26": 1771.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.278083498184048,
+          60.35826342607249
+        ]
+      },
+      "properties": {
+        "school_name": "Kjøkkelvik skole",
+        "organization_number": "974738449",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 10.5,
+        "mobbing_by_adults_pct": 0.0,
+        "mobbing_digital_pct": 0.0,
+        "students_2025_26": 486,
+        "special_education_2025_26": 33,
+        "enhanced_norwegian_2025_26": 37,
+        "teachers_2025_26": 48,
+        "teacher_density_2025_26": 1688.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.091696268990743,
+          60.40441240512037
+        ]
+      },
+      "properties": {
+        "school_name": "Kringlebotn skole",
+        "organization_number": "874222062",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 14.3,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 254,
+        "special_education_2025_26": 13,
+        "enhanced_norwegian_2025_26": null,
+        "teachers_2025_26": 26,
+        "teacher_density_2025_26": 1487.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.432451027318014,
+          60.377049356751826
+        ]
+      },
+      "properties": {
+        "school_name": "Krohnengen skole",
+        "organization_number": "974737914",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 11.5,
+        "mobbing_by_adults_pct": 5.0,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 381,
+        "special_education_2025_26": 32,
+        "enhanced_norwegian_2025_26": 23,
+        "teachers_2025_26": 35,
+        "teacher_density_2025_26": 1580.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.243374568834303,
+          60.417148995276804
+        ]
+      },
+      "properties": {
+        "school_name": "Krokeide skole",
+        "organization_number": "974738228",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 0.0,
+        "mobbing_by_adults_pct": 0.0,
+        "mobbing_digital_pct": 0.0,
+        "students_2025_26": 45,
+        "special_education_2025_26": null,
+        "enhanced_norwegian_2025_26": null,
+        "teachers_2025_26": 6,
+        "teacher_density_2025_26": 1089.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.205513442987531,
+          60.44149544763449
+        ]
+      },
+      "properties": {
+        "school_name": "Kronstad Oppveksttun skole",
+        "organization_number": "974737922",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 0.0,
+        "mobbing_by_adults_pct": 0.0,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 249,
+        "special_education_2025_26": 21,
+        "enhanced_norwegian_2025_26": 25,
+        "teachers_2025_26": 23,
+        "teacher_density_2025_26": 1476.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.35598721204498,
+          60.420004485471445
+        ]
+      },
+      "properties": {
+        "school_name": "Kyrkjekrinsen skole",
+        "organization_number": "874738042",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": 0.0,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 414,
+        "special_education_2025_26": 31,
+        "enhanced_norwegian_2025_26": 49,
+        "teachers_2025_26": 39,
+        "teacher_density_2025_26": 1763.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.108480676562937,
+          60.438262138835604
+        ]
+      },
+      "properties": {
+        "school_name": "Landås skole",
+        "organization_number": "974737868",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 10.7,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 465,
+        "special_education_2025_26": 39,
+        "enhanced_norwegian_2025_26": 53,
+        "teachers_2025_26": 43,
+        "teacher_density_2025_26": 1626.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.199747197818576,
+          60.32671104925494
+        ]
+      },
+      "properties": {
+        "school_name": "Li skole",
+        "organization_number": "874738662",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 18.2,
+        "mobbing_by_adults_pct": 0.0,
+        "mobbing_digital_pct": 0.0,
+        "students_2025_26": 264,
+        "special_education_2025_26": 20,
+        "enhanced_norwegian_2025_26": 20,
+        "teachers_2025_26": 22,
+        "teacher_density_2025_26": 1499.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.457416694564546,
+          60.40628962692021
+        ]
+      },
+      "properties": {
+        "school_name": "Liland skole",
+        "organization_number": "974738279",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 9.7,
+        "mobbing_by_adults_pct": 0.0,
+        "mobbing_digital_pct": 0.0,
+        "students_2025_26": 307,
+        "special_education_2025_26": 27,
+        "enhanced_norwegian_2025_26": 15,
+        "teachers_2025_26": 27,
+        "teacher_density_2025_26": 1591.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.09839093708663,
+          60.38657841349171
+        ]
+      },
+      "properties": {
+        "school_name": "Loddefjord skole",
+        "organization_number": "974738589",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": 0.0,
+        "mobbing_digital_pct": 0.0,
+        "students_2025_26": 155,
+        "special_education_2025_26": 46,
+        "enhanced_norwegian_2025_26": 17,
+        "teachers_2025_26": 23,
+        "teacher_density_2025_26": 1571.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.318612807935472,
+          60.48252821906715
+        ]
+      },
+      "properties": {
+        "school_name": "Lone skule",
+        "organization_number": "974738112",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 21.6,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": 13.9,
+        "students_2025_26": 267,
+        "special_education_2025_26": 24,
+        "enhanced_norwegian_2025_26": 21,
+        "teachers_2025_26": 27,
+        "teacher_density_2025_26": 1410.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.393690649596122,
+          60.49929613209134
+        ]
+      },
+      "properties": {
+        "school_name": "Lynghaug skole",
+        "organization_number": "974738481",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 399,
+        "special_education_2025_26": null,
+        "enhanced_norwegian_2025_26": 28,
+        "teachers_2025_26": 45,
+        "teacher_density_2025_26": 1566.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.32178210996281,
+          60.45177836148848
+        ]
+      },
+      "properties": {
+        "school_name": "Lyshovden Oppveksttun avd skole",
+        "organization_number": "974738406",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 16.1,
+        "mobbing_by_adults_pct": 0.0,
+        "mobbing_digital_pct": 0.0,
+        "students_2025_26": 227,
+        "special_education_2025_26": 9,
+        "enhanced_norwegian_2025_26": 14,
+        "teachers_2025_26": 20,
+        "teacher_density_2025_26": 1435.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.469323653800486,
+          60.37015549788787
+        ]
+      },
+      "properties": {
+        "school_name": "Løvås Oppveksttun - skole",
+        "organization_number": "974738538",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 12.0,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": 8.0,
+        "students_2025_26": 236,
+        "special_education_2025_26": 6,
+        "enhanced_norwegian_2025_26": 30,
+        "teachers_2025_26": 21,
+        "teacher_density_2025_26": 1432.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.52564256220067,
+          60.33676069761382
+        ]
+      },
+      "properties": {
+        "school_name": "Mathopen skole",
+        "organization_number": "974738376",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 0.0,
+        "mobbing_by_adults_pct": 0.0,
+        "mobbing_digital_pct": 0.0,
+        "students_2025_26": 322,
+        "special_education_2025_26": 7,
+        "enhanced_norwegian_2025_26": null,
+        "teachers_2025_26": 26,
+        "teacher_density_2025_26": 1606.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.470079612190231,
+          60.43950632033484
+        ]
+      },
+      "properties": {
+        "school_name": "Midtun skole",
+        "organization_number": "974738341",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": 0.0,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 389,
+        "special_education_2025_26": 12,
+        "enhanced_norwegian_2025_26": 31,
+        "teachers_2025_26": 34,
+        "teacher_density_2025_26": 1598.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3871600620721285,
+          60.49399147794446
+        ]
+      },
+      "properties": {
+        "school_name": "Minde skole",
+        "organization_number": "974738295",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 19.4,
+        "mobbing_by_adults_pct": 0.0,
+        "mobbing_digital_pct": 8.3,
+        "students_2025_26": 261,
+        "special_education_2025_26": 20,
+        "enhanced_norwegian_2025_26": 34,
+        "teachers_2025_26": 23,
+        "teacher_density_2025_26": 1603.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.101657124585388,
+          60.3676730727338
+        ]
+      },
+      "properties": {
+        "school_name": "Mjølkeråen skole",
+        "organization_number": "974738031",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 8.7,
+        "mobbing_by_adults_pct": 0.0,
+        "mobbing_digital_pct": 0.0,
+        "students_2025_26": 673,
+        "special_education_2025_26": 57,
+        "enhanced_norwegian_2025_26": 27,
+        "teachers_2025_26": 62,
+        "teacher_density_2025_26": 1689.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.338884249002083,
+          60.36379380159635
+        ]
+      },
+      "properties": {
+        "school_name": "Møhlenpris Oppveksttun avd skole",
+        "organization_number": "974737965",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 7.9,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": 0.0,
+        "students_2025_26": 275,
+        "special_education_2025_26": 11,
+        "enhanced_norwegian_2025_26": 49,
+        "teachers_2025_26": 28,
+        "teacher_density_2025_26": 1533.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.240355216453138,
+          60.46243690766684
+        ]
+      },
+      "properties": {
+        "school_name": "Møllebakken skole",
+        "organization_number": "976202422",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 73,
+        "special_education_2025_26": 12,
+        "enhanced_norwegian_2025_26": null,
+        "teachers_2025_26": 18,
+        "teacher_density_2025_26": 1140.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.294836942591669,
+          60.500953024722016
+        ]
+      },
+      "properties": {
+        "school_name": "Nattland skole",
+        "organization_number": "974738309",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 8.5,
+        "mobbing_by_adults_pct": 0.0,
+        "mobbing_digital_pct": 14.9,
+        "students_2025_26": 680,
+        "special_education_2025_26": 33,
+        "enhanced_norwegian_2025_26": 6,
+        "teachers_2025_26": 69,
+        "teacher_density_2025_26": 1481.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.462686948122121,
+          60.36366903068555
+        ]
+      },
+      "properties": {
+        "school_name": "Nordnes skole",
+        "organization_number": "874737852",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 0.0,
+        "mobbing_by_adults_pct": 0.0,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 248,
+        "special_education_2025_26": 40,
+        "enhanced_norwegian_2025_26": 41,
+        "teachers_2025_26": 28,
+        "teacher_density_2025_26": 1150.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.396124761791286,
+          60.36655265351586
+        ]
+      },
+      "properties": {
+        "school_name": "Norges Toppidrettsgymnas ungdomsskole Bergen AS",
+        "organization_number": "922148872",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 196,
+        "special_education_2025_26": null,
+        "enhanced_norwegian_2025_26": 0,
+        "teachers_2025_26": 20,
+        "teacher_density_2025_26": 2340.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.123342534342551,
+          60.43147047050243
+        ]
+      },
+      "properties": {
+        "school_name": "Ny Krohnborg skole",
+        "organization_number": "974737906",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 416,
+        "special_education_2025_26": 41,
+        "enhanced_norwegian_2025_26": 152,
+        "teachers_2025_26": 39,
+        "teacher_density_2025_26": 1418.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.178933111965888,
+          60.366351342713465
+        ]
+      },
+      "properties": {
+        "school_name": "Nygårdslien skole",
+        "organization_number": "974738546",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 22.9,
+        "mobbing_by_adults_pct": 0.0,
+        "mobbing_digital_pct": 8.6,
+        "students_2025_26": 292,
+        "special_education_2025_26": 15,
+        "enhanced_norwegian_2025_26": 42,
+        "teachers_2025_26": 26,
+        "teacher_density_2025_26": 1699.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3566536717309,
+          60.29217087249964
+        ]
+      },
+      "properties": {
+        "school_name": "Olsvik skole",
+        "organization_number": "974738635",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 15.2,
+        "mobbing_by_adults_pct": 0.0,
+        "mobbing_digital_pct": 0.0,
+        "students_2025_26": 599,
+        "special_education_2025_26": 28,
+        "enhanced_norwegian_2025_26": 48,
+        "teachers_2025_26": 57,
+        "teacher_density_2025_26": 1796.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.267894111342488,
+          60.38077231138145
+        ]
+      },
+      "properties": {
+        "school_name": "Ortun skole",
+        "organization_number": "974738414",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 413,
+        "special_education_2025_26": 33,
+        "enhanced_norwegian_2025_26": null,
+        "teachers_2025_26": 41,
+        "teacher_density_2025_26": 1924.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.382291974630565,
+          60.334971508148115
+        ]
+      },
+      "properties": {
+        "school_name": "Paradis skole",
+        "organization_number": "974738317",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": 0.0,
+        "students_2025_26": 470,
+        "special_education_2025_26": 17,
+        "enhanced_norwegian_2025_26": 23,
+        "teachers_2025_26": 38,
+        "teacher_density_2025_26": 1635.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.163649762159376,
+          60.38084201725084
+        ]
+      },
+      "properties": {
+        "school_name": "Rolland skole",
+        "organization_number": "974737825",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 18.2,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": 0.0,
+        "students_2025_26": 306,
+        "special_education_2025_26": 18,
+        "enhanced_norwegian_2025_26": 7,
+        "teachers_2025_26": 25,
+        "teacher_density_2025_26": 1695.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.375995351883919,
+          60.300314544115245
+        ]
+      },
+      "properties": {
+        "school_name": "Rothaugen skole",
+        "organization_number": "874737992",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 593,
+        "special_education_2025_26": 36,
+        "enhanced_norwegian_2025_26": 52,
+        "teachers_2025_26": 60,
+        "teacher_density_2025_26": 1900.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.29115129204384,
+          60.344602632841266
+        ]
+      },
+      "properties": {
+        "school_name": "Rudolf steinerskolen i Bergen skolen",
+        "organization_number": "973159232",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 0.0,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": 0.0,
+        "students_2025_26": 204,
+        "special_education_2025_26": 20,
+        "enhanced_norwegian_2025_26": 0,
+        "teachers_2025_26": 31,
+        "teacher_density_2025_26": 1540.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.222271668132407,
+          60.35328231502553
+        ]
+      },
+      "properties": {
+        "school_name": "Rå skole",
+        "organization_number": "974738600",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 420,
+        "special_education_2025_26": 22,
+        "enhanced_norwegian_2025_26": null,
+        "teachers_2025_26": 38,
+        "teacher_density_2025_26": 1991.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3445958857697065,
+          60.33013651745038
+        ]
+      },
+      "properties": {
+        "school_name": "Rådalslien skole",
+        "organization_number": "992584602",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 366,
+        "special_education_2025_26": 19,
+        "enhanced_norwegian_2025_26": 6,
+        "teachers_2025_26": 34,
+        "teacher_density_2025_26": 1741.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.138776628774273,
+          60.386264536357764
+        ]
+      },
+      "properties": {
+        "school_name": "Salhus skule",
+        "organization_number": "974738058",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 93,
+        "special_education_2025_26": 7,
+        "enhanced_norwegian_2025_26": null,
+        "teachers_2025_26": 10,
+        "teacher_density_2025_26": 1384.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.132726493807027,
+          60.46553176982269
+        ]
+      },
+      "properties": {
+        "school_name": "Sandgotna skole",
+        "organization_number": "974737833",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 382,
+        "special_education_2025_26": 62,
+        "enhanced_norwegian_2025_26": null,
+        "teachers_2025_26": 51,
+        "teacher_density_2025_26": 1778.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.1992869241081685,
+          60.325574513921076
+        ]
+      },
+      "properties": {
+        "school_name": "Seljedalen skole",
+        "organization_number": "974737841",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 199,
+        "special_education_2025_26": 9,
+        "enhanced_norwegian_2025_26": 29,
+        "teachers_2025_26": 21,
+        "teacher_density_2025_26": 1365.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.514558680183862,
+          60.35570663724363
+        ]
+      },
+      "properties": {
+        "school_name": "Skeie skole",
+        "organization_number": "974738171",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 19.1,
+        "mobbing_by_adults_pct": 4.3,
+        "mobbing_digital_pct": 12.8,
+        "students_2025_26": 363,
+        "special_education_2025_26": 17,
+        "enhanced_norwegian_2025_26": 43,
+        "teachers_2025_26": 29,
+        "teacher_density_2025_26": 1606.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.22668422858187,
+          60.49569186663343
+        ]
+      },
+      "properties": {
+        "school_name": "Skjold skole",
+        "organization_number": "974738260",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 304,
+        "special_education_2025_26": 11,
+        "enhanced_norwegian_2025_26": 27,
+        "teachers_2025_26": 31,
+        "teacher_density_2025_26": 1675.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.526844316760429,
+          60.3442778295353
+        ]
+      },
+      "properties": {
+        "school_name": "Skranevatnet skole",
+        "organization_number": "979276028",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": 8.3,
+        "mobbing_digital_pct": 4.3,
+        "students_2025_26": 639,
+        "special_education_2025_26": 29,
+        "enhanced_norwegian_2025_26": 30,
+        "teachers_2025_26": 58,
+        "teacher_density_2025_26": 1790.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.288343285295971,
+          60.352266355156154
+        ]
+      },
+      "properties": {
+        "school_name": "Slettebakken skole",
+        "organization_number": "974737876",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 19.6,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 399,
+        "special_education_2025_26": 33,
+        "enhanced_norwegian_2025_26": 96,
+        "teachers_2025_26": 41,
+        "teacher_density_2025_26": 1385.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.167223563735528,
+          60.38560671715055
+        ]
+      },
+      "properties": {
+        "school_name": "Slåtthaug skole",
+        "organization_number": "974738457",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 390,
+        "special_education_2025_26": 22,
+        "enhanced_norwegian_2025_26": 8,
+        "teachers_2025_26": 46,
+        "teacher_density_2025_26": 1778.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.210323739703174,
+          60.371143741768854
+        ]
+      },
+      "properties": {
+        "school_name": "Smørås skole",
+        "organization_number": "974738325",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": 0.0,
+        "mobbing_digital_pct": 0.0,
+        "students_2025_26": 232,
+        "special_education_2025_26": null,
+        "enhanced_norwegian_2025_26": null,
+        "teachers_2025_26": 19,
+        "teacher_density_2025_26": 1576.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.28836582933243,
+          60.325021609643905
+        ]
+      },
+      "properties": {
+        "school_name": "St Paul skole",
+        "organization_number": "974117045",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": 0.0,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 325,
+        "special_education_2025_26": 34,
+        "enhanced_norwegian_2025_26": 61,
+        "teachers_2025_26": 45,
+        "teacher_density_2025_26": 1714.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.33880528043915,
+          60.28222639414258
+        ]
+      },
+      "properties": {
+        "school_name": "Steinerskolen på Skjold Helseped Avdeling",
+        "organization_number": "973465112",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 29,
+        "special_education_2025_26": null,
+        "enhanced_norwegian_2025_26": 0,
+        "teachers_2025_26": 16,
+        "teacher_density_2025_26": 0.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.470313123003792,
+          60.46805520824361
+        ]
+      },
+      "properties": {
+        "school_name": "Stiftelsen Davinci montessoriskole",
+        "organization_number": "986847367",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 105,
+        "special_education_2025_26": 14,
+        "enhanced_norwegian_2025_26": 0,
+        "teachers_2025_26": 20,
+        "teacher_density_2025_26": 1786.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.087634289604508,
+          60.385044443238364
+        ]
+      },
+      "properties": {
+        "school_name": "Stiftelsen montessoriskolen i Bergen",
+        "organization_number": "974223384",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 0.0,
+        "mobbing_by_adults_pct": 0.0,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 142,
+        "special_education_2025_26": 14,
+        "enhanced_norwegian_2025_26": null,
+        "teachers_2025_26": 18,
+        "teacher_density_2025_26": 1191.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.2311810852545815,
+          60.309751569656044
+        ]
+      },
+      "properties": {
+        "school_name": "Stiftelsen steinerskolen på Skjold",
+        "organization_number": "973448889",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 158,
+        "special_education_2025_26": 17,
+        "enhanced_norwegian_2025_26": 0,
+        "teachers_2025_26": 32,
+        "teacher_density_2025_26": 1781.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.392098260858095,
+          60.413192632781296
+        ]
+      },
+      "properties": {
+        "school_name": "Storetveit skole",
+        "organization_number": "974738619",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 434,
+        "special_education_2025_26": 10,
+        "enhanced_norwegian_2025_26": 15,
+        "teachers_2025_26": 41,
+        "teacher_density_2025_26": 1998.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.459392591974337,
+          60.43673006134989
+        ]
+      },
+      "properties": {
+        "school_name": "Sædalen skole",
+        "organization_number": "974738244",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 7.0,
+        "mobbing_by_adults_pct": 0.0,
+        "mobbing_digital_pct": 7.3,
+        "students_2025_26": 331,
+        "special_education_2025_26": 20,
+        "enhanced_norwegian_2025_26": 18,
+        "teachers_2025_26": 30,
+        "teacher_density_2025_26": 1515.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.1515500828217595,
+          60.44352061881692
+        ]
+      },
+      "properties": {
+        "school_name": "Sælen Oppveksttun avd skole",
+        "organization_number": "974737981",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 8.6,
+        "mobbing_by_adults_pct": 0.0,
+        "mobbing_digital_pct": 5.6,
+        "students_2025_26": 263,
+        "special_education_2025_26": 14,
+        "enhanced_norwegian_2025_26": 13,
+        "teachers_2025_26": 23,
+        "teacher_density_2025_26": 1621.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.289402301535149,
+          60.33327878113352
+        ]
+      },
+      "properties": {
+        "school_name": "Søreide skole",
+        "organization_number": "974738236",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 15.8,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": 8.8,
+        "students_2025_26": 488,
+        "special_education_2025_26": 9,
+        "enhanced_norwegian_2025_26": 15,
+        "teachers_2025_26": 37,
+        "teacher_density_2025_26": 1682.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.293743106341261,
+          60.50251455351623
+        ]
+      },
+      "properties": {
+        "school_name": "Søråshøgda skole",
+        "organization_number": "974739380",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 7.1,
+        "mobbing_by_adults_pct": 0.0,
+        "mobbing_digital_pct": 0.0,
+        "students_2025_26": 645,
+        "special_education_2025_26": 27,
+        "enhanced_norwegian_2025_26": 42,
+        "teachers_2025_26": 50,
+        "teacher_density_2025_26": 1691.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.422522318956803,
+          60.39467868013306
+        ]
+      },
+      "properties": {
+        "school_name": "Tertnes skole",
+        "organization_number": "974738074",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 6.5,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": 6.5,
+        "students_2025_26": 349,
+        "special_education_2025_26": 9,
+        "enhanced_norwegian_2025_26": 21,
+        "teachers_2025_26": 26,
+        "teacher_density_2025_26": 1632.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.231432226966216,
+          60.339280950446565
+        ]
+      },
+      "properties": {
+        "school_name": "Trengereid Oppveksttun Avd skule (Nedlagt)",
+        "organization_number": "974738155",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": null,
+        "students_2025_26": null,
+        "special_education_2025_26": null,
+        "enhanced_norwegian_2025_26": null,
+        "teachers_2025_26": null,
+        "teacher_density_2025_26": null,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.392502348789376,
+          60.371235474726376
+        ]
+      },
+      "properties": {
+        "school_name": "Tveiterås skole",
+        "organization_number": "974738643",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 42,
+        "special_education_2025_26": null,
+        "enhanced_norwegian_2025_26": 0,
+        "teachers_2025_26": 13,
+        "teacher_density_2025_26": 0.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.123039080353326,
+          60.411674195295625
+        ]
+      },
+      "properties": {
+        "school_name": "Ulsetskogen skole",
+        "organization_number": "874738492",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 9.7,
+        "mobbing_by_adults_pct": 0.0,
+        "mobbing_digital_pct": 0.0,
+        "students_2025_26": 256,
+        "special_education_2025_26": 12,
+        "enhanced_norwegian_2025_26": 9,
+        "teachers_2025_26": 24,
+        "teacher_density_2025_26": 1530.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.427359694182681,
+          60.460534051274756
+        ]
+      },
+      "properties": {
+        "school_name": "Ulsmåg skole",
+        "organization_number": "974738511",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 4.9,
+        "mobbing_by_adults_pct": 0.0,
+        "mobbing_digital_pct": 0.0,
+        "students_2025_26": 534,
+        "special_education_2025_26": 13,
+        "enhanced_norwegian_2025_26": 13,
+        "teachers_2025_26": 43,
+        "teacher_density_2025_26": 1698.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3462335867981405,
+          60.356109982317044
+        ]
+      },
+      "properties": {
+        "school_name": "Vadmyra skole",
+        "organization_number": "974738422",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 14.8,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 221,
+        "special_education_2025_26": 14,
+        "enhanced_norwegian_2025_26": 26,
+        "teachers_2025_26": 20,
+        "teacher_density_2025_26": 1521.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.390800468340182,
+          60.41798412740841
+        ]
+      },
+      "properties": {
+        "school_name": "Varden skole",
+        "organization_number": "974737973",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 13.2,
+        "mobbing_by_adults_pct": 5.7,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 380,
+        "special_education_2025_26": 14,
+        "enhanced_norwegian_2025_26": 12,
+        "teachers_2025_26": 30,
+        "teacher_density_2025_26": 1599.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.420156990393605,
+          60.34517556895948
+        ]
+      },
+      "properties": {
+        "school_name": "Ytre Arna skule",
+        "organization_number": "974738139",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 14.3,
+        "mobbing_by_adults_pct": 0.0,
+        "mobbing_digital_pct": 0.0,
+        "students_2025_26": 208,
+        "special_education_2025_26": 15,
+        "enhanced_norwegian_2025_26": 75,
+        "teachers_2025_26": 25,
+        "teacher_density_2025_26": 1374.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.366286825471946,
+          60.36108018167439
+        ]
+      },
+      "properties": {
+        "school_name": "Ytrebygda skole",
+        "organization_number": "974738597",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 322,
+        "special_education_2025_26": 51,
+        "enhanced_norwegian_2025_26": 8,
+        "teachers_2025_26": 44,
+        "teacher_density_2025_26": 1941.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.29528005452614,
+          60.35795185549384
+        ]
+      },
+      "properties": {
+        "school_name": "Ådnamarka skule",
+        "organization_number": "974738570",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": 7.5,
+        "mobbing_by_adults_pct": 0.0,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 324,
+        "special_education_2025_26": 27,
+        "enhanced_norwegian_2025_26": 56,
+        "teachers_2025_26": 32,
+        "teacher_density_2025_26": 1389.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.312163406870341,
+          60.46206661938491
+        ]
+      },
+      "properties": {
+        "school_name": "Åstveit skole",
+        "organization_number": "974738465",
+        "municipality": "Bergen",
+        "county": "Vestland",
+        "mobbing_by_students_pct": null,
+        "mobbing_by_adults_pct": null,
+        "mobbing_digital_pct": null,
+        "students_2025_26": 410,
+        "special_education_2025_26": 31,
+        "enhanced_norwegian_2025_26": 20,
+        "teachers_2025_26": 51,
+        "teacher_density_2025_26": 1819.0,
+        "geocoded_address": null,
+        "geocoding_status": "fallback_approximate_from_prepare_data",
+        "geocoding_query": null
+      }
+    }
+  ]
+}
