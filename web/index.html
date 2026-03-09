@@ -14,13 +14,22 @@
   </header>
 
   <main>
-    <aside>
+    <aside class="left-panel">
       <input id="search" type="text" placeholder="搜尋學校名稱..." />
       <p id="count"></p>
-      <div class="note">目前環境無法連外地理編碼 API，座標為 Bergen 區域近似定位（可後續一鍵重跑真實 geocoding）。</div>
+      <div class="note">系統會自動嘗試線上地理編碼，將近似座標更新為真實座標（結果快取在瀏覽器）。</div>
       <ul id="school-list"></ul>
     </aside>
+
     <section id="map"></section>
+
+    <aside id="detail-panel" class="detail-panel hidden">
+      <div class="detail-header">
+        <h2 id="detail-title">學校資訊</h2>
+        <button id="close-detail" type="button">✕</button>
+      </div>
+      <div id="detail-content" class="detail-content">請在地圖上點選學校。</div>
+    </aside>
   </main>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>

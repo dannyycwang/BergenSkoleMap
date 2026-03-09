@@ -14,7 +14,7 @@ python scripts/prepare_data.py
 - `data/bergen_primary_schools.json`
 - `data/bergen_primary_schools.geojson`
 
-> 註：目前執行環境封鎖外部 geocoding API，先使用「Bergen 區域近似座標」保證地圖可用。後續可在可連外環境把 `prepare_data.py` 改回真實 geocoding。
+> 註：清洗階段會先提供可用的 Bergen 近似座標作為安全 fallback。
 
 ## 2) 啟動網頁
 ```bash
@@ -25,5 +25,6 @@ python -m http.server 4173
 
 ## 3) 功能
 - 搜尋學校名稱
-- 點擊地圖標記查看學校資料
+- 點擊地圖標記後，右側詳情面板顯示完整學校資料
 - 左側清單點擊可定位到學校
+- 前端背景自動嘗試線上 geocoding（Nominatim）並快取結果，逐步把近似點更新成真實座標
