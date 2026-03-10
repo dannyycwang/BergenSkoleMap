@@ -79,48 +79,53 @@ def build_queries(row: dict, allow_name_fallback: bool):
             f'{base} skule, Bergen, Norway',
         ])
 
-    return queries
+    # Keep order while removing duplicates
+    return list(dict.fromkeys(queries))
 
 
 def geocode_school(row: dict, cache: dict, allow_name_fallback: bool):
     name = row['school_name']
-    if name in cache:
-        return cache[name]
+    addr = (row.get('address') or '').strip()
+    postal_code = (row.get('postal_code') or '').strip()
+    postal_city = (row.get('postal_city') or '').strip()
+    cache_key = f"{name}|{addr}|{postal_code}|{postal_city}|allow_name_fallback={allow_name_fallback}"
+    if cache_key in cache:
+        return cache[cache_key]
 
     queries = build_queries(row, allow_name_fallback)
     if not queries:
-        cache[name] = {
+        cache[cache_key] = {
             'latitude': None,
             'longitude': None,
             'geocoded_address': None,
             'geocoding_status': 'no_address_in_source',
             'geocoding_query': None,
         }
-        return cache[name]
+        return cache[cache_key]
 
     for q in queries:
         try:
             hit = query_nominatim(q)
             if hit:
-                cache[name] = {
+                cache[cache_key] = {
                     'latitude': hit['lat'],
                     'longitude': hit['lon'],
                     'geocoded_address': hit['display_name'],
                     'geocoding_status': 'matched_nominatim',
                     'geocoding_query': q,
                 }
-                return cache[name]
+                return cache[cache_key]
         except Exception:
             continue
 
-    cache[name] = {
+    cache[cache_key] = {
         'latitude': None,
         'longitude': None,
         'geocoded_address': None,
         'geocoding_status': 'not_found',
         'geocoding_query': None,
     }
-    return cache[name]
+    return cache[cache_key]
 
 
 def to_geojson(rows: list[dict]):
@@ -155,10 +160,13 @@ def main():
         geo = geocode_school(row, cache, allow_name_fallback=args.allow_name_fallback)
         merged = {**row, **geo}
         if merged.get('latitude') is None or merged.get('longitude') is None:
-            merged['latitude'] = row.get('latitude')
-            merged['longitude'] = row.get('longitude')
-            if merged.get('geocoding_status') in {'not_found', 'no_address_in_source'}:
-                merged['geocoding_status'] = 'fallback_approximate_from_prepare_data'
+            fallback_lat = row.get('latitude')
+            fallback_lon = row.get('longitude')
+            if fallback_lat is not None and fallback_lon is not None:
+                merged['latitude'] = fallback_lat
+                merged['longitude'] = fallback_lon
+                if merged.get('geocoding_status') in {'not_found', 'no_address_in_source'}:
+                    merged['geocoding_status'] = 'fallback_from_prepare_data'
         out.append(merged)
         print(f"[{i}/{len(rows)}] {row['school_name']}: {merged['geocoding_status']}")
         if not args.dry_run:
