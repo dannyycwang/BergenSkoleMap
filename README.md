@@ -5,6 +5,14 @@ Bergen 小學互動地圖專案：
 - 直接使用原始資料表的 address 欄位進行地理定位（不需要再人工補地址）
 - 用 Leaflet 建立互動式地圖（搜尋、篩選、縮放、側欄詳情）
 
+## 一鍵重建（推薦）
+```bash
+./scripts/rebuild_map_data.sh
+```
+這會依序執行：
+1. `prepare_data.py`（清洗並保留原始 `address`）
+2. `geocode_schools.py`（用 address 精準定位）
+
 ## 1) 資料清洗
 ```bash
 python scripts/prepare_data.py
@@ -20,7 +28,7 @@ python scripts/geocode_schools.py
 ```
 預設行為：
 - 優先使用 `main` 工作表中的 address 欄位查詢座標（若存在）
-- 若查不到，維持 `prepare_data.py` 的 fallback 座標（確保地圖完整顯示）
+- 若查不到，保留空座標（不再使用雜湊近似座標）
 
 可選參數：
 - `--allow-name-fallback`：地址查不到時才補用校名查詢
