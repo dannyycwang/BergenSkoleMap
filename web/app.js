@@ -5,7 +5,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 const format = (v, unit = '') => (v === null || v === undefined || Number.isNaN(v) ? '—' : `${v}${unit}`);
-const studentColor = (n) => (n >= 500 ? '#d62828' : n >= 350 ? '#f77f00' : n >= 200 ? '#fcbf49' : '#2a9d8f');
+const markerColor = '#2563eb';
 const escapeHtml = (v) => String(v)
   .replaceAll('&', '&amp;')
   .replaceAll('<', '&lt;')
@@ -34,6 +34,47 @@ const KEY_LABELS = {
   geocoding_query: '定位查詢字串'
 };
 
+
+
+function translateSourceHeader(header) {
+  let out = String(header || '');
+  const rules = [
+    ['Alle spørsmøl', '全部問題'],
+    ['Er du blitt mobbet av andre elever? skolen de siste månedene?', '你最近幾個月在學校有被其他學生霸凌嗎？'],
+    ['Er du blitt mobbet av voksne? skolen de siste?nedene?', '你最近幾個月在學校有被成人霸凌嗎？'],
+    ['Er du blitt mobbet digitalt (mobil, iPad, PC) de siste m?nedene?', '你最近幾個月有被數位霸凌嗎（手機/iPad/電腦）？'],
+    ['Alle trinn', '所有年級'],
+    ['Alle kjønn', '所有性別'],
+    ['Alle eierformer', '所有辦學型態'],
+    ['Antall elever med individuelt tilrettelagt opplæring/spesialundervisning', '個別調整/特殊教育學生數'],
+    ['Antall elever med forsterket opplæring i norsk', '加強挪威語教學學生數'],
+    ['Antall elever deltatt', '參與學生數'],
+    ['Antall elever', '學生數'],
+    ['Antall skoler', '學校數'],
+    ['Antall lærere', '教師數'],
+    ['Antall lærerårsverk til undervisning', '教學教師全職當量'],
+    ['Antall lærerårsverk', '教師全職當量'],
+    ['Antall assistentårsverk i undervisningen', '教學助理全職當量'],
+    ['Lærertetthet i ordinær undervisning', '一般教學師生比'],
+    ['Vurderingsfagkode', '評量科目代碼'],
+    ['Vurderingsfagnavn', '評量科目名稱'],
+    ['Standpunkt', '學期成績'],
+    ['Snittkarakter', '平均成績'],
+    ['Grunnskolepoeng', '基礎學校積分'],
+    ['Engelsk', '英語'],
+    ['Lesing', '閱讀'],
+    ['Regning', '計算'],
+    ['Skalapoeng', '量尺分數'],
+    ['Usikkerhet', '不確定性'],
+    ['Median dager', '中位天數'],
+    ['Median timer', '中位時數'],
+    ['5. årstrinn', '5 年級'],
+    ['8. årstrinn', '8 年級'],
+  ];
+  for (const [from, to] of rules) out = out.replaceAll(from, to);
+  out = out.replaceAll('Alle kj?nn', '所有性別').replaceAll('m?nedene', '月');
+  return out;
+}
 function radiusFromStudents(n, minStudents, maxStudents) {
   const minR = 8;
   const maxR = 22;
@@ -62,7 +103,7 @@ function renderDetail(p) {
   ];
 
   const rows = orderedKeys.map((k) => {
-    const label = KEY_LABELS[k] || k;
+    const label = k.startsWith('src__') ? translateSourceHeader(k.slice(5)) : (KEY_LABELS[k] || k);
     const value = p[k];
     return `<tr><td>${escapeHtml(label)}</td><td>${escapeHtml(format(value))}</td></tr>`;
   }).join('');
@@ -97,7 +138,37 @@ async function loadSchoolGeoJson() {
   throw new Error('資料檔載入失敗');
 }
 
-loadSchoolGeoJson().then((fc) => {
+
+async function loadSchoolRows() {
+  const candidates = [
+    '../data/bergen_primary_schools.json',
+    './data/bergen_primary_schools.json',
+    '/data/bergen_primary_schools.json',
+    'data/bergen_primary_schools.json'
+  ];
+
+  for (const path of candidates) {
+    try {
+      const r = await fetch(path);
+      if (!r.ok) continue;
+      return await r.json();
+    } catch (_) {}
+  }
+  return [];
+}
+
+Promise.all([loadSchoolGeoJson(), loadSchoolRows()]).then(([fc, rows]) => {
+
+  const rowByName = new Map(rows.map((r) => [r.school_name, r]));
+  fc.features.forEach((f) => {
+    const extra = rowByName.get(f.properties.school_name);
+    if (extra) {
+      for (const [k, v] of Object.entries(extra)) {
+        if (f.properties[k] === undefined) f.properties[k] = v;
+      }
+    }
+  });
+
   const listEl = document.getElementById('school-list');
   const countEl = document.getElementById('count');
   const searchEl = document.getElementById('search');
@@ -110,6 +181,7 @@ loadSchoolGeoJson().then((fc) => {
   const allStudents = fc.features.map((f) => Number(f.properties.students_2025_26 || 0));
   const minStudents = Math.min(...allStudents);
   const maxStudents = Math.max(...allStudents);
+  rangeEl.max = String(maxStudents || 800);
 
   let markerEntries = [];
 
@@ -146,7 +218,7 @@ loadSchoolGeoJson().then((fc) => {
         radius: baseRadius,
         weight: 1,
         color: '#0f172a',
-        fillColor: studentColor(p.students_2025_26 || 0),
+        fillColor: markerColor,
         fillOpacity: 0.85,
       }).addTo(map);
 

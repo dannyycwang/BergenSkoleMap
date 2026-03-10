@@ -145,6 +145,7 @@ def main():
         postal_code = first_non_empty(r, postal_code_candidates)
         postal_city = first_non_empty(r, city_candidates)
 
+        source_cols = {f'src__{k}': ((v or '').strip() or None) for k, v in r.items()}
         cleaned.append({
             'school_name': school,
             'organization_number': (r.get('Organisasjonsnummer') or '').strip() or None,
@@ -164,7 +165,8 @@ def main():
             'latitude': None,
             'longitude': None,
             'geocoded_address': None,
-            'geocoding_status': 'pending_geocode'
+            'geocoding_status': 'pending_geocode',
+            **source_cols,
         })
 
     unique = {r['school_name']: r for r in cleaned}
