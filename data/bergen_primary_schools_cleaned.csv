@@ -1,96 +1,96 @@
-school_name,organization_number,municipality,county,mobbing_by_students_pct,mobbing_by_adults_pct,mobbing_digital_pct,students_2025_26,special_education_2025_26,enhanced_norwegian_2025_26,teachers_2025_26,teacher_density_2025_26,latitude,longitude,geocoded_address,geocoding_status
-Alvøen skole,874738352,Bergen,Vestland,7.5,0.0,,351,15,8,30,1485.0,60.325922824453954,5.346623309154585,,approximate_from_name_hash
-Apeltun skole,986171096,Bergen,Vestland,,,,313,8,20,26,1521.0,60.315432258759735,5.206368636334903,,approximate_from_name_hash
-Aurdalslia skole,974222078,Bergen,Vestland,,0.0,,412,21,61,36,1676.0,60.43590485932005,5.388778366592814,,approximate_from_name_hash
-Bergen kompetansesenter for Læringsmiljø,974737884,Bergen,Vestland,,,,23,,0,11,0.0,60.42734355892839,5.289556946203987,,approximate_from_name_hash
-Bergen Kristne grunnskole,974309424,Bergen,Vestland,,,,237,26,26,35,1609.0,60.29394317940263,5.360366566760561,,approximate_from_name_hash
-Bjørgvin montessoriskole,992780010,Bergen,Vestland,,0.0,0.0,101,8,0,12,1300.0,60.36738724014638,5.430684647629202,,approximate_from_name_hash
-Bjørndalsskogen skole,974738627,Bergen,Vestland,,0.0,7.3,318,7,22,26,1527.0,60.375672992196414,5.528349778988192,,approximate_from_name_hash
-Blokkhaugen skole,974737817,Bergen,Vestland,,,,299,14,0,25,1946.0,60.409074059642386,5.412395939450194,,approximate_from_name_hash
-Breimyra skole,980155307,Bergen,Vestland,,,,197,21,,20,2022.0,60.367053025000416,5.41758721861957,,approximate_from_name_hash
-Bønes skole,974738287,Bergen,Vestland,10.2,0.0,,395,13,12,30,1635.0,60.42683616987546,5.496740818924242,,approximate_from_name_hash
-Christi Krybbe Skoler,974737957,Bergen,Vestland,,0.0,,172,7,10,15,1431.0,60.347746753864804,5.499171004189417,,approximate_from_name_hash
-Damsgård skole,974738392,Bergen,Vestland,22.7,9.1,6.8,401,20,75,36,1571.0,60.391433947091684,5.2069972974977885,,approximate_from_name_hash
-Eidsvåg skole,974738554,Bergen,Vestland,,0.0,0.0,231,11,23,17,1605.0,60.328288968062935,5.283134423423464,,approximate_from_name_hash
-Fjellsdalen skole,976654773,Bergen,Vestland,6.0,,6.1,407,11,,34,1645.0,60.39977947161338,5.3922440023216405,,approximate_from_name_hash
-Flaktveit skole,974738740,Bergen,Vestland,25.7,5.6,5.7,269,31,17,28,1592.0,60.43235505929699,5.279892504291862,,approximate_from_name_hash
-Foreningen Danielsen ungdomsskole Bergen,973159658,Bergen,Vestland,,,,270,20,0,28,2573.0,60.38046378572762,5.435208624435841,,approximate_from_name_hash
-Fridalen skole,974737949,Bergen,Vestland,16.7,,0.0,440,30,62,39,1478.0,60.4759145328474,5.394637464137639,,approximate_from_name_hash
-Garnes skule,974738120,Bergen,Vestland,8.5,0.0,4.3,308,19,24,28,1652.0,60.33734099889251,5.112663545886576,,approximate_from_name_hash
-Garnes ungdomsskule,974738473,Bergen,Vestland,,,,438,11,8,37,1991.0,60.39069981194838,5.4024059787372325,,approximate_from_name_hash
-Gimle Oppveksttun skole,974738015,Bergen,Vestland,,,,565,25,13,54,1886.0,60.33942626914882,5.440332753605184,,approximate_from_name_hash
-Haukedalen skole,974738562,Bergen,Vestland,14.0,,5.3,365,6,13,31,1638.0,60.341521341971976,5.1341810696923265,,approximate_from_name_hash
-Haukeland skole,974737930,Bergen,Vestland,0.0,,0.0,361,11,9,28,1683.0,60.31450722105921,5.37887969714726,,approximate_from_name_hash
-Haukås skole,974738066,Bergen,Vestland,10.3,,,233,26,50,25,1471.0,60.479190094593925,5.336901564924839,,approximate_from_name_hash
-Hellen skole,974737892,Bergen,Vestland,,,0.0,402,22,33,37,1609.0,60.32318450205362,5.345392433805027,,approximate_from_name_hash
-Hjellestad skole,874738182,Bergen,Vestland,,0.0,,175,10,6,16,1621.0,60.38426287260774,5.082449887614053,,approximate_from_name_hash
-Holen skole,974738368,Bergen,Vestland,,,0.0,540,37,26,45,1845.0,60.49919720933186,5.264047462794446,,approximate_from_name_hash
-Hop Oppveksttun skole,874738522,Bergen,Vestland,,,,434,33,36,47,1922.0,60.37218344653147,5.374500416485649,,approximate_from_name_hash
-Hordvik skole,974738023,Bergen,Vestland,0.0,0.0,,264,11,8,23,1667.0,60.3657297612016,5.224072713923856,,approximate_from_name_hash
-International School Of Bergen avd skole,974187442,Bergen,Vestland,,,,199,0,0,26,1087.0,60.38371155392329,5.3906515723031525,,approximate_from_name_hash
-Kaland skole,974738333,Bergen,Vestland,,0.0,,247,18,8,24,1544.0,60.42507690771453,5.252874302687766,,approximate_from_name_hash
-Kalvatræet skole,974738503,Bergen,Vestland,0.0,0.0,,145,35,7,18,1615.0,60.33531752242007,5.433044784938161,,approximate_from_name_hash
-Kirkevoll skole,974738252,Bergen,Vestland,5.6,,,558,11,18,46,1771.0,60.343704918182205,5.525463208598835,,approximate_from_name_hash
-Kjøkkelvik skole,974738449,Bergen,Vestland,10.5,0.0,0.0,486,33,37,48,1688.0,60.35826342607249,5.278083498184048,,approximate_from_name_hash
-Kringlebotn skole,874222062,Bergen,Vestland,14.3,,,254,13,,26,1487.0,60.40441240512037,5.091696268990743,,approximate_from_name_hash
-Krohnengen skole,974737914,Bergen,Vestland,11.5,5.0,,381,32,23,35,1580.0,60.377049356751826,5.432451027318014,,approximate_from_name_hash
-Krokeide skole,974738228,Bergen,Vestland,0.0,0.0,0.0,45,,,6,1089.0,60.417148995276804,5.243374568834303,,approximate_from_name_hash
-Kronstad Oppveksttun skole,974737922,Bergen,Vestland,0.0,0.0,,249,21,25,23,1476.0,60.44149544763449,5.205513442987531,,approximate_from_name_hash
-Kyrkjekrinsen skole,874738042,Bergen,Vestland,,0.0,,414,31,49,39,1763.0,60.420004485471445,5.35598721204498,,approximate_from_name_hash
-Landås skole,974737868,Bergen,Vestland,10.7,,,465,39,53,43,1626.0,60.438262138835604,5.108480676562937,,approximate_from_name_hash
-Li skole,874738662,Bergen,Vestland,18.2,0.0,0.0,264,20,20,22,1499.0,60.32671104925494,5.199747197818576,,approximate_from_name_hash
-Liland skole,974738279,Bergen,Vestland,9.7,0.0,0.0,307,27,15,27,1591.0,60.40628962692021,5.457416694564546,,approximate_from_name_hash
-Loddefjord skole,974738589,Bergen,Vestland,,0.0,0.0,155,46,17,23,1571.0,60.38657841349171,5.09839093708663,,approximate_from_name_hash
-Lone skule,974738112,Bergen,Vestland,21.6,,13.9,267,24,21,27,1410.0,60.48252821906715,5.318612807935472,,approximate_from_name_hash
-Lynghaug skole,974738481,Bergen,Vestland,,,,399,,28,45,1566.0,60.49929613209134,5.393690649596122,,approximate_from_name_hash
-Lyshovden Oppveksttun avd skole,974738406,Bergen,Vestland,16.1,0.0,0.0,227,9,14,20,1435.0,60.45177836148848,5.32178210996281,,approximate_from_name_hash
-Løvås Oppveksttun - skole,974738538,Bergen,Vestland,12.0,,8.0,236,6,30,21,1432.0,60.37015549788787,5.469323653800486,,approximate_from_name_hash
-Mathopen skole,974738376,Bergen,Vestland,0.0,0.0,0.0,322,7,,26,1606.0,60.33676069761382,5.52564256220067,,approximate_from_name_hash
-Midtun skole,974738341,Bergen,Vestland,,0.0,,389,12,31,34,1598.0,60.43950632033484,5.470079612190231,,approximate_from_name_hash
-Minde skole,974738295,Bergen,Vestland,19.4,0.0,8.3,261,20,34,23,1603.0,60.49399147794446,5.3871600620721285,,approximate_from_name_hash
-Mjølkeråen skole,974738031,Bergen,Vestland,8.7,0.0,0.0,673,57,27,62,1689.0,60.3676730727338,5.101657124585388,,approximate_from_name_hash
-Møhlenpris Oppveksttun avd skole,974737965,Bergen,Vestland,7.9,,0.0,275,11,49,28,1533.0,60.36379380159635,5.338884249002083,,approximate_from_name_hash
-Møllebakken skole,976202422,Bergen,Vestland,,,,73,12,,18,1140.0,60.46243690766684,5.240355216453138,,approximate_from_name_hash
-Nattland skole,974738309,Bergen,Vestland,8.5,0.0,14.9,680,33,6,69,1481.0,60.500953024722016,5.294836942591669,,approximate_from_name_hash
-Nordnes skole,874737852,Bergen,Vestland,0.0,0.0,,248,40,41,28,1150.0,60.36366903068555,5.462686948122121,,approximate_from_name_hash
-Norges Toppidrettsgymnas ungdomsskole Bergen AS,922148872,Bergen,Vestland,,,,196,,0,20,2340.0,60.36655265351586,5.396124761791286,,approximate_from_name_hash
-Ny Krohnborg skole,974737906,Bergen,Vestland,,,,416,41,152,39,1418.0,60.43147047050243,5.123342534342551,,approximate_from_name_hash
-Nygårdslien skole,974738546,Bergen,Vestland,22.9,0.0,8.6,292,15,42,26,1699.0,60.366351342713465,5.178933111965888,,approximate_from_name_hash
-Olsvik skole,974738635,Bergen,Vestland,15.2,0.0,0.0,599,28,48,57,1796.0,60.29217087249964,5.3566536717309,,approximate_from_name_hash
-Ortun skole,974738414,Bergen,Vestland,,,,413,33,,41,1924.0,60.38077231138145,5.267894111342488,,approximate_from_name_hash
-Paradis skole,974738317,Bergen,Vestland,,,0.0,470,17,23,38,1635.0,60.334971508148115,5.382291974630565,,approximate_from_name_hash
-Rolland skole,974737825,Bergen,Vestland,18.2,,0.0,306,18,7,25,1695.0,60.38084201725084,5.163649762159376,,approximate_from_name_hash
-Rothaugen skole,874737992,Bergen,Vestland,,,,593,36,52,60,1900.0,60.300314544115245,5.375995351883919,,approximate_from_name_hash
-Rudolf steinerskolen i Bergen skolen,973159232,Bergen,Vestland,0.0,,0.0,204,20,0,31,1540.0,60.344602632841266,5.29115129204384,,approximate_from_name_hash
-Rå skole,974738600,Bergen,Vestland,,,,420,22,,38,1991.0,60.35328231502553,5.222271668132407,,approximate_from_name_hash
-Rådalslien skole,992584602,Bergen,Vestland,,,,366,19,6,34,1741.0,60.33013651745038,5.3445958857697065,,approximate_from_name_hash
-Salhus skule,974738058,Bergen,Vestland,,,,93,7,,10,1384.0,60.386264536357764,5.138776628774273,,approximate_from_name_hash
-Sandgotna skole,974737833,Bergen,Vestland,,,,382,62,,51,1778.0,60.46553176982269,5.132726493807027,,approximate_from_name_hash
-Seljedalen skole,974737841,Bergen,Vestland,,,,199,9,29,21,1365.0,60.325574513921076,5.1992869241081685,,approximate_from_name_hash
-Skeie skole,974738171,Bergen,Vestland,19.1,4.3,12.8,363,17,43,29,1606.0,60.35570663724363,5.514558680183862,,approximate_from_name_hash
-Skjold skole,974738260,Bergen,Vestland,,,,304,11,27,31,1675.0,60.49569186663343,5.22668422858187,,approximate_from_name_hash
-Skranevatnet skole,979276028,Bergen,Vestland,,8.3,4.3,639,29,30,58,1790.0,60.3442778295353,5.526844316760429,,approximate_from_name_hash
-Slettebakken skole,974737876,Bergen,Vestland,19.6,,,399,33,96,41,1385.0,60.352266355156154,5.288343285295971,,approximate_from_name_hash
-Slåtthaug skole,974738457,Bergen,Vestland,,,,390,22,8,46,1778.0,60.38560671715055,5.167223563735528,,approximate_from_name_hash
-Smørås skole,974738325,Bergen,Vestland,,0.0,0.0,232,,,19,1576.0,60.371143741768854,5.210323739703174,,approximate_from_name_hash
-St Paul skole,974117045,Bergen,Vestland,,0.0,,325,34,61,45,1714.0,60.325021609643905,5.28836582933243,,approximate_from_name_hash
-Steinerskolen på Skjold Helseped Avdeling,973465112,Bergen,Vestland,,,,29,,0,16,0.0,60.28222639414258,5.33880528043915,,approximate_from_name_hash
-Stiftelsen Davinci montessoriskole,986847367,Bergen,Vestland,,,,105,14,0,20,1786.0,60.46805520824361,5.470313123003792,,approximate_from_name_hash
-Stiftelsen montessoriskolen i Bergen,974223384,Bergen,Vestland,0.0,0.0,,142,14,,18,1191.0,60.385044443238364,5.087634289604508,,approximate_from_name_hash
-Stiftelsen steinerskolen på Skjold,973448889,Bergen,Vestland,,,,158,17,0,32,1781.0,60.309751569656044,5.2311810852545815,,approximate_from_name_hash
-Storetveit skole,974738619,Bergen,Vestland,,,,434,10,15,41,1998.0,60.413192632781296,5.392098260858095,,approximate_from_name_hash
-Sædalen skole,974738244,Bergen,Vestland,7.0,0.0,7.3,331,20,18,30,1515.0,60.43673006134989,5.459392591974337,,approximate_from_name_hash
-Sælen Oppveksttun avd skole,974737981,Bergen,Vestland,8.6,0.0,5.6,263,14,13,23,1621.0,60.44352061881692,5.1515500828217595,,approximate_from_name_hash
-Søreide skole,974738236,Bergen,Vestland,15.8,,8.8,488,9,15,37,1682.0,60.33327878113352,5.289402301535149,,approximate_from_name_hash
-Søråshøgda skole,974739380,Bergen,Vestland,7.1,0.0,0.0,645,27,42,50,1691.0,60.50251455351623,5.293743106341261,,approximate_from_name_hash
-Tertnes skole,974738074,Bergen,Vestland,6.5,,6.5,349,9,21,26,1632.0,60.39467868013306,5.422522318956803,,approximate_from_name_hash
-Trengereid Oppveksttun Avd skule (Nedlagt),974738155,Bergen,Vestland,,,,,,,,,60.339280950446565,5.231432226966216,,approximate_from_name_hash
-Tveiterås skole,974738643,Bergen,Vestland,,,,42,,0,13,0.0,60.371235474726376,5.392502348789376,,approximate_from_name_hash
-Ulsetskogen skole,874738492,Bergen,Vestland,9.7,0.0,0.0,256,12,9,24,1530.0,60.411674195295625,5.123039080353326,,approximate_from_name_hash
-Ulsmåg skole,974738511,Bergen,Vestland,4.9,0.0,0.0,534,13,13,43,1698.0,60.460534051274756,5.427359694182681,,approximate_from_name_hash
-Vadmyra skole,974738422,Bergen,Vestland,14.8,,,221,14,26,20,1521.0,60.356109982317044,5.3462335867981405,,approximate_from_name_hash
-Varden skole,974737973,Bergen,Vestland,13.2,5.7,,380,14,12,30,1599.0,60.41798412740841,5.390800468340182,,approximate_from_name_hash
-Ytre Arna skule,974738139,Bergen,Vestland,14.3,0.0,0.0,208,15,75,25,1374.0,60.34517556895948,5.420156990393605,,approximate_from_name_hash
-Ytrebygda skole,974738597,Bergen,Vestland,,,,322,51,8,44,1941.0,60.36108018167439,5.366286825471946,,approximate_from_name_hash
-Ådnamarka skule,974738570,Bergen,Vestland,7.5,0.0,,324,27,56,32,1389.0,60.35795185549384,5.29528005452614,,approximate_from_name_hash
-Åstveit skole,974738465,Bergen,Vestland,,,,410,31,20,51,1819.0,60.46206661938491,5.312163406870341,,approximate_from_name_hash
+school_name,organization_number,municipality,county,address,postal_code,postal_city,mobbing_by_students_pct,mobbing_by_adults_pct,mobbing_digital_pct,students_2025_26,special_education_2025_26,enhanced_norwegian_2025_26,teachers_2025_26,teacher_density_2025_26,latitude,longitude,geocoded_address,geocoding_status
+Alvøen skole,874738352,Bergen,Vestland,,,,7.5,0.0,,351,15,8,30,1485.0,60.325922824453954,5.346623309154585,,approximate_from_name_hash
+Apeltun skole,986171096,Bergen,Vestland,,,,,,,313,8,20,26,1521.0,60.315432258759735,5.206368636334903,,approximate_from_name_hash
+Aurdalslia skole,974222078,Bergen,Vestland,,,,,0.0,,412,21,61,36,1676.0,60.43590485932005,5.388778366592814,,approximate_from_name_hash
+Bergen kompetansesenter for Læringsmiljø,974737884,Bergen,Vestland,,,,,,,23,,0,11,0.0,60.42734355892839,5.289556946203987,,approximate_from_name_hash
+Bergen Kristne grunnskole,974309424,Bergen,Vestland,,,,,,,237,26,26,35,1609.0,60.29394317940263,5.360366566760561,,approximate_from_name_hash
+Bjørgvin montessoriskole,992780010,Bergen,Vestland,,,,,0.0,0.0,101,8,0,12,1300.0,60.36738724014638,5.430684647629202,,approximate_from_name_hash
+Bjørndalsskogen skole,974738627,Bergen,Vestland,,,,,0.0,7.3,318,7,22,26,1527.0,60.375672992196414,5.528349778988192,,approximate_from_name_hash
+Blokkhaugen skole,974737817,Bergen,Vestland,,,,,,,299,14,0,25,1946.0,60.409074059642386,5.412395939450194,,approximate_from_name_hash
+Breimyra skole,980155307,Bergen,Vestland,,,,,,,197,21,,20,2022.0,60.367053025000416,5.41758721861957,,approximate_from_name_hash
+Bønes skole,974738287,Bergen,Vestland,,,,10.2,0.0,,395,13,12,30,1635.0,60.42683616987546,5.496740818924242,,approximate_from_name_hash
+Christi Krybbe Skoler,974737957,Bergen,Vestland,,,,,0.0,,172,7,10,15,1431.0,60.347746753864804,5.499171004189417,,approximate_from_name_hash
+Damsgård skole,974738392,Bergen,Vestland,,,,22.7,9.1,6.8,401,20,75,36,1571.0,60.391433947091684,5.2069972974977885,,approximate_from_name_hash
+Eidsvåg skole,974738554,Bergen,Vestland,,,,,0.0,0.0,231,11,23,17,1605.0,60.328288968062935,5.283134423423464,,approximate_from_name_hash
+Fjellsdalen skole,976654773,Bergen,Vestland,,,,6.0,,6.1,407,11,,34,1645.0,60.39977947161338,5.3922440023216405,,approximate_from_name_hash
+Flaktveit skole,974738740,Bergen,Vestland,,,,25.7,5.6,5.7,269,31,17,28,1592.0,60.43235505929699,5.279892504291862,,approximate_from_name_hash
+Foreningen Danielsen ungdomsskole Bergen,973159658,Bergen,Vestland,,,,,,,270,20,0,28,2573.0,60.38046378572762,5.435208624435841,,approximate_from_name_hash
+Fridalen skole,974737949,Bergen,Vestland,,,,16.7,,0.0,440,30,62,39,1478.0,60.4759145328474,5.394637464137639,,approximate_from_name_hash
+Garnes skule,974738120,Bergen,Vestland,,,,8.5,0.0,4.3,308,19,24,28,1652.0,60.33734099889251,5.112663545886576,,approximate_from_name_hash
+Garnes ungdomsskule,974738473,Bergen,Vestland,,,,,,,438,11,8,37,1991.0,60.39069981194838,5.4024059787372325,,approximate_from_name_hash
+Gimle Oppveksttun skole,974738015,Bergen,Vestland,,,,,,,565,25,13,54,1886.0,60.33942626914882,5.440332753605184,,approximate_from_name_hash
+Haukedalen skole,974738562,Bergen,Vestland,,,,14.0,,5.3,365,6,13,31,1638.0,60.341521341971976,5.1341810696923265,,approximate_from_name_hash
+Haukeland skole,974737930,Bergen,Vestland,,,,0.0,,0.0,361,11,9,28,1683.0,60.31450722105921,5.37887969714726,,approximate_from_name_hash
+Haukås skole,974738066,Bergen,Vestland,,,,10.3,,,233,26,50,25,1471.0,60.479190094593925,5.336901564924839,,approximate_from_name_hash
+Hellen skole,974737892,Bergen,Vestland,,,,,,0.0,402,22,33,37,1609.0,60.32318450205362,5.345392433805027,,approximate_from_name_hash
+Hjellestad skole,874738182,Bergen,Vestland,,,,,0.0,,175,10,6,16,1621.0,60.38426287260774,5.082449887614053,,approximate_from_name_hash
+Holen skole,974738368,Bergen,Vestland,,,,,,0.0,540,37,26,45,1845.0,60.49919720933186,5.264047462794446,,approximate_from_name_hash
+Hop Oppveksttun skole,874738522,Bergen,Vestland,,,,,,,434,33,36,47,1922.0,60.37218344653147,5.374500416485649,,approximate_from_name_hash
+Hordvik skole,974738023,Bergen,Vestland,,,,0.0,0.0,,264,11,8,23,1667.0,60.3657297612016,5.224072713923856,,approximate_from_name_hash
+International School Of Bergen avd skole,974187442,Bergen,Vestland,,,,,,,199,0,0,26,1087.0,60.38371155392329,5.3906515723031525,,approximate_from_name_hash
+Kaland skole,974738333,Bergen,Vestland,,,,,0.0,,247,18,8,24,1544.0,60.42507690771453,5.252874302687766,,approximate_from_name_hash
+Kalvatræet skole,974738503,Bergen,Vestland,,,,0.0,0.0,,145,35,7,18,1615.0,60.33531752242007,5.433044784938161,,approximate_from_name_hash
+Kirkevoll skole,974738252,Bergen,Vestland,,,,5.6,,,558,11,18,46,1771.0,60.343704918182205,5.525463208598835,,approximate_from_name_hash
+Kjøkkelvik skole,974738449,Bergen,Vestland,,,,10.5,0.0,0.0,486,33,37,48,1688.0,60.35826342607249,5.278083498184048,,approximate_from_name_hash
+Kringlebotn skole,874222062,Bergen,Vestland,,,,14.3,,,254,13,,26,1487.0,60.40441240512037,5.091696268990743,,approximate_from_name_hash
+Krohnengen skole,974737914,Bergen,Vestland,,,,11.5,5.0,,381,32,23,35,1580.0,60.377049356751826,5.432451027318014,,approximate_from_name_hash
+Krokeide skole,974738228,Bergen,Vestland,,,,0.0,0.0,0.0,45,,,6,1089.0,60.417148995276804,5.243374568834303,,approximate_from_name_hash
+Kronstad Oppveksttun skole,974737922,Bergen,Vestland,,,,0.0,0.0,,249,21,25,23,1476.0,60.44149544763449,5.205513442987531,,approximate_from_name_hash
+Kyrkjekrinsen skole,874738042,Bergen,Vestland,,,,,0.0,,414,31,49,39,1763.0,60.420004485471445,5.35598721204498,,approximate_from_name_hash
+Landås skole,974737868,Bergen,Vestland,,,,10.7,,,465,39,53,43,1626.0,60.438262138835604,5.108480676562937,,approximate_from_name_hash
+Li skole,874738662,Bergen,Vestland,,,,18.2,0.0,0.0,264,20,20,22,1499.0,60.32671104925494,5.199747197818576,,approximate_from_name_hash
+Liland skole,974738279,Bergen,Vestland,,,,9.7,0.0,0.0,307,27,15,27,1591.0,60.40628962692021,5.457416694564546,,approximate_from_name_hash
+Loddefjord skole,974738589,Bergen,Vestland,,,,,0.0,0.0,155,46,17,23,1571.0,60.38657841349171,5.09839093708663,,approximate_from_name_hash
+Lone skule,974738112,Bergen,Vestland,,,,21.6,,13.9,267,24,21,27,1410.0,60.48252821906715,5.318612807935472,,approximate_from_name_hash
+Lynghaug skole,974738481,Bergen,Vestland,,,,,,,399,,28,45,1566.0,60.49929613209134,5.393690649596122,,approximate_from_name_hash
+Lyshovden Oppveksttun avd skole,974738406,Bergen,Vestland,,,,16.1,0.0,0.0,227,9,14,20,1435.0,60.45177836148848,5.32178210996281,,approximate_from_name_hash
+Løvås Oppveksttun - skole,974738538,Bergen,Vestland,,,,12.0,,8.0,236,6,30,21,1432.0,60.37015549788787,5.469323653800486,,approximate_from_name_hash
+Mathopen skole,974738376,Bergen,Vestland,,,,0.0,0.0,0.0,322,7,,26,1606.0,60.33676069761382,5.52564256220067,,approximate_from_name_hash
+Midtun skole,974738341,Bergen,Vestland,,,,,0.0,,389,12,31,34,1598.0,60.43950632033484,5.470079612190231,,approximate_from_name_hash
+Minde skole,974738295,Bergen,Vestland,,,,19.4,0.0,8.3,261,20,34,23,1603.0,60.49399147794446,5.3871600620721285,,approximate_from_name_hash
+Mjølkeråen skole,974738031,Bergen,Vestland,,,,8.7,0.0,0.0,673,57,27,62,1689.0,60.3676730727338,5.101657124585388,,approximate_from_name_hash
+Møhlenpris Oppveksttun avd skole,974737965,Bergen,Vestland,,,,7.9,,0.0,275,11,49,28,1533.0,60.36379380159635,5.338884249002083,,approximate_from_name_hash
+Møllebakken skole,976202422,Bergen,Vestland,,,,,,,73,12,,18,1140.0,60.46243690766684,5.240355216453138,,approximate_from_name_hash
+Nattland skole,974738309,Bergen,Vestland,,,,8.5,0.0,14.9,680,33,6,69,1481.0,60.500953024722016,5.294836942591669,,approximate_from_name_hash
+Nordnes skole,874737852,Bergen,Vestland,,,,0.0,0.0,,248,40,41,28,1150.0,60.36366903068555,5.462686948122121,,approximate_from_name_hash
+Norges Toppidrettsgymnas ungdomsskole Bergen AS,922148872,Bergen,Vestland,,,,,,,196,,0,20,2340.0,60.36655265351586,5.396124761791286,,approximate_from_name_hash
+Ny Krohnborg skole,974737906,Bergen,Vestland,,,,,,,416,41,152,39,1418.0,60.43147047050243,5.123342534342551,,approximate_from_name_hash
+Nygårdslien skole,974738546,Bergen,Vestland,,,,22.9,0.0,8.6,292,15,42,26,1699.0,60.366351342713465,5.178933111965888,,approximate_from_name_hash
+Olsvik skole,974738635,Bergen,Vestland,,,,15.2,0.0,0.0,599,28,48,57,1796.0,60.29217087249964,5.3566536717309,,approximate_from_name_hash
+Ortun skole,974738414,Bergen,Vestland,,,,,,,413,33,,41,1924.0,60.38077231138145,5.267894111342488,,approximate_from_name_hash
+Paradis skole,974738317,Bergen,Vestland,,,,,,0.0,470,17,23,38,1635.0,60.334971508148115,5.382291974630565,,approximate_from_name_hash
+Rolland skole,974737825,Bergen,Vestland,,,,18.2,,0.0,306,18,7,25,1695.0,60.38084201725084,5.163649762159376,,approximate_from_name_hash
+Rothaugen skole,874737992,Bergen,Vestland,,,,,,,593,36,52,60,1900.0,60.300314544115245,5.375995351883919,,approximate_from_name_hash
+Rudolf steinerskolen i Bergen skolen,973159232,Bergen,Vestland,,,,0.0,,0.0,204,20,0,31,1540.0,60.344602632841266,5.29115129204384,,approximate_from_name_hash
+Rå skole,974738600,Bergen,Vestland,,,,,,,420,22,,38,1991.0,60.35328231502553,5.222271668132407,,approximate_from_name_hash
+Rådalslien skole,992584602,Bergen,Vestland,,,,,,,366,19,6,34,1741.0,60.33013651745038,5.3445958857697065,,approximate_from_name_hash
+Salhus skule,974738058,Bergen,Vestland,,,,,,,93,7,,10,1384.0,60.386264536357764,5.138776628774273,,approximate_from_name_hash
+Sandgotna skole,974737833,Bergen,Vestland,,,,,,,382,62,,51,1778.0,60.46553176982269,5.132726493807027,,approximate_from_name_hash
+Seljedalen skole,974737841,Bergen,Vestland,,,,,,,199,9,29,21,1365.0,60.325574513921076,5.1992869241081685,,approximate_from_name_hash
+Skeie skole,974738171,Bergen,Vestland,,,,19.1,4.3,12.8,363,17,43,29,1606.0,60.35570663724363,5.514558680183862,,approximate_from_name_hash
+Skjold skole,974738260,Bergen,Vestland,,,,,,,304,11,27,31,1675.0,60.49569186663343,5.22668422858187,,approximate_from_name_hash
+Skranevatnet skole,979276028,Bergen,Vestland,,,,,8.3,4.3,639,29,30,58,1790.0,60.3442778295353,5.526844316760429,,approximate_from_name_hash
+Slettebakken skole,974737876,Bergen,Vestland,,,,19.6,,,399,33,96,41,1385.0,60.352266355156154,5.288343285295971,,approximate_from_name_hash
+Slåtthaug skole,974738457,Bergen,Vestland,,,,,,,390,22,8,46,1778.0,60.38560671715055,5.167223563735528,,approximate_from_name_hash
+Smørås skole,974738325,Bergen,Vestland,,,,,0.0,0.0,232,,,19,1576.0,60.371143741768854,5.210323739703174,,approximate_from_name_hash
+St Paul skole,974117045,Bergen,Vestland,,,,,0.0,,325,34,61,45,1714.0,60.325021609643905,5.28836582933243,,approximate_from_name_hash
+Steinerskolen på Skjold Helseped Avdeling,973465112,Bergen,Vestland,,,,,,,29,,0,16,0.0,60.28222639414258,5.33880528043915,,approximate_from_name_hash
+Stiftelsen Davinci montessoriskole,986847367,Bergen,Vestland,,,,,,,105,14,0,20,1786.0,60.46805520824361,5.470313123003792,,approximate_from_name_hash
+Stiftelsen montessoriskolen i Bergen,974223384,Bergen,Vestland,,,,0.0,0.0,,142,14,,18,1191.0,60.385044443238364,5.087634289604508,,approximate_from_name_hash
+Stiftelsen steinerskolen på Skjold,973448889,Bergen,Vestland,,,,,,,158,17,0,32,1781.0,60.309751569656044,5.2311810852545815,,approximate_from_name_hash
+Storetveit skole,974738619,Bergen,Vestland,,,,,,,434,10,15,41,1998.0,60.413192632781296,5.392098260858095,,approximate_from_name_hash
+Sædalen skole,974738244,Bergen,Vestland,,,,7.0,0.0,7.3,331,20,18,30,1515.0,60.43673006134989,5.459392591974337,,approximate_from_name_hash
+Sælen Oppveksttun avd skole,974737981,Bergen,Vestland,,,,8.6,0.0,5.6,263,14,13,23,1621.0,60.44352061881692,5.1515500828217595,,approximate_from_name_hash
+Søreide skole,974738236,Bergen,Vestland,,,,15.8,,8.8,488,9,15,37,1682.0,60.33327878113352,5.289402301535149,,approximate_from_name_hash
+Søråshøgda skole,974739380,Bergen,Vestland,,,,7.1,0.0,0.0,645,27,42,50,1691.0,60.50251455351623,5.293743106341261,,approximate_from_name_hash
+Tertnes skole,974738074,Bergen,Vestland,,,,6.5,,6.5,349,9,21,26,1632.0,60.39467868013306,5.422522318956803,,approximate_from_name_hash
+Trengereid Oppveksttun Avd skule (Nedlagt),974738155,Bergen,Vestland,,,,,,,,,,,,60.339280950446565,5.231432226966216,,approximate_from_name_hash
+Tveiterås skole,974738643,Bergen,Vestland,,,,,,,42,,0,13,0.0,60.371235474726376,5.392502348789376,,approximate_from_name_hash
+Ulsetskogen skole,874738492,Bergen,Vestland,,,,9.7,0.0,0.0,256,12,9,24,1530.0,60.411674195295625,5.123039080353326,,approximate_from_name_hash
+Ulsmåg skole,974738511,Bergen,Vestland,,,,4.9,0.0,0.0,534,13,13,43,1698.0,60.460534051274756,5.427359694182681,,approximate_from_name_hash
+Vadmyra skole,974738422,Bergen,Vestland,,,,14.8,,,221,14,26,20,1521.0,60.356109982317044,5.3462335867981405,,approximate_from_name_hash
+Varden skole,974737973,Bergen,Vestland,,,,13.2,5.7,,380,14,12,30,1599.0,60.41798412740841,5.390800468340182,,approximate_from_name_hash
+Ytre Arna skule,974738139,Bergen,Vestland,,,,14.3,0.0,0.0,208,15,75,25,1374.0,60.34517556895948,5.420156990393605,,approximate_from_name_hash
+Ytrebygda skole,974738597,Bergen,Vestland,,,,,,,322,51,8,44,1941.0,60.36108018167439,5.366286825471946,,approximate_from_name_hash
+Ådnamarka skule,974738570,Bergen,Vestland,,,,7.5,0.0,,324,27,56,32,1389.0,60.35795185549384,5.29528005452614,,approximate_from_name_hash
+Åstveit skole,974738465,Bergen,Vestland,,,,,,,410,31,20,51,1819.0,60.46206661938491,5.312163406870341,,approximate_from_name_hash

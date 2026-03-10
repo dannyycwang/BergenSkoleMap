@@ -1,9 +1,11 @@
-const map = L.map('map').setView([60.39299, 5.32415], 11);
+const map = L.map('map', { zoomControl: false }).setView([60.39299, 5.32415], 11);
+L.control.zoom({ position: 'bottomright' }).addTo(map);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 
 const format = (v, unit = '') => (v === null || v === undefined || Number.isNaN(v) ? '—' : `${v}${unit}`);
+const studentColor = (n) => (n >= 500 ? '#d62828' : n >= 350 ? '#f77f00' : n >= 200 ? '#fcbf49' : '#2a9d8f');
 
 function renderDetail(p) {
   const panel = document.getElementById('detail-panel');
@@ -11,17 +13,15 @@ function renderDetail(p) {
   document.getElementById('detail-content').innerHTML = `
     <table>
       <tr><td>組織編號</td><td>${format(p.organization_number)}</td></tr>
+      <tr><td>地址</td><td>${format(p.address)} ${format(p.postal_code)} ${format(p.postal_city)}</td></tr>
       <tr><td>城市 / 郡</td><td>${format(p.municipality)} / ${format(p.county)}</td></tr>
       <tr><td>學生數 (2025-26)</td><td>${format(p.students_2025_26)}</td></tr>
       <tr><td>特教學生數 (2025-26)</td><td>${format(p.special_education_2025_26)}</td></tr>
       <tr><td>加強挪威語學生數 (2025-26)</td><td>${format(p.enhanced_norwegian_2025_26)}</td></tr>
       <tr><td>教師數 (2025-26)</td><td>${format(p.teachers_2025_26)}</td></tr>
       <tr><td>師生密度 (2025-26)</td><td>${format(p.teacher_density_2025_26)}</td></tr>
-      <tr><td>學生霸凌比例</td><td>${format(p.mobbing_by_students_pct, '%')}</td></tr>
-      <tr><td>成人霸凌比例</td><td>${format(p.mobbing_by_adults_pct, '%')}</td></tr>
-      <tr><td>數位霸凌比例</td><td>${format(p.mobbing_digital_pct, '%')}</td></tr>
       <tr><td>地理定位狀態</td><td>${format(p.geocoding_status)}</td></tr>
-      <tr><td>地址 (若有)</td><td>${format(p.geocoded_address)}</td></tr>
+      <tr><td>定位地址</td><td>${format(p.geocoded_address)}</td></tr>
     </table>
   `;
   panel.classList.remove('hidden');
@@ -50,46 +50,99 @@ async function loadSchoolGeoJson() {
       return await r.json();
     } catch (_) {}
   }
-  throw new Error('資料檔載入失敗：請確認 data/bergen_primary_schools_geocoded.geojson 或 data/bergen_primary_schools.geojson 可被伺服器存取。');
+  throw new Error('資料檔載入失敗');
 }
 
-loadSchoolGeoJson()
-  .then(fc => {
-    const listEl = document.getElementById('school-list');
-    const countEl = document.getElementById('count');
-    const searchEl = document.getElementById('search');
-    let markerEntries = [];
+loadSchoolGeoJson().then((fc) => {
+  const listEl = document.getElementById('school-list');
+  const countEl = document.getElementById('count');
+  const searchEl = document.getElementById('search');
+  const rangeEl = document.getElementById('students-range');
+  const rangeValEl = document.getElementById('students-value');
+  const geoFilterEl = document.getElementById('geo-filter');
+  const fitBtn = document.getElementById('fit-btn');
+  const statsEl = document.getElementById('stats');
 
-    const redraw = (query = '') => {
-      markerEntries.forEach(({ marker }) => marker.remove());
-      markerEntries = [];
-      listEl.innerHTML = '';
+  let markerEntries = [];
 
-      const q = query.trim().toLowerCase();
-      const filtered = fc.features.filter(f => f.properties.school_name.toLowerCase().includes(q));
-      countEl.textContent = `顯示 ${filtered.length} / ${fc.features.length} 所學校`;
+  const currentFiltered = () => {
+    const q = searchEl.value.trim().toLowerCase();
+    const minStudents = Number(rangeEl.value || 0);
+    const geoStatus = geoFilterEl.value;
+    return fc.features.filter((f) => {
+      const p = f.properties;
+      const nameOk = p.school_name.toLowerCase().includes(q);
+      const studentsOk = (p.students_2025_26 || 0) >= minStudents;
+      const geoOk = geoStatus === 'all' ? true : p.geocoding_status === geoStatus;
+      return nameOk && studentsOk && geoOk;
+    });
+  };
 
-      filtered.forEach((f) => {
-        const marker = L.marker([f.geometry.coordinates[1], f.geometry.coordinates[0]]).addTo(map);
-        marker.on('click', () => renderDetail(f.properties));
-        markerEntries.push({ marker, feature: f });
+  const redraw = () => {
+    const filtered = currentFiltered();
+    markerEntries.forEach(({ marker }) => marker.remove());
+    markerEntries = [];
+    listEl.innerHTML = '';
 
-        const li = document.createElement('li');
-        li.textContent = f.properties.school_name;
-        li.onclick = () => {
-          map.setView([f.geometry.coordinates[1], f.geometry.coordinates[0]], 14);
-          renderDetail(f.properties);
-        };
-        listEl.appendChild(li);
+    countEl.textContent = `顯示 ${filtered.length} / ${fc.features.length} 所學校`;
+    const totalStudents = filtered.reduce((sum, f) => sum + (f.properties.students_2025_26 || 0), 0);
+    const avgStudents = filtered.length ? Math.round(totalStudents / filtered.length) : 0;
+    statsEl.textContent = `目前篩選：總學生 ${totalStudents}，平均每校 ${avgStudents}`;
+
+    filtered.forEach((f) => {
+      const p = f.properties;
+      const lat = f.geometry.coordinates[1];
+      const lon = f.geometry.coordinates[0];
+      const marker = L.circleMarker([lat, lon], {
+        radius: 7,
+        weight: 1,
+        color: '#0f172a',
+        fillColor: studentColor(p.students_2025_26 || 0),
+        fillOpacity: 0.85,
+      }).addTo(map);
+
+      marker.bindTooltip(`${p.school_name}<br/>學生: ${format(p.students_2025_26)}`, {
+        direction: 'top',
+        offset: [0, -8],
+        className: 'school-tip'
       });
-    };
 
+      marker.on('mouseover', () => marker.setRadius(10));
+      marker.on('mouseout', () => marker.setRadius(7));
+      marker.on('click', () => {
+        map.flyTo([lat, lon], Math.max(map.getZoom(), 13), { duration: 0.6 });
+        renderDetail(p);
+      });
+      markerEntries.push({ marker, feature: f });
+
+      const li = document.createElement('li');
+      li.textContent = `${p.school_name}（${format(p.students_2025_26)}）`;
+      li.onclick = () => {
+        map.flyTo([lat, lon], 14, { duration: 0.6 });
+        renderDetail(p);
+      };
+      listEl.appendChild(li);
+    });
+  };
+
+  const fitToFiltered = () => {
+    const filtered = currentFiltered();
+    if (!filtered.length) return;
+    const bounds = L.latLngBounds(filtered.map((f) => [f.geometry.coordinates[1], f.geometry.coordinates[0]]));
+    map.fitBounds(bounds.pad(0.2), { animate: true });
+  };
+
+  rangeEl.addEventListener('input', () => {
+    rangeValEl.textContent = rangeEl.value;
     redraw();
-    searchEl.addEventListener('input', (e) => redraw(e.target.value));
-  })
-  .catch((err) => {
-    const countEl = document.getElementById('count');
-    const listEl = document.getElementById('school-list');
-    countEl.textContent = '資料載入失敗';
-    listEl.innerHTML = `<li>${err.message}</li>`;
   });
+  searchEl.addEventListener('input', redraw);
+  geoFilterEl.addEventListener('change', redraw);
+  fitBtn.addEventListener('click', fitToFiltered);
+
+  redraw();
+  fitToFiltered();
+}).catch((err) => {
+  document.getElementById('count').textContent = '資料載入失敗';
+  document.getElementById('school-list').innerHTML = `<li>${err.message}</li>`;
+});

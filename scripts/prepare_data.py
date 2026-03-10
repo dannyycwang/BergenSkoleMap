@@ -73,13 +73,20 @@ def find_col(headers, include, year=None):
             return h
 
 
+def find_first_col(headers, keywords):
+    low = [h.lower() for h in headers]
+    for i, h in enumerate(low):
+        if all(k in h for k in keywords):
+            return headers[i]
+    return None
+
+
 def approximate_bergen_coordinate(name: str):
-    # Deterministic fallback around Bergen sentrum
     center_lat, center_lon = 60.39299, 5.32415
     digest = hashlib.sha1(name.encode('utf-8')).hexdigest()
     a = int(digest[:8], 16)
     b = int(digest[8:16], 16)
-    radius = 0.03 + (a % 1000) / 1000 * 0.09  # ~3-12km spread
+    radius = 0.03 + (a % 1000) / 1000 * 0.09
     angle = (b % 36000) / 100.0
     import math
     dlat = radius * math.sin(math.radians(angle))
@@ -97,6 +104,10 @@ def main():
     col_teachers = find_col(headers, 'Antall lærere', '2025-26')
     col_density = find_col(headers, 'Lærertetthet i ordinær undervisning', '2025-26')
 
+    col_address = find_first_col(headers, ['adresse']) or find_first_col(headers, ['address'])
+    col_postal_code = find_first_col(headers, ['post'])
+    col_city = find_first_col(headers, ['poststed'])
+
     cleaned = []
     for r in records:
         if r.get('Kommune') != 'Bergen':
@@ -104,12 +115,20 @@ def main():
         school = (r.get('EnhetNavn') or '').strip()
         if not school or school.lower() == 'alle skoler':
             continue
+
         lat, lon = approximate_bergen_coordinate(school)
+        address = (r.get(col_address, '') if col_address else '').strip() or None
+        postal_code = (r.get(col_postal_code, '') if col_postal_code else '').strip() or None
+        postal_city = (r.get(col_city, '') if col_city else '').strip() or None
+
         cleaned.append({
             'school_name': school,
             'organization_number': (r.get('Organisasjonsnummer') or '').strip() or None,
             'municipality': r.get('Kommune'),
             'county': r.get('Fylke'),
+            'address': address,
+            'postal_code': postal_code,
+            'postal_city': postal_city,
             'mobbing_by_students_pct': nfloat(r.get('Er du blitt mobbet av andre elever? skolen de siste månedene?')),
             'mobbing_by_adults_pct': nfloat(r.get('Er du blitt mobbet av voksne? skolen de siste?nedene?')),
             'mobbing_digital_pct': nfloat(r.get('Er du blitt mobbet digitalt (mobil, iPad, PC) de siste m?nedene?')),
@@ -128,7 +147,6 @@ def main():
     cleaned = sorted(unique.values(), key=lambda x: x['school_name'].lower())
 
     OUTPUT_JSON.write_text(json.dumps(cleaned, ensure_ascii=False, indent=2), encoding='utf-8')
-
     geojson = {
         'type': 'FeatureCollection',
         'features': [
@@ -147,7 +165,7 @@ def main():
         w.writeheader()
         w.writerows(cleaned)
 
-    print(f'Saved {len(cleaned)} schools.')
+    print(f'Saved {len(cleaned)} schools. address_col={col_address}')
 
 
 if __name__ == '__main__':

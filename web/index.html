@@ -10,14 +10,25 @@
 <body>
   <header>
     <h1>Bergen 小學互動地圖</h1>
-    <p>可搜尋、點擊查看學校資料（來源：educationBergen.xlsx）</p>
+    <p>可搜尋、篩選、滑動查看，點擊學校顯示詳情</p>
   </header>
 
   <main>
     <aside class="left-panel">
       <input id="search" type="text" placeholder="搜尋學校名稱..." />
+      <div class="controls">
+        <label>最少學生數：<span id="students-value">0</span></label>
+        <input id="students-range" type="range" min="0" max="800" value="0" />
+        <label>定位狀態：</label>
+        <select id="geo-filter">
+          <option value="all">全部</option>
+          <option value="matched_nominatim">精準定位</option>
+          <option value="fallback_approximate_from_prepare_data">近似定位</option>
+        </select>
+        <button id="fit-btn" type="button">縮放到目前篩選結果</button>
+      </div>
       <p id="count"></p>
-      <div class="note">系統會自動嘗試線上地理編碼，將近似座標更新為真實座標（結果快取在瀏覽器）。</div>
+      <div id="stats" class="note"></div>
       <ul id="school-list"></ul>
     </aside>
 
