@@ -73,11 +73,11 @@ def find_col(headers, include, year=None):
             return h
 
 
-def find_first_col(headers, keywords):
-    low = [h.lower() for h in headers]
-    for i, h in enumerate(low):
-        if all(k in h for k in keywords):
-            return headers[i]
+def find_col_by_any_keywords(headers, keywords):
+    lowered = [(h, h.lower()) for h in headers]
+    for h, low in lowered:
+        if any(k in low for k in keywords):
+            return h
     return None
 
 
@@ -104,9 +104,10 @@ def main():
     col_teachers = find_col(headers, 'Antall lærere', '2025-26')
     col_density = find_col(headers, 'Lærertetthet i ordinær undervisning', '2025-26')
 
-    col_address = find_first_col(headers, ['adresse']) or find_first_col(headers, ['address'])
-    col_postal_code = find_first_col(headers, ['post'])
-    col_city = find_first_col(headers, ['poststed'])
+    # Address column detection for different languages/exports.
+    col_address = find_col_by_any_keywords(headers, ['adresse', 'address', '地址'])
+    col_postal_code = find_col_by_any_keywords(headers, ['postnummer', 'postnr', 'postal code', '郵遞區號'])
+    col_city = find_col_by_any_keywords(headers, ['poststed', 'postal city', 'city', '城市'])
 
     cleaned = []
     for r in records:

@@ -2,7 +2,7 @@
 
 Bergen 小學互動地圖專案：
 - 清洗 `educationBergen.xlsx` 學校資料
-- 用 Python 抓地址/座標（若表內有 address 會優先使用）
+- 直接使用原始資料表的 address 欄位進行地理定位（不需要再人工補地址）
 - 用 Leaflet 建立互動式地圖（搜尋、篩選、縮放、側欄詳情）
 
 ## 1) 資料清洗
@@ -14,17 +14,17 @@ python scripts/prepare_data.py
 - `data/bergen_primary_schools.json`
 - `data/bergen_primary_schools.geojson`（近似 fallback）
 
-## 2) 抓真實地址與座標（重要）
+## 2) 用地址做地理定位
 ```bash
 python scripts/geocode_schools.py
 ```
-輸出：
-- `data/bergen_primary_schools_geocoded.csv`
-- `data/bergen_primary_schools_geocoded.json`
-- `data/bergen_primary_schools_geocoded.geojson`
-- `data/geocode_cache.json`
+預設行為：
+- 優先使用資料表 address 欄位查詢座標
+- 若查不到，維持 `prepare_data.py` 的 fallback 座標（確保地圖完整顯示）
 
-> `geocode_schools.py` 會先用 address 欄位（若存在）查詢，再退回學校名稱查詢。
+可選參數：
+- `--allow-name-fallback`：地址查不到時才補用校名查詢
+- `--dry-run`：只測試，不寫輸出檔
 
 ## 3) 啟動網頁
 ```bash
