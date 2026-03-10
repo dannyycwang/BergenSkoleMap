@@ -5,11 +5,24 @@ import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-INPUT_XLSX = ROOT / 'educationBergen.xlsx'
+INPUT_XLSX_CANDIDATES = [
+    ROOT / 'educationBergen_with_address.xlsx',
+    ROOT / 'educationBergen.xlsx',
+]
 OUTPUT_JSON = ROOT / 'data' / 'bergen_primary_schools.json'
 OUTPUT_GEOJSON = ROOT / 'data' / 'bergen_primary_schools.geojson'
 OUTPUT_CSV = ROOT / 'data' / 'bergen_primary_schools_cleaned.csv'
-NS = {'a': 'http://schemas.openxmlformats.org/spreadsheetml/2006/main'}
+NS = {
+    'a': 'http://schemas.openxmlformats.org/spreadsheetml/2006/main',
+    'r': 'http://schemas.openxmlformats.org/officeDocument/2006/relationships',
+}
+
+
+def pick_input_file() -> Path:
+    for p in INPUT_XLSX_CANDIDATES:
+        if p.exists():
+            return p
+    raise FileNotFoundError('No input xlsx found. Expected educationBergen_with_address.xlsx or educationBergen.xlsx')
 
 
 def excel_col_to_index(cell_ref: str) -> int:
@@ -27,7 +40,20 @@ def parse_xlsx(path: Path):
         for si in root.findall('a:si', NS):
             shared.append(''.join(t.text or '' for t in si.findall('.//a:t', NS)))
 
-        sheet = ET.fromstring(zf.read('xl/worksheets/sheet1.xml'))
+        workbook = ET.fromstring(zf.read('xl/workbook.xml'))
+        rels = ET.fromstring(zf.read('xl/_rels/workbook.xml.rels'))
+        rid_to_target = {r.attrib['Id']: r.attrib['Target'] for r in rels}
+
+        # Prefer sheet named 'main' (user-provided address table), else sheet1
+        target = 'worksheets/sheet1.xml'
+        for sh in workbook.findall('.//a:sheets/a:sheet', NS):
+            name = (sh.attrib.get('name') or '').strip().lower()
+            rid = sh.attrib.get('{http://schemas.openxmlformats.org/officeDocument/2006/relationships}id')
+            if name == 'main' and rid in rid_to_target:
+                target = rid_to_target[rid]
+                break
+
+        sheet = ET.fromstring(zf.read(f'xl/{target}'))
         rows = []
         for row in sheet.findall('.//a:sheetData/a:row', NS):
             cells, max_idx = {}, 0
@@ -49,7 +75,7 @@ def parse_xlsx(path: Path):
     for raw in rows[1:]:
         raw += [''] * (len(header) - len(raw))
         out.append({header[i]: raw[i] for i in range(len(header))})
-    return out
+    return out, target
 
 
 def nfloat(v):
@@ -95,7 +121,8 @@ def approximate_bergen_coordinate(name: str):
 
 
 def main():
-    records = parse_xlsx(INPUT_XLSX)
+    input_file = pick_input_file()
+    records, source_sheet = parse_xlsx(input_file)
     headers = list(records[0].keys())
 
     col_students = find_col(headers, 'Antall elever', '2025-26')
@@ -104,7 +131,6 @@ def main():
     col_teachers = find_col(headers, 'Antall lærere', '2025-26')
     col_density = find_col(headers, 'Lærertetthet i ordinær undervisning', '2025-26')
 
-    # Address column detection for different languages/exports.
     col_address = find_col_by_any_keywords(headers, ['adresse', 'address', '地址'])
     col_postal_code = find_col_by_any_keywords(headers, ['postnummer', 'postnr', 'postal code', '郵遞區號'])
     col_city = find_col_by_any_keywords(headers, ['poststed', 'postal city', 'city', '城市'])
@@ -166,7 +192,11 @@ def main():
         w.writeheader()
         w.writerows(cleaned)
 
-    print(f'Saved {len(cleaned)} schools. address_col={col_address}')
+    print(
+        f'Saved {len(cleaned)} schools. '
+        f'input={input_file.name} sheet={source_sheet} '
+        f'address_col={col_address} postal_col={col_postal_code} city_col={col_city}'
+    )
 
 
 if __name__ == '__main__':
