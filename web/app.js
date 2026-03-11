@@ -14,8 +14,23 @@ const escapeHtml = (v) => String(v)
   .replaceAll("'", '&#39;');
 
 
-const BULLYING_HELP_TEXT = '這些比例代表「在學校最近幾個月，至少遭受每月 2–3 次以上霸凌」的學生比例。數值越高，代表該群體回報受霸凌的比例越高。';
-const BULLYING_HELP_URL = 'https://statistikkportalen.udir.no/api/rapportering/rest/v1/Tekst/visTekst/167573?dataChanged=2026-03-09_083320';
+const HELP_CONTENT = {
+  bullying: {
+    title: '霸凌欄位說明',
+    text: '這些比例代表「在學校最近幾個月，至少遭受每月 2–3 次以上霸凌」的學生比例。數值越高，代表該群體回報受霸凌的比例越高。',
+    url: 'https://statistikkportalen.udir.no/api/rapportering/rest/v1/Tekst/visTekst/167573?dataChanged=2026-03-09_083320'
+  },
+  studentTrend: {
+    title: '學生與支援趨勢說明',
+    text: '此區塊呈現 2021-22 到 2025-26 的學生與支援人數趨勢，欄位採同指標跨年份由左至右比較。',
+    url: 'https://statistikkportalen.udir.no/api/rapportering/rest/v1/Tekst/visTekst/152310?dataChanged=2026-03-09_083320'
+  },
+  staffTrend: {
+    title: '教師與人力趨勢說明',
+    text: '此區塊呈現 2021-22 到 2025-26 的教師、人力與一般教學師生密度趨勢，協助觀察資源配置變化。',
+    url: 'https://statistikkportalen.udir.no/api/rapportering/rest/v1/Tekst/visTekst/152313?dataChanged=2026-03-09_083320'
+  }
+};
 
 function ensureHelpModal() {
   let modal = document.getElementById('help-modal');
@@ -25,13 +40,13 @@ function ensureHelpModal() {
   modal.className = 'help-modal hidden';
   modal.innerHTML = `
     <div class="help-modal-backdrop" data-close-help="1"></div>
-    <div class="help-modal-card" role="dialog" aria-modal="true" aria-label="霸凌欄位說明">
+    <div class="help-modal-card" role="dialog" aria-modal="true" aria-label="欄位說明">
       <div class="help-modal-header">
-        <h3>霸凌欄位說明</h3>
+        <h3 id="help-modal-title">欄位說明</h3>
         <button type="button" class="help-close" data-close-help="1">✕</button>
       </div>
       <p id="help-modal-text"></p>
-      <a href="${BULLYING_HELP_URL}" target="_blank" rel="noopener noreferrer">查看原始說明來源</a>
+      <a id="help-modal-link" href="#" target="_blank" rel="noopener noreferrer">查看原始說明來源</a>
     </div>
   `;
   document.body.appendChild(modal);
@@ -53,11 +68,16 @@ function typeText(el, text, speed = 18) {
   }, speed);
 }
 
-function openBullyingHelp() {
+function openHelp(topic) {
+  const cfg = HELP_CONTENT[topic];
+  if (!cfg) return;
   const modal = ensureHelpModal();
   const textEl = modal.querySelector('#help-modal-text');
+  modal.querySelector('#help-modal-title').textContent = cfg.title;
+  const linkEl = modal.querySelector('#help-modal-link');
+  linkEl.href = cfg.url;
   modal.classList.remove('hidden');
-  typeText(textEl, BULLYING_HELP_TEXT, 16);
+  typeText(textEl, cfg.text, 16);
 }
 
 const KEY_LABELS = {
@@ -225,7 +245,40 @@ function renderTrendSection(p) {
 
   return `
     <details class="detail-section" open>
-      <summary>學生與支援趨勢（2021-22 → 2025-26）</summary>
+      <summary>學生與支援趨勢（2021-22 → 2025-26） <button type="button" class="help-icon" id="student-trend-help-btn" aria-label="查看說明">?</button></summary>
+      <div class="trend-wrap">
+        <table class="trend-table">
+          <thead><tr><th>欄位</th>${years.map((y) => `<th>${y}</th>`).join('')}</tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
+    </details>
+  `;
+}
+
+function renderStaffTrendSection(p) {
+  const years = ['2021-22', '2022-23', '2023-24', '2024-25', '2025-26'];
+  const metrics = [
+    { pattern: 'Alle kjønn.Alle eierformer.Antall lærere', label: '教師數' },
+    { pattern: 'Alle kjønn.Alle eierformer.Antall lærerårsverk', label: '教師全職當量' },
+    { pattern: 'Alle kjønn.Alle eierformer.Antall lærerårsverk til undervisning', label: '教學教師全職當量' },
+    { pattern: 'Alle kjønn.Alle eierformer.Antall assistentårsverk i undervisningen', label: '教學助理全職當量' },
+    { pattern: 'Alle trinn.Alle eierformer.Lærertetthet i ordinær undervisning', label: '一般教學師生密度' },
+  ];
+
+  const rows = metrics.map((m) => {
+    const vals = years.map((y) => {
+      const key = `src__${y}.${m.pattern}`;
+      const value = format(p[key]);
+      const cls = isNumericLike(value) ? 'value-number' : '';
+      return `<td class="${cls}">${escapeHtml(value)}</td>`;
+    }).join('');
+    return `<tr><td>${escapeHtml(m.label)}</td>${vals}</tr>`;
+  }).join('');
+
+  return `
+    <details class="detail-section" open>
+      <summary>教師與人力趨勢（2021-22 → 2025-26） <button type="button" class="help-icon" id="staff-trend-help-btn" aria-label="查看說明">?</button></summary>
       <div class="trend-wrap">
         <table class="trend-table">
           <thead><tr><th>欄位</th>${years.map((y) => `<th>${y}</th>`).join('')}</tr></thead>
@@ -256,10 +309,11 @@ function renderDetail(p, benchmarks) {
   ]);
 
   const trendPrefixes = ['2021-22', '2022-23', '2023-24', '2024-25', '2025-26'];
-  const isTrendKey = (k) => trendPrefixes.some((y) => k.startsWith(`src__${y}.Alle trinn.Alle trinn.Alle kjønn.Alle eierformer.`));
+  const isStudentTrendKey = (k) => trendPrefixes.some((y) => k.startsWith(`src__${y}.Alle trinn.Alle trinn.Alle kjønn.Alle eierformer.`));
+  const isStaffTrendKey = (k) => trendPrefixes.some((y) => k.startsWith(`src__${y}.Alle kjønn.Alle eierformer.`) || k.startsWith(`src__${y}.Alle trinn.Alle eierformer.Lærertetthet i ordinær undervisning`));
 
   const basicSet = new Set(basicKeys);
-  const remainingKeys = allKeys.filter((k) => !compareKeys.has(k) && !basicSet.has(k) && !isTrendKey(k)).sort();
+  const remainingKeys = allKeys.filter((k) => !compareKeys.has(k) && !basicSet.has(k) && !isStudentTrendKey(k) && !isStaffTrendKey(k)).sort();
 
   const basicRows = buildRows(basicKeys, p);
   const remainingRows = buildRows(remainingKeys, p);
@@ -268,6 +322,7 @@ function renderDetail(p, benchmarks) {
   const compareSection = renderComparisonSection(p, benchmarks);
   if (compareSection) sections.push(compareSection);
   sections.push(renderTrendSection(p));
+  sections.push(renderStaffTrendSection(p));
 
   if (basicRows) {
     sections.push(`
@@ -292,7 +347,23 @@ function renderDetail(p, benchmarks) {
     helpBtn.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
-      openBullyingHelp();
+      openHelp('bullying');
+    });
+  }
+  const studentTrendHelpBtn = document.getElementById('student-trend-help-btn');
+  if (studentTrendHelpBtn) {
+    studentTrendHelpBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      openHelp('studentTrend');
+    });
+  }
+  const staffTrendHelpBtn = document.getElementById('staff-trend-help-btn');
+  if (staffTrendHelpBtn) {
+    staffTrendHelpBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      openHelp('staffTrend');
     });
   }
   panel.classList.remove('hidden');
