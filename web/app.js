@@ -143,7 +143,7 @@ function isNumericLike(value) {
   if (value === null || value === undefined) return false;
   const s = String(value).trim();
   if (!s || s === '—') return false;
-  return /^-?\d+(?:[\.,]\d+)?$/.test(s);
+  return /^-?(?:\d{1,3}(?:[\s\u00A0]\d{3})+|\d+)(?:[\.,]\d+)?$/.test(s);
 }
 
 function buildRows(keys, p) {
@@ -175,9 +175,7 @@ function renderComparisonSection(p, benchmarks) {
     'src__Alle spørsmøl',
     'src__Er du blitt mobbet av andre elever? skolen de siste månedene?',
     'src__Er du blitt mobbet av voksne? skolen de siste?nedene?',
-    'src__Er du blitt mobbet digitalt (mobil, iPad, PC) de siste m?nedene?',
-    'students_2025_26',
-    'teachers_2025_26',
+    'src__Er du blitt mobbet digitalt (mobil, iPad, PC) de siste m?nedene?'
   ];
 
   const rows = keys
@@ -197,7 +195,7 @@ function renderComparisonSection(p, benchmarks) {
   if (!rows) return '';
   return `
     <details class="detail-section" open>
-      <summary>比較參考（本校 vs Bergen 整體 vs Vestland 整體）</summary>
+      <summary>霸凌相關 <button type="button" class="help-icon" id="bully-help-btn" aria-label="查看說明">?</button></summary>
       <table class="compare-table">
         <thead><tr><th>欄位</th><th>本校</th><th>Bergen整體</th><th>Vestland整體</th></tr></thead>
         <tbody>${rows}</tbody>
@@ -206,16 +204,41 @@ function renderComparisonSection(p, benchmarks) {
   `;
 }
 
+function renderTrendSection(p) {
+  const years = ['2021-22', '2022-23', '2023-24', '2024-25', '2025-26'];
+  const metrics = [
+    { suffix: 'Antall elever', label: '學生數' },
+    { suffix: 'Antall elever med individuelt tilrettelagt opplæring/spesialundervisning', label: '特教/個別化學生數' },
+    { suffix: 'Antall elever med forsterket opplæring i norsk', label: '加強挪威語學生數' },
+    { suffix: 'Antall skoler', label: '學校數' },
+  ];
+
+  const rows = metrics.map((m) => {
+    const vals = years.map((y) => {
+      const key = `src__${y}.Alle trinn.Alle trinn.Alle kjønn.Alle eierformer.${m.suffix}`;
+      const value = format(p[key]);
+      const cls = isNumericLike(value) ? 'value-number' : '';
+      return `<td class="${cls}">${escapeHtml(value)}</td>`;
+    }).join('');
+    return `<tr><td>${escapeHtml(m.label)}</td>${vals}</tr>`;
+  }).join('');
+
+  return `
+    <details class="detail-section" open>
+      <summary>學生與支援趨勢（2021-22 → 2025-26）</summary>
+      <div class="trend-wrap">
+        <table class="trend-table">
+          <thead><tr><th>欄位</th>${years.map((y) => `<th>${y}</th>`).join('')}</tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
+    </details>
+  `;
+}
+
 function renderDetail(p, benchmarks) {
   const panel = document.getElementById('detail-panel');
   document.getElementById('detail-title').textContent = p.school_name || '學校資訊';
-
-  const bullyingKeys = [
-    'src__Alle spørsmøl',
-    'src__Er du blitt mobbet av andre elever? skolen de siste månedene?',
-    'src__Er du blitt mobbet av voksne? skolen de siste?nedene?',
-    'src__Er du blitt mobbet digitalt (mobil, iPad, PC) de siste m?nedene?'
-  ];
 
   const allKeys = Object.keys(p).filter((k) => !shouldHideKey(k));
   const basicKeys = [
@@ -225,26 +248,26 @@ function renderDetail(p, benchmarks) {
     'teacher_density_2025_26', 'geocoding_status'
   ].filter((k) => allKeys.includes(k));
 
-  const bullyingSet = new Set(bullyingKeys);
-  const basicSet = new Set(basicKeys);
-  const remainingKeys = allKeys.filter((k) => !bullyingSet.has(k) && !basicSet.has(k)).sort();
+  const compareKeys = new Set([
+    'src__Alle spørsmøl',
+    'src__Er du blitt mobbet av andre elever? skolen de siste månedene?',
+    'src__Er du blitt mobbet av voksne? skolen de siste?nedene?',
+    'src__Er du blitt mobbet digitalt (mobil, iPad, PC) de siste m?nedene?'
+  ]);
 
-  const bullyingRows = buildRows(bullyingKeys.filter((k) => allKeys.includes(k)), p);
+  const trendPrefixes = ['2021-22', '2022-23', '2023-24', '2024-25', '2025-26'];
+  const isTrendKey = (k) => trendPrefixes.some((y) => k.startsWith(`src__${y}.Alle trinn.Alle trinn.Alle kjønn.Alle eierformer.`));
+
+  const basicSet = new Set(basicKeys);
+  const remainingKeys = allKeys.filter((k) => !compareKeys.has(k) && !basicSet.has(k) && !isTrendKey(k)).sort();
+
   const basicRows = buildRows(basicKeys, p);
   const remainingRows = buildRows(remainingKeys, p);
 
   const sections = [];
-  if (bullyingRows) {
-    sections.push(`
-      <details class="detail-section" open>
-        <summary>霸凌相關 <button type="button" class="help-icon" id="bully-help-btn" aria-label="查看說明">?</button></summary>
-        <table>${bullyingRows}</table>
-      </details>
-    `);
-  }
-
   const compareSection = renderComparisonSection(p, benchmarks);
   if (compareSection) sections.push(compareSection);
+  sections.push(renderTrendSection(p));
 
   if (basicRows) {
     sections.push(`
