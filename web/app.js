@@ -39,6 +39,11 @@ const HELP_CONTENT = {
     title: '5年級國家測驗趨勢說明',
     text: '此區塊呈現 5 年級英語、閱讀、計算在 2022-23 到 2025-26 的量尺分數、不確定性、參與人數，並與 Bergen 整體平均比較。',
     url: 'https://statistikkportalen.udir.no/api/rapportering/rest/v1/Tekst/visTekst/19715?dataChanged=2026-03-09_083320'
+  },
+  grade8Trend: {
+    title: '8年級國家測驗趨勢說明',
+    text: '此區塊呈現 8 年級英語、閱讀、計算在 2022-23 到 2025-26 的量尺分數、不確定性、參與人數，並與 Bergen 整體平均比較。',
+    url: 'https://statistikkportalen.udir.no/api/rapportering/rest/v1/Tekst/visTekst/19714?dataChanged=2026-03-09_083320'
   }
 };
 
@@ -339,58 +344,40 @@ function renderStaffTrendSection(p) {
   `;
 }
 
-function renderExamTrendSection(p) {
+function renderExamTrendSection(p, benchmarks) {
+  const bergenAll = benchmarks.bergen_all;
+  if (!bergenAll) return '';
+
   const standYears = ['2021-22', '2022-23', '2023-24', '2024-25'];
   const grunnYears = ['2022-23', '2023-24', '2024-25'];
 
   const subjectCode = format(p['src__Vurderingsfagkode']);
   const subjectName = format(p['src__Vurderingsfagnavn']);
+  const bergenSubjectCode = format(bergenAll['src__Vurderingsfagkode']);
+  const bergenSubjectName = format(bergenAll['src__Vurderingsfagnavn']);
 
   const rows = [
-    {
-      label: 'Standpunkt 平均成績',
-      years: standYears,
-      key: (y) => `src__${y}.Standpunkt.Alle eierformer.Alle kjønn.Snittkarakter`,
-    },
-    {
-      label: 'Standpunkt 學生數',
-      years: standYears,
-      key: (y) => `src__${y}.Standpunkt.Alle eierformer.Alle kjønn.Antall elever`,
-    },
-    {
-      label: 'Grunnskolepoeng',
-      years: grunnYears,
-      key: (y) => `src__${y}.Alle eierformer.Alle kjønn.Grunnskolepoeng`,
-    },
-    {
-      label: 'Grunnskolepoeng 對應學生數',
-      years: grunnYears,
-      key: (y) => `src__${y}.Alle eierformer.Alle kjønn.Antall elever`,
-    },
-  ].map((r) => {
-    const values = r.years.map((y, idx) => {
-      const value = format(p[r.key(y)]);
-      const prev = idx > 0 ? format(p[r.key(r.years[idx - 1])]) : null;
-      return { value, prev };
-    });
-    return { ...r, values };
-  });
+    { label: 'Standpunkt 平均成績', years: standYears, key: (y) => `src__${y}.Standpunkt.Alle eierformer.Alle kjønn.Snittkarakter` },
+    { label: 'Standpunkt 學生數', years: standYears, key: (y) => `src__${y}.Standpunkt.Alle eierformer.Alle kjønn.Antall elever` },
+    { label: 'Grunnskolepoeng', years: grunnYears, key: (y) => `src__${y}.Alle eierformer.Alle kjønn.Grunnskolepoeng` },
+    { label: 'Grunnskolepoeng 對應學生數', years: grunnYears, key: (y) => `src__${y}.Alle eierformer.Alle kjønn.Antall elever` },
+  ];
 
   const allYears = ['2021-22', '2022-23', '2023-24', '2024-25'];
   const bodyRows = rows.map((r) => {
-    const mapByYear = new Map(r.years.map((y, i) => [y, r.values[i]]));
     const tds = allYears.map((y) => {
-      const item = mapByYear.get(y);
-      if (!item) return '<td><div class="value-main">—</div></td>';
-      return buildTrendCell(item.value, item.prev);
+      if (!r.years.includes(y)) return '<td><div class="value-main">—</div></td>';
+      const schoolValue = format(p[r.key(y)]);
+      const bergenValue = format(bergenAll[r.key(y)]);
+      return buildBenchmarkCompareCell(schoolValue, bergenValue);
     }).join('');
     return `<tr><td>${escapeHtml(r.label)}</td>${tds}</tr>`;
   }).join('');
 
   return `
     <details class="detail-section" open>
-      <summary>評量成績趨勢（ENG0029） <button type="button" class="help-icon" id="exam-trend-help-btn" aria-label="查看說明">?</button></summary>
-      <div class="subject-meta">科目代碼：${escapeHtml(subjectCode)}　｜　科目名稱：${escapeHtml(subjectName)}</div>
+      <summary>評量成績趨勢（ENG0029，本校 vs Bergen） <button type="button" class="help-icon" id="exam-trend-help-btn" aria-label="查看說明">?</button></summary>
+      <div class="subject-meta">本校：${escapeHtml(subjectCode)} / ${escapeHtml(subjectName)}　｜　Bergen：${escapeHtml(bergenSubjectCode)} / ${escapeHtml(bergenSubjectName)}</div>
       <div class="trend-wrap">
         <table class="trend-table">
           <thead><tr><th>欄位</th>${allYears.map((y) => `<th>${y}</th>`).join('')}</tr></thead>
@@ -443,6 +430,51 @@ function renderGrade5TrendSection(p, benchmarks) {
   `;
 }
 
+
+
+function renderGrade8TrendSection(p, benchmarks) {
+  const bergenAll = benchmarks.bergen_all;
+  if (!bergenAll) return '';
+
+  const years = ['2022-23', '2023-24', '2024-25', '2025-26'];
+  const subjects = [
+    { no: 'Engelsk', zh: '英語' },
+    { no: 'Lesing', zh: '閱讀' },
+    { no: 'Regning', zh: '計算' },
+  ];
+  const metrics = [
+    { no: 'Skalapoeng', zh: '量尺分數' },
+    { no: 'Usikkerhet', zh: '不確定性' },
+    { no: 'Antall elever deltatt', zh: '參與學生數' },
+  ];
+
+  const rows = [];
+  for (const sub of subjects) {
+    for (const m of metrics) {
+      const cells = years.map((y) => {
+        const key = `src__${y}.${sub.no}.8. årstrinn.Alle eierformer.Alle kjønn.${m.no}`;
+        const schoolValue = format(p[key]);
+        const bergenValue = format(bergenAll[key]);
+        return buildBenchmarkCompareCell(schoolValue, bergenValue);
+      }).join('');
+      rows.push(`<tr><td>${escapeHtml(sub.zh)}｜${escapeHtml(m.zh)}</td>${cells}</tr>`);
+    }
+  }
+
+  return `
+    <details class="detail-section" open>
+      <summary>8年級國家測驗趨勢（本校 vs Bergen） <button type="button" class="help-icon" id="grade8-trend-help-btn" aria-label="查看說明">?</button></summary>
+      <div class="trend-wrap">
+        <table class="trend-table">
+          <thead><tr><th>欄位</th>${years.map((y) => `<th>${y}</th>`).join('')}</tr></thead>
+          <tbody>${rows.join('')}</tbody>
+        </table>
+      </div>
+    </details>
+  `;
+}
+
+
 function renderDetail(p, benchmarks) {
   const panel = document.getElementById('detail-panel');
   document.getElementById('detail-title').textContent = p.school_name || '學校資訊';
@@ -475,9 +507,14 @@ function renderDetail(p, benchmarks) {
     k.startsWith(`src__${y}.Lesing.5. årstrinn.Alle eierformer.Alle kjønn.`) ||
     k.startsWith(`src__${y}.Regning.5. årstrinn.Alle eierformer.Alle kjønn.`)
   );
+  const isGrade8TrendKey = (k) => ['2022-23','2023-24','2024-25','2025-26'].some((y) =>
+    k.startsWith(`src__${y}.Engelsk.8. årstrinn.Alle eierformer.Alle kjønn.`) ||
+    k.startsWith(`src__${y}.Lesing.8. årstrinn.Alle eierformer.Alle kjønn.`) ||
+    k.startsWith(`src__${y}.Regning.8. årstrinn.Alle eierformer.Alle kjønn.`)
+  );
 
   const basicSet = new Set(basicKeys);
-  const remainingKeys = allKeys.filter((k) => !compareKeys.has(k) && !basicSet.has(k) && !isStudentTrendKey(k) && !isStaffTrendKey(k) && !isExamTrendKey(k) && !isGrade5TrendKey(k)).sort();
+  const remainingKeys = allKeys.filter((k) => !compareKeys.has(k) && !basicSet.has(k) && !isStudentTrendKey(k) && !isStaffTrendKey(k) && !isExamTrendKey(k) && !isGrade5TrendKey(k) && !isGrade8TrendKey(k)).sort();
 
   const basicRows = buildRows(basicKeys, p);
   const remainingRows = buildRows(remainingKeys, p);
@@ -487,8 +524,9 @@ function renderDetail(p, benchmarks) {
   if (compareSection) sections.push(compareSection);
   sections.push(renderTrendSection(p));
   sections.push(renderStaffTrendSection(p));
-  sections.push(renderExamTrendSection(p));
+  sections.push(renderExamTrendSection(p, benchmarks));
   sections.push(renderGrade5TrendSection(p, benchmarks));
+  sections.push(renderGrade8TrendSection(p, benchmarks));
 
   if (basicRows) {
     sections.push(`
@@ -546,6 +584,14 @@ function renderDetail(p, benchmarks) {
       e.preventDefault();
       e.stopPropagation();
       openHelp('grade5Trend');
+    });
+  }
+  const grade8TrendHelpBtn = document.getElementById('grade8-trend-help-btn');
+  if (grade8TrendHelpBtn) {
+    grade8TrendHelpBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      openHelp('grade8Trend');
     });
   }
   panel.classList.remove('hidden');
