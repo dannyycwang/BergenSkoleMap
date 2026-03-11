@@ -84,6 +84,29 @@ function radiusFromStudents(n, minStudents, maxStudents) {
   return Math.round((minR + Math.max(0, Math.min(1, ratio)) * (maxR - minR)) * 10) / 10;
 }
 
+function shouldHideKey(key) {
+  const lower = key.toLowerCase();
+  if (lower === 'address' || lower === 'postal_code' || lower === 'postal_city') return true;
+  if (lower === 'src__enhetnavn' || lower === 'src__enhetnavn3') return true;
+  if (lower.startsWith('src__address') || lower.startsWith('src__adresse')) return true;
+  if (lower.includes('postnummer') || lower.includes('poststed')) return true;
+  return false;
+}
+
+function buildRows(keys, p) {
+  const seen = new Set();
+  const rows = [];
+  for (const k of keys) {
+    const label = k.startsWith('src__') ? translateSourceHeader(k.slice(5)) : (KEY_LABELS[k] || k);
+    const value = format(p[k]);
+    const dedupeKey = `${label}::${value}`;
+    if (seen.has(dedupeKey)) continue;
+    seen.add(dedupeKey);
+    rows.push(`<tr><td>${escapeHtml(label)}</td><td>${escapeHtml(value)}</td></tr>`);
+  }
+  return rows.join('');
+}
+
 function renderDetail(p) {
   const panel = document.getElementById('detail-panel');
   document.getElementById('detail-title').textContent = p.school_name || '學校資訊';
@@ -95,32 +118,21 @@ function renderDetail(p) {
     'src__Er du blitt mobbet digitalt (mobil, iPad, PC) de siste m?nedene?'
   ];
 
-  const hiddenKeys = new Set([
-    'address', 'postal_code', 'postal_city', 'src__Address',
-    'src__EnhetNavn', 'src__EnhetNavn3',
-  ]);
-
-  const allKeys = Object.keys(p).filter((k) => !hiddenKeys.has(k));
+  const allKeys = Object.keys(p).filter((k) => !shouldHideKey(k));
   const basicKeys = [
     'school_name', 'organization_number', 'municipality', 'county',
     'students_2025_26', 'special_education_2025_26',
     'enhanced_norwegian_2025_26', 'teachers_2025_26',
-    'teacher_density_2025_26', 'geocoding_status', 'geocoded_address', 'geocoding_query'
+    'teacher_density_2025_26', 'geocoding_status'
   ].filter((k) => allKeys.includes(k));
 
   const bullyingSet = new Set(bullyingKeys);
   const basicSet = new Set(basicKeys);
   const remainingKeys = allKeys.filter((k) => !bullyingSet.has(k) && !basicSet.has(k)).sort();
 
-  const toRows = (keys) => keys.map((k) => {
-    const label = k.startsWith('src__') ? translateSourceHeader(k.slice(5)) : (KEY_LABELS[k] || k);
-    const value = p[k];
-    return `<tr><td>${escapeHtml(label)}</td><td>${escapeHtml(format(value))}</td></tr>`;
-  }).join('');
-
-  const bullyingRows = toRows(bullyingKeys.filter((k) => allKeys.includes(k)));
-  const basicRows = toRows(basicKeys);
-  const remainingRows = toRows(remainingKeys);
+  const bullyingRows = buildRows(bullyingKeys.filter((k) => allKeys.includes(k)), p);
+  const basicRows = buildRows(basicKeys, p);
+  const remainingRows = buildRows(remainingKeys, p);
 
   const sections = [];
   if (bullyingRows) {
@@ -148,7 +160,7 @@ function renderDetail(p) {
     `);
   }
 
-  document.getElementById('detail-content').innerHTML = sections.join('');
+  document.getElementById('detail-content').innerHTML = sections.join('') || '<p>此學校目前沒有可顯示資料。</p>';
   panel.classList.remove('hidden');
 }
 
