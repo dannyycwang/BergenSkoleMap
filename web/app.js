@@ -13,6 +13,53 @@ const escapeHtml = (v) => String(v)
   .replaceAll('"', '&quot;')
   .replaceAll("'", '&#39;');
 
+
+const BULLYING_HELP_TEXT = '這些比例代表「在學校最近幾個月，至少遭受每月 2–3 次以上霸凌」的學生比例。數值越高，代表該群體回報受霸凌的比例越高。';
+const BULLYING_HELP_URL = 'https://statistikkportalen.udir.no/api/rapportering/rest/v1/Tekst/visTekst/167573?dataChanged=2026-03-09_083320';
+
+function ensureHelpModal() {
+  let modal = document.getElementById('help-modal');
+  if (modal) return modal;
+  modal = document.createElement('div');
+  modal.id = 'help-modal';
+  modal.className = 'help-modal hidden';
+  modal.innerHTML = `
+    <div class="help-modal-backdrop" data-close-help="1"></div>
+    <div class="help-modal-card" role="dialog" aria-modal="true" aria-label="霸凌欄位說明">
+      <div class="help-modal-header">
+        <h3>霸凌欄位說明</h3>
+        <button type="button" class="help-close" data-close-help="1">✕</button>
+      </div>
+      <p id="help-modal-text"></p>
+      <a href="${BULLYING_HELP_URL}" target="_blank" rel="noopener noreferrer">查看原始說明來源</a>
+    </div>
+  `;
+  document.body.appendChild(modal);
+  modal.addEventListener('click', (e) => {
+    if (e.target && e.target.dataset && e.target.dataset.closeHelp === '1') {
+      modal.classList.add('hidden');
+    }
+  });
+  return modal;
+}
+
+function typeText(el, text, speed = 18) {
+  el.textContent = '';
+  let i = 0;
+  const timer = setInterval(() => {
+    i += 1;
+    el.textContent = text.slice(0, i);
+    if (i >= text.length) clearInterval(timer);
+  }, speed);
+}
+
+function openBullyingHelp() {
+  const modal = ensureHelpModal();
+  const textEl = modal.querySelector('#help-modal-text');
+  modal.classList.remove('hidden');
+  typeText(textEl, BULLYING_HELP_TEXT, 16);
+}
+
 const KEY_LABELS = {
   school_name: '學校名稱',
   organization_number: '組織編號',
@@ -190,7 +237,7 @@ function renderDetail(p, benchmarks) {
   if (bullyingRows) {
     sections.push(`
       <details class="detail-section" open>
-        <summary>霸凌相關</summary>
+        <summary>霸凌相關 <button type="button" class="help-icon" id="bully-help-btn" aria-label="查看說明">?</button></summary>
         <table>${bullyingRows}</table>
       </details>
     `);
@@ -217,6 +264,14 @@ function renderDetail(p, benchmarks) {
   }
 
   document.getElementById('detail-content').innerHTML = sections.join('') || '<p>此學校目前沒有可顯示資料。</p>';
+  const helpBtn = document.getElementById('bully-help-btn');
+  if (helpBtn) {
+    helpBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      openBullyingHelp();
+    });
+  }
   panel.classList.remove('hidden');
 }
 
