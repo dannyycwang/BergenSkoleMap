@@ -216,6 +216,23 @@ function buildTrendCell(value, prevValue) {
   return `<td class="${cls}"><div class="value-main">${escapeHtml(value)}</div>${deltaHtml}</td>`;
 }
 
+function normalizeAbsenceMedianValue(raw) {
+  if (!isNumericLike(raw)) return raw;
+  const n = parseNumeric(raw);
+  if (n === null) return raw;
+  if (n >= 20) return (n / 10).toFixed(1).replace(/\.0$/, '');
+  return String(raw);
+}
+
+function getFirstPresentValue(obj, keys) {
+  for (const key of keys) {
+    if (Object.prototype.hasOwnProperty.call(obj, key) && obj[key] !== null && obj[key] !== undefined && obj[key] !== '') {
+      return obj[key];
+    }
+  }
+  return null;
+}
+
 
 function buildBenchmarkCompareCell(schoolValue, bergenValue) {
   const cls = isNumericLike(schoolValue) ? 'value-number' : '';
@@ -490,10 +507,20 @@ function renderAbsenceTrendSection(p) {
 
   const rows = metrics.map((m) => {
     const vals = years.map((y, idx) => {
-      const key = `src__${y}.Alle eierformer.Alle kj?nn.${m.suffix}`;
-      const value = format(p[key]);
-      const prevKey = idx > 0 ? `src__${years[idx - 1]}.Alle eierformer.Alle kj?nn.${m.suffix}` : null;
-      const prevValue = prevKey ? format(p[prevKey]) : null;
+      const keys = [
+        `src__${y}.Alle eierformer.Alle kj?nn.${m.suffix}`,
+        `src__${y}.Alle eierformer.Alle kjønn.${m.suffix}`,
+      ];
+      const rawValue = getFirstPresentValue(p, keys);
+      const value = m.suffix.startsWith('Median') ? format(normalizeAbsenceMedianValue(rawValue)) : format(rawValue);
+
+      const prevRawValue = idx > 0
+        ? getFirstPresentValue(p, [
+          `src__${years[idx - 1]}.Alle eierformer.Alle kj?nn.${m.suffix}`,
+          `src__${years[idx - 1]}.Alle eierformer.Alle kjønn.${m.suffix}`,
+        ])
+        : null;
+      const prevValue = m.suffix.startsWith('Median') ? format(normalizeAbsenceMedianValue(prevRawValue)) : format(prevRawValue);
       return buildTrendCell(value, prevValue);
     }).join('');
     return `<tr><td>${escapeHtml(m.label)}</td>${vals}</tr>`;
@@ -789,7 +816,7 @@ Promise.all([loadSchoolGeoJson(), loadSchoolRows(), loadBenchmarks()]).then(([fc
       markerEntries.push({ marker, feature: f });
 
       const li = document.createElement('li');
-      li.textContent = `${p.school_name}（學生 ${format(p.students_2025_26)} / 點 ${baseRadius}）`;
+      li.textContent = `${p.school_name}`;
       li.onclick = () => {
         map.flyTo([lat, lon], 14, { duration: 0.6 });
         renderDetail(p, benchmarks || {});
