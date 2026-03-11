@@ -44,6 +44,11 @@ const HELP_CONTENT = {
     title: '8年級國家測驗趨勢說明',
     text: '此區塊呈現 8 年級英語、閱讀、計算在 2022-23 到 2025-26 的量尺分數、不確定性、參與人數，並與 Bergen 整體平均比較。',
     url: 'https://statistikkportalen.udir.no/api/rapportering/rest/v1/Tekst/visTekst/19714?dataChanged=2026-03-09_083320'
+  },
+  absenceTrend: {
+    title: '缺課趨勢說明',
+    text: '此區塊呈現 2020-21 到 2024-25 的缺課中位數天數、中位數時數與對應學生數，可用來觀察近年缺課趨勢。',
+    url: 'https://statistikkportalen.udir.no/api/rapportering/rest/v1/Tekst/visTekst/137364?dataChanged=2026-03-09_083320'
   }
 };
 
@@ -475,6 +480,39 @@ function renderGrade8TrendSection(p, benchmarks) {
 }
 
 
+function renderAbsenceTrendSection(p) {
+  const years = ['2020-21', '2021-22', '2022-23', '2023-24', '2024-25'];
+  const metrics = [
+    { suffix: 'Median dager', label: '缺課中位天數' },
+    { suffix: 'Median timer', label: '缺課中位時數' },
+    { suffix: 'Antall elever', label: '對應學生數' },
+  ];
+
+  const rows = metrics.map((m) => {
+    const vals = years.map((y, idx) => {
+      const key = `src__${y}.Alle eierformer.Alle kj?nn.${m.suffix}`;
+      const value = format(p[key]);
+      const prevKey = idx > 0 ? `src__${years[idx - 1]}.Alle eierformer.Alle kj?nn.${m.suffix}` : null;
+      const prevValue = prevKey ? format(p[prevKey]) : null;
+      return buildTrendCell(value, prevValue);
+    }).join('');
+    return `<tr><td>${escapeHtml(m.label)}</td>${vals}</tr>`;
+  }).join('');
+
+  return `
+    <details class="detail-section" open>
+      <summary>缺課趨勢（2020-21 → 2024-25） <button type="button" class="help-icon" id="absence-trend-help-btn" aria-label="查看說明">?</button></summary>
+      <div class="trend-wrap">
+        <table class="trend-table">
+          <thead><tr><th>欄位</th>${years.map((y) => `<th>${y}</th>`).join('')}</tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
+    </details>
+  `;
+}
+
+
 function renderDetail(p, benchmarks) {
   const panel = document.getElementById('detail-panel');
   document.getElementById('detail-title').textContent = p.school_name || '學校資訊';
@@ -512,9 +550,14 @@ function renderDetail(p, benchmarks) {
     k.startsWith(`src__${y}.Lesing.8. årstrinn.Alle eierformer.Alle kjønn.`) ||
     k.startsWith(`src__${y}.Regning.8. årstrinn.Alle eierformer.Alle kjønn.`)
   );
+  const isAbsenceTrendKey = (k) => ['2020-21', '2021-22', '2022-23', '2023-24', '2024-25'].some((y) =>
+    k.startsWith(`src__${y}.Alle eierformer.Alle kj?nn.Median dager`) ||
+    k.startsWith(`src__${y}.Alle eierformer.Alle kj?nn.Median timer`) ||
+    k.startsWith(`src__${y}.Alle eierformer.Alle kj?nn.Antall elever`)
+  );
 
   const basicSet = new Set(basicKeys);
-  const remainingKeys = allKeys.filter((k) => !compareKeys.has(k) && !basicSet.has(k) && !isStudentTrendKey(k) && !isStaffTrendKey(k) && !isExamTrendKey(k) && !isGrade5TrendKey(k) && !isGrade8TrendKey(k)).sort();
+  const remainingKeys = allKeys.filter((k) => !compareKeys.has(k) && !basicSet.has(k) && !isStudentTrendKey(k) && !isStaffTrendKey(k) && !isExamTrendKey(k) && !isGrade5TrendKey(k) && !isGrade8TrendKey(k) && !isAbsenceTrendKey(k)).sort();
 
   const basicRows = buildRows(basicKeys, p);
   const remainingRows = buildRows(remainingKeys, p);
@@ -527,6 +570,7 @@ function renderDetail(p, benchmarks) {
   sections.push(renderExamTrendSection(p, benchmarks));
   sections.push(renderGrade5TrendSection(p, benchmarks));
   sections.push(renderGrade8TrendSection(p, benchmarks));
+  sections.push(renderAbsenceTrendSection(p));
 
   if (basicRows) {
     sections.push(`
@@ -592,6 +636,14 @@ function renderDetail(p, benchmarks) {
       e.preventDefault();
       e.stopPropagation();
       openHelp('grade8Trend');
+    });
+  }
+  const absenceTrendHelpBtn = document.getElementById('absence-trend-help-btn');
+  if (absenceTrendHelpBtn) {
+    absenceTrendHelpBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      openHelp('absenceTrend');
     });
   }
   panel.classList.remove('hidden');
