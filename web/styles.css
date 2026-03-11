@@ -30,5 +30,11 @@ main { display: grid; grid-template-columns: 320px 1fr 360px; height: calc(100vh
 
 .detail-content td:last-child { word-break: break-word; }
 
-.detail-section { margin-bottom: 14px; }
-.detail-section h3 { margin: 0 0 8px; font-size: 0.92rem; color: #1f5f9c; background:#eef7ff; border:1px solid #cfe6ff; border-radius:8px; padding:6px 8px; }
+
+.detail-section { margin-bottom: 14px; border:1px solid #e3edf8; border-radius:8px; background:#fff; }
+.detail-section summary { list-style:none; cursor:pointer; margin:0; font-size:0.92rem; color:#1f5f9c; background:#eef7ff; border-bottom:1px solid #cfe6ff; border-radius:8px 8px 0 0; padding:6px 8px; font-weight:600; }
+.detail-section[open] summary { border-bottom:1px solid #dbe7f5; }
+.detail-section table { margin-top: 0; }
+.detail-content td.value-number { text-align: center; font-weight: 700; color: #0f2d52; }
+.compare-table th { text-align:left; padding:7px 0; border-bottom:1px solid #dfe9f5; color:#486581; }
+.compare-table th:not(:first-child), .compare-table td:not(:first-child) { text-align:center; }

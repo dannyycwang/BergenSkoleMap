@@ -44,6 +44,7 @@ python scripts/prepare_data.py
 - `data/bergen_primary_schools_cleaned.csv`
 - `data/bergen_primary_schools.json`
 - `data/bergen_primary_schools.geojson`
+- `data/benchmarks.json`（Bergen / Vestland 整體比較基準）
 
 ### 2) 只做 geocode
 ```bash

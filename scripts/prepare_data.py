@@ -12,6 +12,7 @@ INPUT_XLSX_CANDIDATES = [
 OUTPUT_JSON = ROOT / 'data' / 'bergen_primary_schools.json'
 OUTPUT_GEOJSON = ROOT / 'data' / 'bergen_primary_schools.geojson'
 OUTPUT_CSV = ROOT / 'data' / 'bergen_primary_schools_cleaned.csv'
+OUTPUT_BENCHMARKS = ROOT / 'data' / 'benchmarks.json'
 NS = {
     'a': 'http://schemas.openxmlformats.org/spreadsheetml/2006/main',
     'r': 'http://schemas.openxmlformats.org/officeDocument/2006/relationships',
@@ -116,6 +117,26 @@ def first_non_empty(row: dict, columns: list[str]):
     return None
 
 
+
+def build_source_row(r: dict):
+    return {f'src__{k}': ((v or '').strip() or None) for k, v in r.items()}
+
+
+def build_benchmark_row(r: dict):
+    row = {
+        'school_name': (r.get('EnhetNavn3') or r.get('EnhetNavn') or '').strip() or 'Alle skoler',
+        'municipality': (r.get('Kommune') or '').strip() or None,
+        'county': (r.get('Fylke') or '').strip() or None,
+        'mobbing_by_students_pct': nfloat(r.get('Er du blitt mobbet av andre elever? skolen de siste månedene?')),
+        'mobbing_by_adults_pct': nfloat(r.get('Er du blitt mobbet av voksne? skolen de siste?nedene?')),
+        'mobbing_digital_pct': nfloat(r.get('Er du blitt mobbet digitalt (mobil, iPad, PC) de siste m?nedene?')),
+        'students_2025_26': nint(r.get(find_col(list(r.keys()), 'Antall elever', '2025-26'))),
+        'teachers_2025_26': nint(r.get(find_col(list(r.keys()), 'Antall lærere', '2025-26'))),
+        'geocoding_status': 'benchmark_reference',
+    }
+    row.update(build_source_row(r))
+    return row
+
 def main():
     input_file = pick_input_file()
     records, source_sheet = parse_xlsx(input_file)
@@ -133,6 +154,17 @@ def main():
     postal_code_candidates = find_cols_by_any_keywords(headers, ['postnummer', 'postnr', 'postal code', '郵遞區號'])
     city_candidates = find_cols_by_any_keywords(headers, ['poststed', 'postal city', 'city', '城市'])
 
+    benchmarks = {}
+    for r in records:
+        kommune = (r.get('Kommune') or '').strip()
+        fylke = (r.get('Fylke') or '').strip()
+        enhet3 = (r.get('EnhetNavn3') or '').strip()
+        enhet = (r.get('EnhetNavn') or '').strip()
+        if fylke == 'Vestland' and kommune == 'Alle kommuner' and enhet3 == 'Alle skoler' and enhet == 'Alle skoler':
+            benchmarks['vestland_all'] = build_benchmark_row(r)
+        if fylke == 'Vestland' and kommune == 'Bergen' and enhet3 == 'Alle skoler' and enhet == 'Alle skoler':
+            benchmarks['bergen_all'] = build_benchmark_row(r)
+
     cleaned = []
     for r in records:
         if r.get('Kommune') != 'Bergen':
@@ -145,7 +177,7 @@ def main():
         postal_code = first_non_empty(r, postal_code_candidates)
         postal_city = first_non_empty(r, city_candidates)
 
-        source_cols = {f'src__{k}': ((v or '').strip() or None) for k, v in r.items()}
+        source_cols = build_source_row(r)
         cleaned.append({
             'school_name': school,
             'organization_number': (r.get('Organisasjonsnummer') or '').strip() or None,
@@ -185,6 +217,8 @@ def main():
         ]
     }
     OUTPUT_GEOJSON.write_text(json.dumps(geojson, ensure_ascii=False, indent=2), encoding='utf-8')
+
+    OUTPUT_BENCHMARKS.write_text(json.dumps(benchmarks, ensure_ascii=False, indent=2), encoding='utf-8')
 
     with OUTPUT_CSV.open('w', newline='', encoding='utf-8') as f:
         w = csv.DictWriter(f, fieldnames=list(cleaned[0].keys()))
