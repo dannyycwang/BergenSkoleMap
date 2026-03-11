@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import csv, hashlib, json
+import csv, json
 import xml.etree.ElementTree as ET
 import zipfile
 from pathlib import Path
@@ -12,6 +12,7 @@ INPUT_XLSX_CANDIDATES = [
 OUTPUT_JSON = ROOT / 'data' / 'bergen_primary_schools.json'
 OUTPUT_GEOJSON = ROOT / 'data' / 'bergen_primary_schools.geojson'
 OUTPUT_CSV = ROOT / 'data' / 'bergen_primary_schools_cleaned.csv'
+OUTPUT_BENCHMARKS = ROOT / 'data' / 'benchmarks.json'
 NS = {
     'a': 'http://schemas.openxmlformats.org/spreadsheetml/2006/main',
     'r': 'http://schemas.openxmlformats.org/officeDocument/2006/relationships',
@@ -99,26 +100,42 @@ def find_col(headers, include, year=None):
             return h
 
 
-def find_col_by_any_keywords(headers, keywords):
+def find_cols_by_any_keywords(headers, keywords):
     lowered = [(h, h.lower()) for h in headers]
+    out = []
     for h, low in lowered:
         if any(k in low for k in keywords):
-            return h
+            out.append(h)
+    return out
+
+
+def first_non_empty(row: dict, columns: list[str]):
+    for col in columns:
+        v = (row.get(col) or '').strip()
+        if v:
+            return v
     return None
 
 
-def approximate_bergen_coordinate(name: str):
-    center_lat, center_lon = 60.39299, 5.32415
-    digest = hashlib.sha1(name.encode('utf-8')).hexdigest()
-    a = int(digest[:8], 16)
-    b = int(digest[8:16], 16)
-    radius = 0.03 + (a % 1000) / 1000 * 0.09
-    angle = (b % 36000) / 100.0
-    import math
-    dlat = radius * math.sin(math.radians(angle))
-    dlon = radius * math.cos(math.radians(angle)) / math.cos(math.radians(center_lat))
-    return center_lat + dlat, center_lon + dlon
 
+def build_source_row(r: dict):
+    return {f'src__{k}': ((v or '').strip() or None) for k, v in r.items()}
+
+
+def build_benchmark_row(r: dict):
+    row = {
+        'school_name': (r.get('EnhetNavn3') or r.get('EnhetNavn') or '').strip() or 'Alle skoler',
+        'municipality': (r.get('Kommune') or '').strip() or None,
+        'county': (r.get('Fylke') or '').strip() or None,
+        'mobbing_by_students_pct': nfloat(r.get('Er du blitt mobbet av andre elever? skolen de siste månedene?')),
+        'mobbing_by_adults_pct': nfloat(r.get('Er du blitt mobbet av voksne? skolen de siste?nedene?')),
+        'mobbing_digital_pct': nfloat(r.get('Er du blitt mobbet digitalt (mobil, iPad, PC) de siste m?nedene?')),
+        'students_2025_26': nint(r.get(find_col(list(r.keys()), 'Antall elever', '2025-26'))),
+        'teachers_2025_26': nint(r.get(find_col(list(r.keys()), 'Antall lærere', '2025-26'))),
+        'geocoding_status': 'benchmark_reference',
+    }
+    row.update(build_source_row(r))
+    return row
 
 def main():
     input_file = pick_input_file()
@@ -131,23 +148,36 @@ def main():
     col_teachers = find_col(headers, 'Antall lærere', '2025-26')
     col_density = find_col(headers, 'Lærertetthet i ordinær undervisning', '2025-26')
 
-    col_address = find_col_by_any_keywords(headers, ['adresse', 'address', '地址'])
-    col_postal_code = find_col_by_any_keywords(headers, ['postnummer', 'postnr', 'postal code', '郵遞區號'])
-    col_city = find_col_by_any_keywords(headers, ['poststed', 'postal city', 'city', '城市'])
+    col_school_name = 'EnhetNavn3' if 'EnhetNavn3' in headers else 'EnhetNavn'
+    address_candidates = [h for h in headers if h.lower() == 'address']
+    address_candidates += [h for h in find_cols_by_any_keywords(headers, ['adresse', 'address', '地址']) if h not in address_candidates]
+    postal_code_candidates = find_cols_by_any_keywords(headers, ['postnummer', 'postnr', 'postal code', '郵遞區號'])
+    city_candidates = find_cols_by_any_keywords(headers, ['poststed', 'postal city', 'city', '城市'])
+
+    benchmarks = {}
+    for r in records:
+        kommune = (r.get('Kommune') or '').strip()
+        fylke = (r.get('Fylke') or '').strip()
+        enhet3 = (r.get('EnhetNavn3') or '').strip()
+        enhet = (r.get('EnhetNavn') or '').strip()
+        if fylke == 'Vestland' and kommune == 'Alle kommuner' and enhet3 == 'Alle skoler' and enhet == 'Alle skoler':
+            benchmarks['vestland_all'] = build_benchmark_row(r)
+        if fylke == 'Vestland' and kommune == 'Bergen' and enhet3 == 'Alle skoler' and enhet == 'Alle skoler':
+            benchmarks['bergen_all'] = build_benchmark_row(r)
 
     cleaned = []
     for r in records:
         if r.get('Kommune') != 'Bergen':
             continue
-        school = (r.get('EnhetNavn') or '').strip()
+        school = (r.get(col_school_name) or '').strip()
         if not school or school.lower() == 'alle skoler':
             continue
 
-        lat, lon = approximate_bergen_coordinate(school)
-        address = (r.get(col_address, '') if col_address else '').strip() or None
-        postal_code = (r.get(col_postal_code, '') if col_postal_code else '').strip() or None
-        postal_city = (r.get(col_city, '') if col_city else '').strip() or None
+        address = first_non_empty(r, address_candidates)
+        postal_code = first_non_empty(r, postal_code_candidates)
+        postal_city = first_non_empty(r, city_candidates)
 
+        source_cols = build_source_row(r)
         cleaned.append({
             'school_name': school,
             'organization_number': (r.get('Organisasjonsnummer') or '').strip() or None,
@@ -164,10 +194,11 @@ def main():
             'enhanced_norwegian_2025_26': nint(r.get(col_nor)),
             'teachers_2025_26': nint(r.get(col_teachers)),
             'teacher_density_2025_26': nfloat(r.get(col_density)),
-            'latitude': lat,
-            'longitude': lon,
+            'latitude': None,
+            'longitude': None,
             'geocoded_address': None,
-            'geocoding_status': 'approximate_from_name_hash'
+            'geocoding_status': 'pending_geocode',
+            **source_cols,
         })
 
     unique = {r['school_name']: r for r in cleaned}
@@ -187,6 +218,8 @@ def main():
     }
     OUTPUT_GEOJSON.write_text(json.dumps(geojson, ensure_ascii=False, indent=2), encoding='utf-8')
 
+    OUTPUT_BENCHMARKS.write_text(json.dumps(benchmarks, ensure_ascii=False, indent=2), encoding='utf-8')
+
     with OUTPUT_CSV.open('w', newline='', encoding='utf-8') as f:
         w = csv.DictWriter(f, fieldnames=list(cleaned[0].keys()))
         w.writeheader()
@@ -195,7 +228,8 @@ def main():
     print(
         f'Saved {len(cleaned)} schools. '
         f'input={input_file.name} sheet={source_sheet} '
-        f'address_col={col_address} postal_col={col_postal_code} city_col={col_city}'
+        f'school_col={col_school_name} '
+        f'address_cols={address_candidates} postal_cols={postal_code_candidates} city_cols={city_candidates}'
     )
 
 
