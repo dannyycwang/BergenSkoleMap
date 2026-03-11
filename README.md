@@ -56,6 +56,15 @@ python scripts/geocode_schools.py
 
 ---
 
+
+### 3) 合併衝突排查（資料檔 diff 很大時）
+```bash
+./scripts/rebuild_map_data.sh
+```
+建議在同一個 Python 版本下重建一次 `data/*`，可減少 `geojson/json` 的排序或格式差異造成的 merge 衝突。
+
+---
+
 ## 目前前端效果
 - Marker 同色呈現，大小依學生數縮放
 - 可搜尋學校名稱、依學生數滑桿篩選
