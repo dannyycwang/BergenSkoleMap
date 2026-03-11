@@ -216,11 +216,11 @@ function buildTrendCell(value, prevValue) {
   return `<td class="${cls}"><div class="value-main">${escapeHtml(value)}</div>${deltaHtml}</td>`;
 }
 
-function normalizeAbsenceMedianValue(raw) {
+function normalizeAbsenceValueByScale(raw, scaleByTen) {
   if (!isNumericLike(raw)) return raw;
   const n = parseNumeric(raw);
   if (n === null) return raw;
-  if (n >= 20) return (n / 10).toFixed(1).replace(/\.0$/, '');
+  if (scaleByTen) return (n / 10).toFixed(1).replace(/\.0$/, '');
   return String(raw);
 }
 
@@ -500,10 +500,25 @@ function renderGrade8TrendSection(p, benchmarks) {
 function renderAbsenceTrendSection(p) {
   const years = ['2020-21', '2021-22', '2022-23', '2023-24', '2024-25'];
   const metrics = [
-    { suffix: 'Median dager', label: '缺課中位天數' },
-    { suffix: 'Median timer', label: '缺課中位時數' },
+    { suffix: 'Median dager', label: '缺課中位天數（天）' },
+    { suffix: 'Median timer', label: '缺課中位時數（小時）' },
     { suffix: 'Antall elever', label: '對應學生數' },
   ];
+
+  const yearScaleMap = Object.fromEntries(years.map((y) => {
+    const rawDays = getFirstPresentValue(p, [
+      `src__${y}.Alle eierformer.Alle kj?nn.Median dager`,
+      `src__${y}.Alle eierformer.Alle kjønn.Median dager`,
+    ]);
+    const rawHours = getFirstPresentValue(p, [
+      `src__${y}.Alle eierformer.Alle kj?nn.Median timer`,
+      `src__${y}.Alle eierformer.Alle kjønn.Median timer`,
+    ]);
+    const days = parseNumeric(rawDays);
+    const hours = parseNumeric(rawHours);
+    const scaled = (days !== null && days >= 40) || (hours !== null && hours >= 80);
+    return [y, scaled];
+  }));
 
   const rows = metrics.map((m) => {
     const vals = years.map((y, idx) => {
@@ -512,7 +527,9 @@ function renderAbsenceTrendSection(p) {
         `src__${y}.Alle eierformer.Alle kjønn.${m.suffix}`,
       ];
       const rawValue = getFirstPresentValue(p, keys);
-      const value = m.suffix.startsWith('Median') ? format(normalizeAbsenceMedianValue(rawValue)) : format(rawValue);
+      const value = m.suffix.startsWith('Median')
+        ? format(normalizeAbsenceValueByScale(rawValue, yearScaleMap[y]))
+        : format(rawValue);
 
       const prevRawValue = idx > 0
         ? getFirstPresentValue(p, [
@@ -520,7 +537,10 @@ function renderAbsenceTrendSection(p) {
           `src__${years[idx - 1]}.Alle eierformer.Alle kjønn.${m.suffix}`,
         ])
         : null;
-      const prevValue = m.suffix.startsWith('Median') ? format(normalizeAbsenceMedianValue(prevRawValue)) : format(prevRawValue);
+      const prevScale = idx > 0 ? yearScaleMap[years[idx - 1]] : false;
+      const prevValue = m.suffix.startsWith('Median')
+        ? format(normalizeAbsenceValueByScale(prevRawValue, prevScale))
+        : format(prevRawValue);
       return buildTrendCell(value, prevValue);
     }).join('');
     return `<tr><td>${escapeHtml(m.label)}</td>${vals}</tr>`;
