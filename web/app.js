@@ -34,6 +34,11 @@ const HELP_CONTENT = {
     title: '評量成績趨勢說明',
     text: '此區塊呈現科目評量的年度趨勢，包括學期成績、對應學生數，以及 grunnskolepoeng 指標。',
     url: 'https://statistikkportalen.udir.no/api/rapportering/rest/v1/Tekst/visTekst/1?dataChanged=2026-03-09_083320'
+  },
+  grade5Trend: {
+    title: '5年級國家測驗趨勢說明',
+    text: '此區塊呈現 5 年級英語、閱讀、計算在 2022-23 到 2025-26 的量尺分數、不確定性、參與人數，並與 Bergen 整體平均比較。',
+    url: 'https://statistikkportalen.udir.no/api/rapportering/rest/v1/Tekst/visTekst/19715?dataChanged=2026-03-09_083320'
   }
 };
 
@@ -199,6 +204,14 @@ function buildTrendCell(value, prevValue) {
   const delta = formatDelta(value, prevValue);
   const deltaHtml = delta ? `<div class="value-delta ${delta.cls}">${delta.arrow} ${escapeHtml(delta.text)}</div>` : '';
   return `<td class="${cls}"><div class="value-main">${escapeHtml(value)}</div>${deltaHtml}</td>`;
+}
+
+
+function buildBenchmarkCompareCell(schoolValue, bergenValue) {
+  const cls = isNumericLike(schoolValue) ? 'value-number' : '';
+  const delta = formatDelta(schoolValue, bergenValue);
+  const deltaHtml = delta ? `<div class="value-delta ${delta.cls}">${delta.arrow} ${escapeHtml(delta.text)}</div>` : '';
+  return `<td class="${cls}"><div class="value-main">${escapeHtml(schoolValue)}</div><div class="value-sub">Bergen: ${escapeHtml(bergenValue)}</div>${deltaHtml}</td>`;
 }
 
 function buildRows(keys, p) {
@@ -388,6 +401,48 @@ function renderExamTrendSection(p) {
   `;
 }
 
+function renderGrade5TrendSection(p, benchmarks) {
+  const bergenAll = benchmarks.bergen_all;
+  if (!bergenAll) return '';
+
+  const years = ['2022-23', '2023-24', '2024-25', '2025-26'];
+  const subjects = [
+    { no: 'Engelsk', zh: '英語' },
+    { no: 'Lesing', zh: '閱讀' },
+    { no: 'Regning', zh: '計算' },
+  ];
+  const metrics = [
+    { no: 'Skalapoeng', zh: '量尺分數' },
+    { no: 'Usikkerhet', zh: '不確定性' },
+    { no: 'Antall elever deltatt', zh: '參與學生數' },
+  ];
+
+  const rows = [];
+  for (const sub of subjects) {
+    for (const m of metrics) {
+      const cells = years.map((y) => {
+        const key = `src__${y}.${sub.no}.5. årstrinn.Alle eierformer.Alle kjønn.${m.no}`;
+        const schoolValue = format(p[key]);
+        const bergenValue = format(bergenAll[key]);
+        return buildBenchmarkCompareCell(schoolValue, bergenValue);
+      }).join('');
+      rows.push(`<tr><td>${escapeHtml(sub.zh)}｜${escapeHtml(m.zh)}</td>${cells}</tr>`);
+    }
+  }
+
+  return `
+    <details class="detail-section" open>
+      <summary>5年級國家測驗趨勢（本校 vs Bergen） <button type="button" class="help-icon" id="grade5-trend-help-btn" aria-label="查看說明">?</button></summary>
+      <div class="trend-wrap">
+        <table class="trend-table">
+          <thead><tr><th>欄位</th>${years.map((y) => `<th>${y}</th>`).join('')}</tr></thead>
+          <tbody>${rows.join('')}</tbody>
+        </table>
+      </div>
+    </details>
+  `;
+}
+
 function renderDetail(p, benchmarks) {
   const panel = document.getElementById('detail-panel');
   document.getElementById('detail-title').textContent = p.school_name || '學校資訊';
@@ -415,9 +470,14 @@ function renderDetail(p, benchmarks) {
     k === 'src__Vurderingsfagnavn' ||
     trendPrefixes.some((y) => k.startsWith(`src__${y}.Standpunkt.Alle eierformer.Alle kjønn.`) || k.startsWith(`src__${y}.Alle eierformer.Alle kjønn.Grunnskolepoeng`) || k.startsWith(`src__${y}.Alle eierformer.Alle kjønn.Antall elever`))
   );
+  const isGrade5TrendKey = (k) => ['2022-23','2023-24','2024-25','2025-26'].some((y) =>
+    k.startsWith(`src__${y}.Engelsk.5. årstrinn.Alle eierformer.Alle kjønn.`) ||
+    k.startsWith(`src__${y}.Lesing.5. årstrinn.Alle eierformer.Alle kjønn.`) ||
+    k.startsWith(`src__${y}.Regning.5. årstrinn.Alle eierformer.Alle kjønn.`)
+  );
 
   const basicSet = new Set(basicKeys);
-  const remainingKeys = allKeys.filter((k) => !compareKeys.has(k) && !basicSet.has(k) && !isStudentTrendKey(k) && !isStaffTrendKey(k) && !isExamTrendKey(k)).sort();
+  const remainingKeys = allKeys.filter((k) => !compareKeys.has(k) && !basicSet.has(k) && !isStudentTrendKey(k) && !isStaffTrendKey(k) && !isExamTrendKey(k) && !isGrade5TrendKey(k)).sort();
 
   const basicRows = buildRows(basicKeys, p);
   const remainingRows = buildRows(remainingKeys, p);
@@ -428,6 +488,7 @@ function renderDetail(p, benchmarks) {
   sections.push(renderTrendSection(p));
   sections.push(renderStaffTrendSection(p));
   sections.push(renderExamTrendSection(p));
+  sections.push(renderGrade5TrendSection(p, benchmarks));
 
   if (basicRows) {
     sections.push(`
@@ -477,6 +538,14 @@ function renderDetail(p, benchmarks) {
       e.preventDefault();
       e.stopPropagation();
       openHelp('examTrend');
+    });
+  }
+  const grade5TrendHelpBtn = document.getElementById('grade5-trend-help-btn');
+  if (grade5TrendHelpBtn) {
+    grade5TrendHelpBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      openHelp('grade5Trend');
     });
   }
   panel.classList.remove('hidden');
