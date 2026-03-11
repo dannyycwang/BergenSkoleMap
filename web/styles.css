@@ -29,3 +29,6 @@ main { display: grid; grid-template-columns: 320px 1fr 360px; height: calc(100vh
 @media (max-width: 900px) { main { grid-template-columns: 1fr; grid-template-rows: 50% 50%; } .left-panel { border-right: none; border-bottom: 1px solid #dbe4ef; } .detail-panel { top: 0; } }
 
 .detail-content td:last-child { word-break: break-word; }
+
+.detail-section { margin-bottom: 14px; }
+.detail-section h3 { margin: 0 0 8px; font-size: 0.92rem; color: #1f5f9c; background:#eef7ff; border:1px solid #cfe6ff; border-radius:8px; padding:6px 8px; }

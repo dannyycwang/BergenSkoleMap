@@ -88,27 +88,67 @@ function renderDetail(p) {
   const panel = document.getElementById('detail-panel');
   document.getElementById('detail-title').textContent = p.school_name || '學校資訊';
 
-  const preferredOrder = [
-    'school_name', 'organization_number', 'address', 'postal_code', 'postal_city',
-    'municipality', 'county', 'students_2025_26', 'special_education_2025_26',
-    'enhanced_norwegian_2025_26', 'teachers_2025_26', 'teacher_density_2025_26',
-    'mobbing_by_students_pct', 'mobbing_by_adults_pct', 'mobbing_digital_pct',
-    'geocoding_status', 'geocoded_address', 'geocoding_query'
+  const bullyingKeys = [
+    'src__Alle spørsmøl',
+    'src__Er du blitt mobbet av andre elever? skolen de siste månedene?',
+    'src__Er du blitt mobbet av voksne? skolen de siste?nedene?',
+    'src__Er du blitt mobbet digitalt (mobil, iPad, PC) de siste m?nedene?'
   ];
 
-  const allKeys = Object.keys(p);
-  const orderedKeys = [
-    ...preferredOrder.filter((k) => allKeys.includes(k)),
-    ...allKeys.filter((k) => !preferredOrder.includes(k)).sort()
-  ];
+  const hiddenKeys = new Set([
+    'address', 'postal_code', 'postal_city', 'src__Address',
+    'src__EnhetNavn', 'src__EnhetNavn3',
+  ]);
 
-  const rows = orderedKeys.map((k) => {
+  const allKeys = Object.keys(p).filter((k) => !hiddenKeys.has(k));
+  const basicKeys = [
+    'school_name', 'organization_number', 'municipality', 'county',
+    'students_2025_26', 'special_education_2025_26',
+    'enhanced_norwegian_2025_26', 'teachers_2025_26',
+    'teacher_density_2025_26', 'geocoding_status', 'geocoded_address', 'geocoding_query'
+  ].filter((k) => allKeys.includes(k));
+
+  const bullyingSet = new Set(bullyingKeys);
+  const basicSet = new Set(basicKeys);
+  const remainingKeys = allKeys.filter((k) => !bullyingSet.has(k) && !basicSet.has(k)).sort();
+
+  const toRows = (keys) => keys.map((k) => {
     const label = k.startsWith('src__') ? translateSourceHeader(k.slice(5)) : (KEY_LABELS[k] || k);
     const value = p[k];
     return `<tr><td>${escapeHtml(label)}</td><td>${escapeHtml(format(value))}</td></tr>`;
   }).join('');
 
-  document.getElementById('detail-content').innerHTML = `<table>${rows}</table>`;
+  const bullyingRows = toRows(bullyingKeys.filter((k) => allKeys.includes(k)));
+  const basicRows = toRows(basicKeys);
+  const remainingRows = toRows(remainingKeys);
+
+  const sections = [];
+  if (bullyingRows) {
+    sections.push(`
+      <section class="detail-section">
+        <h3>霸凌相關</h3>
+        <table>${bullyingRows}</table>
+      </section>
+    `);
+  }
+  if (basicRows) {
+    sections.push(`
+      <section class="detail-section">
+        <h3>學校基本資訊</h3>
+        <table>${basicRows}</table>
+      </section>
+    `);
+  }
+  if (remainingRows) {
+    sections.push(`
+      <section class="detail-section">
+        <h3>其他資料</h3>
+        <table>${remainingRows}</table>
+      </section>
+    `);
+  }
+
+  document.getElementById('detail-content').innerHTML = sections.join('');
   panel.classList.remove('hidden');
 }
 
