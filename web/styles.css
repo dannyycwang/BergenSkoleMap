@@ -54,3 +54,11 @@ main { display: grid; grid-template-columns: 320px 1fr 520px; height: calc(100vh
 .trend-wrap { overflow-x: auto; }
 .trend-table th { text-align:left; padding:7px 6px; border-bottom:1px solid #dfe9f5; color:#486581; white-space: nowrap; }
 .trend-table th:not(:first-child), .trend-table td:not(:first-child) { text-align:center; min-width: 86px; }
+
+
+.value-main { line-height: 1.2; }
+.value-delta { margin-top: 2px; font-size: 0.72rem; font-weight: 700; }
+.value-delta.delta-up { color: #15803d; }
+.value-delta.delta-down { color: #b91c1c; }
+.value-delta.delta-flat { color: #475569; }
+.subject-meta { padding: 8px 10px; font-size: 0.82rem; color: #334e68; border-top: 1px solid #dfe9f5; border-bottom: 1px solid #dfe9f5; background: #f8fbff; }

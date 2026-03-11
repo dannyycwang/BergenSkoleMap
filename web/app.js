@@ -29,6 +29,11 @@ const HELP_CONTENT = {
     title: '教師與人力趨勢說明',
     text: '此區塊呈現 2021-22 到 2025-26 的教師、人力與一般教學師生密度趨勢，協助觀察資源配置變化。',
     url: 'https://statistikkportalen.udir.no/api/rapportering/rest/v1/Tekst/visTekst/152313?dataChanged=2026-03-09_083320'
+  },
+  examTrend: {
+    title: '評量成績趨勢說明',
+    text: '此區塊呈現科目評量的年度趨勢，包括學期成績、對應學生數，以及 grunnskolepoeng 指標。',
+    url: 'https://statistikkportalen.udir.no/api/rapportering/rest/v1/Tekst/visTekst/1?dataChanged=2026-03-09_083320'
   }
 };
 
@@ -166,6 +171,36 @@ function isNumericLike(value) {
   return /^-?(?:\d{1,3}(?:[\s\u00A0]\d{3})+|\d+)(?:[\.,]\d+)?$/.test(s);
 }
 
+
+
+function parseNumeric(value) {
+  if (value === null || value === undefined) return null;
+  const raw = String(value).trim();
+  if (!raw || raw === '—') return null;
+  const normalized = raw.replace(/[\s ]/g, '').replace(',', '.');
+  const n = Number(normalized);
+  return Number.isFinite(n) ? n : null;
+}
+
+function formatDelta(currentValue, previousValue) {
+  const cur = parseNumeric(currentValue);
+  const prev = parseNumeric(previousValue);
+  if (cur === null || prev === null) return null;
+  const diff = cur - prev;
+  if (Math.abs(diff) < 1e-9) return { cls: 'delta-flat', arrow: '→', text: '0' };
+  const up = diff > 0;
+  const abs = Math.abs(diff);
+  const text = abs >= 10 ? Math.round(abs).toString() : abs.toFixed(1).replace(/\.0$/, '');
+  return { cls: up ? 'delta-up' : 'delta-down', arrow: up ? '↑' : '↓', text };
+}
+
+function buildTrendCell(value, prevValue) {
+  const cls = isNumericLike(value) ? 'value-number' : '';
+  const delta = formatDelta(value, prevValue);
+  const deltaHtml = delta ? `<div class="value-delta ${delta.cls}">${delta.arrow} ${escapeHtml(delta.text)}</div>` : '';
+  return `<td class="${cls}"><div class="value-main">${escapeHtml(value)}</div>${deltaHtml}</td>`;
+}
+
 function buildRows(keys, p) {
   const seen = new Set();
   const rows = [];
@@ -234,11 +269,12 @@ function renderTrendSection(p) {
   ];
 
   const rows = metrics.map((m) => {
-    const vals = years.map((y) => {
+    const vals = years.map((y, idx) => {
       const key = `src__${y}.Alle trinn.Alle trinn.Alle kjønn.Alle eierformer.${m.suffix}`;
       const value = format(p[key]);
-      const cls = isNumericLike(value) ? 'value-number' : '';
-      return `<td class="${cls}">${escapeHtml(value)}</td>`;
+      const prevKey = idx > 0 ? `src__${years[idx - 1]}.Alle trinn.Alle trinn.Alle kjønn.Alle eierformer.${m.suffix}` : null;
+      const prevValue = prevKey ? format(p[prevKey]) : null;
+      return buildTrendCell(value, prevValue);
     }).join('');
     return `<tr><td>${escapeHtml(m.label)}</td>${vals}</tr>`;
   }).join('');
@@ -267,11 +303,12 @@ function renderStaffTrendSection(p) {
   ];
 
   const rows = metrics.map((m) => {
-    const vals = years.map((y) => {
+    const vals = years.map((y, idx) => {
       const key = `src__${y}.${m.pattern}`;
       const value = format(p[key]);
-      const cls = isNumericLike(value) ? 'value-number' : '';
-      return `<td class="${cls}">${escapeHtml(value)}</td>`;
+      const prevKey = idx > 0 ? `src__${years[idx - 1]}.${m.pattern}` : null;
+      const prevValue = prevKey ? format(p[prevKey]) : null;
+      return buildTrendCell(value, prevValue);
     }).join('');
     return `<tr><td>${escapeHtml(m.label)}</td>${vals}</tr>`;
   }).join('');
@@ -283,6 +320,68 @@ function renderStaffTrendSection(p) {
         <table class="trend-table">
           <thead><tr><th>欄位</th>${years.map((y) => `<th>${y}</th>`).join('')}</tr></thead>
           <tbody>${rows}</tbody>
+        </table>
+      </div>
+    </details>
+  `;
+}
+
+function renderExamTrendSection(p) {
+  const standYears = ['2021-22', '2022-23', '2023-24', '2024-25'];
+  const grunnYears = ['2022-23', '2023-24', '2024-25'];
+
+  const subjectCode = format(p['src__Vurderingsfagkode']);
+  const subjectName = format(p['src__Vurderingsfagnavn']);
+
+  const rows = [
+    {
+      label: 'Standpunkt 平均成績',
+      years: standYears,
+      key: (y) => `src__${y}.Standpunkt.Alle eierformer.Alle kjønn.Snittkarakter`,
+    },
+    {
+      label: 'Standpunkt 學生數',
+      years: standYears,
+      key: (y) => `src__${y}.Standpunkt.Alle eierformer.Alle kjønn.Antall elever`,
+    },
+    {
+      label: 'Grunnskolepoeng',
+      years: grunnYears,
+      key: (y) => `src__${y}.Alle eierformer.Alle kjønn.Grunnskolepoeng`,
+    },
+    {
+      label: 'Grunnskolepoeng 對應學生數',
+      years: grunnYears,
+      key: (y) => `src__${y}.Alle eierformer.Alle kjønn.Antall elever`,
+    },
+  ].map((r) => {
+    const values = r.years.map((y, idx) => {
+      const value = format(p[r.key(y)]);
+      const prev = idx > 0 ? format(p[r.key(r.years[idx - 1])]) : null;
+      return { value, prev };
+    });
+    return { ...r, values };
+  });
+
+  const allYears = ['2021-22', '2022-23', '2023-24', '2024-25'];
+  const bodyRows = rows.map((r) => {
+    const mapByYear = new Map(r.years.map((y, i) => [y, r.values[i]]));
+    const tds = allYears.map((y) => {
+      const item = mapByYear.get(y);
+      if (!item) return '<td><div class="value-main">—</div></td>';
+      return buildTrendCell(item.value, item.prev);
+    }).join('');
+    return `<tr><td>${escapeHtml(r.label)}</td>${tds}</tr>`;
+  }).join('');
+
+  return `
+    <details class="detail-section" open>
+      <summary>評量成績趨勢（ENG0029） <button type="button" class="help-icon" id="exam-trend-help-btn" aria-label="查看說明">?</button></summary>
+      <div class="subject-meta">科目代碼：${escapeHtml(subjectCode)}　｜　科目名稱：${escapeHtml(subjectName)}</div>
+      <div class="trend-wrap">
+        <table class="trend-table">
+          <thead><tr><th>欄位</th>${allYears.map((y) => `<th>${y}</th>`).join('')}</tr></thead>
+          <tbody>${bodyRows}</tbody>
         </table>
       </div>
     </details>
@@ -311,9 +410,14 @@ function renderDetail(p, benchmarks) {
   const trendPrefixes = ['2021-22', '2022-23', '2023-24', '2024-25', '2025-26'];
   const isStudentTrendKey = (k) => trendPrefixes.some((y) => k.startsWith(`src__${y}.Alle trinn.Alle trinn.Alle kjønn.Alle eierformer.`));
   const isStaffTrendKey = (k) => trendPrefixes.some((y) => k.startsWith(`src__${y}.Alle kjønn.Alle eierformer.`) || k.startsWith(`src__${y}.Alle trinn.Alle eierformer.Lærertetthet i ordinær undervisning`));
+  const isExamTrendKey = (k) => (
+    k === 'src__Vurderingsfagkode' ||
+    k === 'src__Vurderingsfagnavn' ||
+    trendPrefixes.some((y) => k.startsWith(`src__${y}.Standpunkt.Alle eierformer.Alle kjønn.`) || k.startsWith(`src__${y}.Alle eierformer.Alle kjønn.Grunnskolepoeng`) || k.startsWith(`src__${y}.Alle eierformer.Alle kjønn.Antall elever`))
+  );
 
   const basicSet = new Set(basicKeys);
-  const remainingKeys = allKeys.filter((k) => !compareKeys.has(k) && !basicSet.has(k) && !isStudentTrendKey(k) && !isStaffTrendKey(k)).sort();
+  const remainingKeys = allKeys.filter((k) => !compareKeys.has(k) && !basicSet.has(k) && !isStudentTrendKey(k) && !isStaffTrendKey(k) && !isExamTrendKey(k)).sort();
 
   const basicRows = buildRows(basicKeys, p);
   const remainingRows = buildRows(remainingKeys, p);
@@ -323,6 +427,7 @@ function renderDetail(p, benchmarks) {
   if (compareSection) sections.push(compareSection);
   sections.push(renderTrendSection(p));
   sections.push(renderStaffTrendSection(p));
+  sections.push(renderExamTrendSection(p));
 
   if (basicRows) {
     sections.push(`
@@ -364,6 +469,14 @@ function renderDetail(p, benchmarks) {
       e.preventDefault();
       e.stopPropagation();
       openHelp('staffTrend');
+    });
+  }
+  const examTrendHelpBtn = document.getElementById('exam-trend-help-btn');
+  if (examTrendHelpBtn) {
+    examTrendHelpBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      openHelp('examTrend');
     });
   }
   panel.classList.remove('hidden');
