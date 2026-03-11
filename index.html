@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bergen 小學地圖</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <link rel="stylesheet" href="./web/styles.css" />
+  <link rel="stylesheet" href="./web/styles.css?v=7" />
 </head>
 <body>
   <header>
@@ -23,7 +23,9 @@
         <select id="geo-filter">
           <option value="all">全部</option>
           <option value="matched_nominatim">精準定位</option>
-          <option value="fallback_approximate_from_prepare_data">近似定位</option>
+          <option value="fallback_from_prepare_data">備援定位</option>
+          <option value="not_found">地址查無結果</option>
+          <option value="no_address_in_source">缺少地址</option>
         </select>
         <button id="fit-btn" type="button">縮放到目前篩選結果</button>
       </div>
@@ -44,6 +46,6 @@
   </main>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="./web/app.js"></script>
+  <script src="./web/app.js?v=7"></script>
 </body>
 </html>
