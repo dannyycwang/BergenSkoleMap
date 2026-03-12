@@ -688,6 +688,26 @@ function renderDetail(p, benchmarks) {
   if (mainLayoutEl) mainLayoutEl.classList.add('detail-open');
 }
 
+
+function safeRenderDetail(p, benchmarks) {
+  try {
+    renderDetail(p, benchmarks);
+  } catch (err) {
+    console.error('Kunne ikke vise detaljpanel:', err);
+    const panel = document.getElementById('detail-panel');
+    document.getElementById('detail-title').textContent = p.school_name || 'Skoleinformasjon';
+    document.getElementById('detail-content').innerHTML = `
+      <div class="note">Kunne ikke laste alle detaljer for denne skolen. Viser grunnleggende informasjon.</div>
+      <details class="detail-section" open>
+        <summary>Grunnleggende skoleinformasjon</summary>
+        <table class="basic-info-table">${buildRows(['school_name','organization_number','municipality','county','students_2025_26'], p)}</table>
+      </details>
+    `;
+    panel.classList.remove('hidden');
+    if (mainLayoutEl) mainLayoutEl.classList.add('detail-open');
+  }
+}
+
 document.getElementById('close-detail').addEventListener('click', () => {
   document.getElementById('detail-panel').classList.add('hidden');
   if (mainLayoutEl) mainLayoutEl.classList.remove('detail-open');
@@ -857,7 +877,7 @@ Promise.all([loadSchoolGeoJson(), loadSchoolRows(), loadBenchmarks()]).then(([fc
       marker.on('mouseout', () => marker.setRadius(baseRadius));
       marker.on('click', () => {
         map.flyTo([lat, lon], Math.max(map.getZoom(), 13), { duration: 0.6 });
-        requireLoginThen(() => renderDetail(p, benchmarks || {}));
+        safeRenderDetail(p, benchmarks || {});
       });
       markerEntries.push({ marker, feature: f });
 
@@ -865,7 +885,7 @@ Promise.all([loadSchoolGeoJson(), loadSchoolRows(), loadBenchmarks()]).then(([fc
       li.textContent = `${p.school_name}`;
       li.onclick = () => {
         map.flyTo([lat, lon], 14, { duration: 0.6 });
-        requireLoginThen(() => renderDetail(p, benchmarks || {}));
+        safeRenderDetail(p, benchmarks || {});
       };
       listEl.appendChild(li);
     });
