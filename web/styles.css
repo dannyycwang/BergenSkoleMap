@@ -76,3 +76,5 @@ main.detail-open { grid-template-columns: 320px 1fr minmax(700px, 44vw); }
 .basic-info-table td { text-align: center; }
 .basic-info-table td:first-child { color: #334e68; font-weight: 600; }
 
+
+.compare-table td.compare-school-emphasis { font-weight: 800; color: #0b3a75; background: #e8f1ff; }

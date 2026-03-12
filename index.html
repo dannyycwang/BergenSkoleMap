@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bergen barneskolekart</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <link rel="stylesheet" href="./web/styles.css?v=12" />
+  <link rel="stylesheet" href="./web/styles.css?v=13" />
 </head>
 <body>
   <header>
@@ -15,28 +15,20 @@
 
   <main>
     <aside class="left-panel">
-      <input id="search" type="text" placeholder="Søk etter skolenavn..." />
-      <div class="controls">
-        <label>Minste antall elever: <span id="students-value">0</span></label>
-        <input id="students-range" type="range" min="0" max="800" value="0" />
-        <label>Geokodingsstatus:</label>
-        <select id="geo-filter">
-          <option value="all">Alle</option>
-          <option value="matched_nominatim">Presis treff</option>
-          <option value="fallback_approximate_from_prepare_data">Omtrentlig fallback</option>
-          <option value="not_found">Ingen adressetreff</option>
-          <option value="no_address_in_source">Mangler adresse</option>
-        </select>
-        <button id="fit-btn" type="button">Zoom til gjeldende utvalg</button>
-      </div>
-      <p id="count"></p>
-      <div id="stats" class="note"></div>
-      <ul id="school-list"></ul>
       <div class="author-note">
         <strong>Om prosjektet</strong><br/>
         Dette kartet er laget for foreldre som ønsker mer helhetlig informasjon om barneskoler — både for boligvalg og for å kunne følge opp skolekvalitet.
         <br/>Kontakt: <a href="mailto:dannyycwang@gmail.com">dannyycwang@gmail.com</a>
       </div>
+
+      <input id="search" type="text" placeholder="Søk etter skolenavn..." />
+      <div class="controls">
+        <label>Minste antall elever: <span id="students-value">0</span></label>
+        <input id="students-range" type="range" min="0" max="800" value="0" />
+      </div>
+      <p id="count"></p>
+      <div id="stats" class="note"></div>
+      <ul id="school-list"></ul>
 
     </aside>
 
@@ -55,6 +47,6 @@
   
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="./web/app.js?v=12"></script>
+  <script src="./web/app.js?v=13"></script>
 </body>
 </html>

@@ -278,7 +278,7 @@ function renderComparisonSection(p, benchmarks) {
       const c1 = isNumericLike(schoolV) ? 'value-number' : '';
       const c2 = isNumericLike(bergenV) ? 'value-number' : '';
       const c3 = isNumericLike(vestlandV) ? 'value-number' : '';
-      return `<tr><td>${escapeHtml(label)}</td><td class="${c1}">${escapeHtml(schoolV)}</td><td class="${c2}">${escapeHtml(bergenV)}</td><td class="${c3}">${escapeHtml(vestlandV)}</td></tr>`;
+      return `<tr><td>${escapeHtml(label)}</td><td class="${c1} compare-school-emphasis">${escapeHtml(schoolV)}</td><td class="${c2}">${escapeHtml(bergenV)}</td><td class="${c3}">${escapeHtml(vestlandV)}</td></tr>`;
     })
     .join('');
 
@@ -287,7 +287,7 @@ function renderComparisonSection(p, benchmarks) {
     <details class="detail-section" open>
       <summary>Mobbing (skole vs Bergen vs Vestland) <button type="button" class="help-icon" id="bully-help-btn" aria-label="Vis forklaring">?</button></summary>
       <table class="compare-table">
-        <thead><tr><th>Indikator</th><th>Skolen</th><th>Bergen</th><th>Vestland</th></tr></thead>
+        <thead><tr><th>Indikator</th><th>Skolen (denne)</th><th>Bergen</th><th>Vestland</th></tr></thead>
         <tbody>${rows}</tbody>
       </table>
     </details>
@@ -315,7 +315,7 @@ function renderTrendSection(p) {
   }).join('');
 
   return `
-    <details class="detail-section" open>
+    <details class="detail-section">
       <summary>Elev- og støttetrend (2021-22 → 2025-26) <button type="button" class="help-icon" id="student-trend-help-btn" aria-label="Vis forklaring">?</button></summary>
       <div class="trend-wrap">
         <table class="trend-table">
@@ -349,7 +349,7 @@ function renderStaffTrendSection(p) {
   }).join('');
 
   return `
-    <details class="detail-section" open>
+    <details class="detail-section">
       <summary>Lærer- og bemanningstrend (2021-22 → 2025-26) <button type="button" class="help-icon" id="staff-trend-help-btn" aria-label="Vis forklaring">?</button></summary>
       <div class="trend-wrap">
         <table class="trend-table">
@@ -392,7 +392,7 @@ function renderExamTrendSection(p, benchmarks) {
   }).join('');
 
   return `
-    <details class="detail-section" open>
+    <details class="detail-section">
       <summary>Vurderingstrend (ENG0029, skolen vs Bergen) <button type="button" class="help-icon" id="exam-trend-help-btn" aria-label="Vis forklaring">?</button></summary>
       <div class="subject-meta">Skolen: ${escapeHtml(subjectCode)} / ${escapeHtml(subjectName)} | Bergen: ${escapeHtml(bergenSubjectCode)} / ${escapeHtml(bergenSubjectName)}</div>
       <div class="trend-wrap">
@@ -432,7 +432,7 @@ function renderGrade5TrendSection(p, benchmarks) {
   }
 
   return `
-    <details class="detail-section" open>
+    <details class="detail-section">
       <summary>Nasjonale prøver 5. trinn (skolen vs Bergen) <button type="button" class="help-icon" id="grade5-trend-help-btn" aria-label="Vis forklaring">?</button></summary>
       <div class="trend-wrap">
         <table class="trend-table">
@@ -473,7 +473,7 @@ function renderGrade8TrendSection(p, benchmarks) {
   }
 
   return `
-    <details class="detail-section" open>
+    <details class="detail-section">
       <summary>Nasjonale prøver 8. trinn (skolen vs Bergen) <button type="button" class="help-icon" id="grade8-trend-help-btn" aria-label="Vis forklaring">?</button></summary>
       <div class="trend-wrap">
         <table class="trend-table">
@@ -534,7 +534,7 @@ function renderAbsenceTrendSection(p) {
   }).join('');
 
   return `
-    <details class="detail-section" open>
+    <details class="detail-section">
       <summary>Fraværstrend (2020-21 → 2024-25) <button type="button" class="help-icon" id="absence-trend-help-btn" aria-label="Vis forklaring">?</button></summary>
       <div class="trend-wrap">
         <table class="trend-table">
@@ -558,7 +558,7 @@ function renderDetail(p, benchmarks) {
     'school_name', 'organization_number', 'municipality', 'county',
     'students_2025_26', 'special_education_2025_26',
     'enhanced_norwegian_2025_26', 'teachers_2025_26',
-    'teacher_density_2025_26', 'geocoding_status'
+    'teacher_density_2025_26'
   ].filter((k) => allKeys.includes(k));
 
   const compareKeys = new Set([
@@ -596,21 +596,20 @@ function renderDetail(p, benchmarks) {
   const remainingKeys = allKeys.filter((k) => !compareKeys.has(k) && !basicSet.has(k) && !isStudentTrendKey(k) && !isStaffTrendKey(k) && !isExamTrendKey(k) && !isGrade5TrendKey(k) && !isGrade8TrendKey(k) && !isAbsenceTrendKey(k)).sort();
 
   const basicRows = buildRows(basicKeys, p);
-  const remainingRows = buildRows(remainingKeys, p);
 
   const sections = [];
   const compareSection = renderComparisonSection(p, benchmarks);
   if (compareSection) sections.push(compareSection);
   sections.push(renderTrendSection(p));
   sections.push(renderStaffTrendSection(p));
-  sections.push(renderExamTrendSection(p, benchmarks));
   sections.push(renderGrade5TrendSection(p, benchmarks));
   sections.push(renderGrade8TrendSection(p, benchmarks));
+  sections.push(renderExamTrendSection(p, benchmarks));
   sections.push(renderAbsenceTrendSection(p));
 
   if (basicRows) {
     sections.push(`
-      <details class="detail-section" open>
+      <details class="detail-section">
         <summary>Grunnleggende skoleinformasjon</summary>
         <table class="basic-info-table">${basicRows}</table>
       </details>
@@ -802,8 +801,6 @@ Promise.all([loadSchoolGeoJson(), loadSchoolRows(), loadBenchmarks()]).then(([fc
   const searchEl = document.getElementById('search');
   const rangeEl = document.getElementById('students-range');
   const rangeValEl = document.getElementById('students-value');
-  const geoFilterEl = document.getElementById('geo-filter');
-  const fitBtn = document.getElementById('fit-btn');
   const statsEl = document.getElementById('stats');
 
   const allStudents = fc.features.map((f) => Number(f.properties.students_2025_26 || 0));
@@ -816,13 +813,11 @@ Promise.all([loadSchoolGeoJson(), loadSchoolRows(), loadBenchmarks()]).then(([fc
   const currentFiltered = () => {
     const q = searchEl.value.trim().toLowerCase();
     const minStudentsFilter = Number(rangeEl.value || 0);
-    const geoStatus = geoFilterEl.value;
     return fc.features.filter((f) => {
       const p = f.properties;
       const nameOk = p.school_name.toLowerCase().includes(q);
       const studentsOk = (p.students_2025_26 || 0) >= minStudentsFilter;
-      const geoOk = geoStatus === 'all' ? true : (geoStatus === 'fallback_from_prepare_data' ? ['fallback_from_prepare_data', 'fallback_approximate_from_prepare_data'].includes(p.geocoding_status) : p.geocoding_status === geoStatus);
-      return nameOk && studentsOk && geoOk;
+      return nameOk && studentsOk;
     });
   };
 
@@ -886,8 +881,6 @@ Promise.all([loadSchoolGeoJson(), loadSchoolRows(), loadBenchmarks()]).then(([fc
     redraw();
   });
   searchEl.addEventListener('input', redraw);
-  geoFilterEl.addEventListener('change', redraw);
-  fitBtn.addEventListener('click', fitToFiltered);
 
   redraw();
   fitToFiltered();
