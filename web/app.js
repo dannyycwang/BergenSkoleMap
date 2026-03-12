@@ -165,7 +165,8 @@ function parseNumeric(value) {
   if (value === null || value === undefined) return null;
   const raw = String(value).trim();
   if (!raw || raw === '—') return null;
-  const normalized = raw.replace(/[\s ]/g, '').replace(',', '.');
+  const primary = raw.split('±')[0].split('+/-')[0].trim();
+  const normalized = primary.replace('%', '').replace(/[\s ]/g, '').replace(',', '.');
   const n = Number(normalized);
   return Number.isFinite(n) ? n : null;
 }
@@ -748,7 +749,7 @@ Promise.all([loadSchoolGeoJson(), loadSchoolRows(), loadBenchmarks()]).then(([fc
       const p = f.properties;
       const nameOk = p.school_name.toLowerCase().includes(q);
       const studentsOk = (p.students_2025_26 || 0) >= minStudentsFilter;
-      const geoOk = geoStatus === 'all' ? true : p.geocoding_status === geoStatus;
+      const geoOk = geoStatus === 'all' ? true : (geoStatus === 'fallback_from_prepare_data' ? ['fallback_from_prepare_data', 'fallback_approximate_from_prepare_data'].includes(p.geocoding_status) : p.geocoding_status === geoStatus);
       return nameOk && studentsOk && geoOk;
     });
   };
