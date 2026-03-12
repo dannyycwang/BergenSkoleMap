@@ -3,7 +3,8 @@ body { margin: 0; font-family: Inter, 'Noto Sans TC', Arial, sans-serif; color: 
 header { padding: 14px 18px; border-bottom: 1px solid #dbe4ef; background: #f8fbff; }
 header h1 { margin: 0; font-size: 1.25rem; }
 header p { margin: 6px 0 0; color: #486581; }
-main { display: grid; grid-template-columns: 320px 1fr minmax(700px, 44vw); height: calc(100vh - 88px); }
+main { display: grid; grid-template-columns: 320px 1fr; height: calc(100vh - 88px); }
+main.detail-open { grid-template-columns: 320px 1fr minmax(700px, 44vw); }
 .left-panel { padding: 12px; border-right: 1px solid #dbe4ef; overflow: auto; background: #fff; }
 #search, #geo-filter { width: 100%; padding: 10px; border: 1px solid #bcccdc; border-radius: 8px; }
 .controls { display: grid; gap: 8px; margin-top: 10px; }

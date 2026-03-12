@@ -526,6 +526,8 @@ function renderAbsenceTrendSection(p) {
 }
 
 
+const mainLayoutEl = document.querySelector('main');
+
 function renderDetail(p, benchmarks) {
   const panel = document.getElementById('detail-panel');
   document.getElementById('detail-title').textContent = p.school_name || 'Skoleinformasjon';
@@ -651,10 +653,12 @@ function renderDetail(p, benchmarks) {
     });
   }
   panel.classList.remove('hidden');
+  if (mainLayoutEl) mainLayoutEl.classList.add('detail-open');
 }
 
 document.getElementById('close-detail').addEventListener('click', () => {
   document.getElementById('detail-panel').classList.add('hidden');
+  if (mainLayoutEl) mainLayoutEl.classList.remove('detail-open');
 });
 
 async function loadSchoolGeoJson() {
