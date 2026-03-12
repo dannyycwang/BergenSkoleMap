@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bergen barneskolekart</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <link rel="stylesheet" href="styles.css?v=10" />
+  <link rel="stylesheet" href="styles.css?v=11" />
 </head>
 <body>
   <header>
@@ -32,6 +32,12 @@
       <p id="count"></p>
       <div id="stats" class="note"></div>
       <ul id="school-list"></ul>
+      <div class="author-note">
+        <strong>Om prosjektet</strong><br/>
+        Dette kartet er laget for foreldre som ønsker mer helhetlig informasjon om barneskoler — både for boligvalg og for å kunne følge opp skolekvalitet.
+        <br/>Kontakt: <a href="mailto:dannyycwang@gmail.com">dannyycwang@gmail.com</a>
+      </div>
+
     </aside>
 
     <section id="map"></section>
@@ -45,7 +51,21 @@
     </aside>
   </main>
 
+
+  <div id="login-modal" class="login-modal hidden">
+    <div class="login-modal-backdrop" data-close-login="1"></div>
+    <div class="login-modal-card" role="dialog" aria-modal="true" aria-label="Innlogging">
+      <h3>Logg inn for å åpne skoledetaljer</h3>
+      <p>Demo-innlogging i nettleseren: velg Google eller Facebook for å åpne detaljer og registrere abonnement-klikk per skole.</p>
+      <div class="login-actions">
+        <button id="login-google" type="button" class="login-btn google">Fortsett med Google</button>
+        <button id="login-facebook" type="button" class="login-btn facebook">Fortsett med Facebook</button>
+      </div>
+      <button id="login-cancel" type="button" class="login-cancel">Avbryt</button>
+    </div>
+  </div>
+
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="app.js?v=10"></script>
+  <script src="app.js?v=11"></script>
 </body>
 </html>

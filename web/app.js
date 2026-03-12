@@ -13,6 +13,63 @@ const escapeHtml = (v) => String(v)
   .replaceAll('"', '&quot;')
   .replaceAll("'", '&#39;');
 
+const AUTH_STORAGE_KEY = 'bergenSkoleMapAuth';
+const SUBSCRIBE_STORAGE_KEY = 'bergenSkoleMapSubscribeClicks';
+let pendingSchoolAction = null;
+
+function getAuthState() {
+  try {
+    return JSON.parse(localStorage.getItem(AUTH_STORAGE_KEY) || 'null');
+  } catch (_) {
+    return null;
+  }
+}
+
+function isLoggedIn() {
+  const auth = getAuthState();
+  return Boolean(auth && auth.provider);
+}
+
+function closeLoginModal() {
+  const modal = document.getElementById('login-modal');
+  if (modal) modal.classList.add('hidden');
+}
+
+function openLoginModal() {
+  const modal = document.getElementById('login-modal');
+  if (!modal) return;
+  modal.classList.remove('hidden');
+}
+
+function requireLoginThen(runAfterLogin) {
+  if (isLoggedIn()) {
+    runAfterLogin();
+    return;
+  }
+  pendingSchoolAction = runAfterLogin;
+  openLoginModal();
+}
+
+function getSubscribeClicksBySchool() {
+  try {
+    return JSON.parse(localStorage.getItem(SUBSCRIBE_STORAGE_KEY) || '{}');
+  } catch (_) {
+    return {};
+  }
+}
+
+function getSubscribeCount(schoolName) {
+  const clicks = getSubscribeClicksBySchool();
+  return Number(clicks[schoolName] || 0);
+}
+
+function incrementSubscribeCount(schoolName) {
+  const clicks = getSubscribeClicksBySchool();
+  clicks[schoolName] = Number(clicks[schoolName] || 0) + 1;
+  localStorage.setItem(SUBSCRIBE_STORAGE_KEY, JSON.stringify(clicks));
+  return clicks[schoolName];
+}
+
 
 const HELP_CONTENT = {
   bullying: {
@@ -591,11 +648,18 @@ function renderDetail(p, benchmarks) {
     sections.push(`
       <details class="detail-section" open>
         <summary>Grunnleggende skoleinformasjon</summary>
-        <table>${basicRows}</table>
+        <table class="basic-info-table">${basicRows}</table>
       </details>
     `);
   }
-  document.getElementById('detail-content').innerHTML = sections.join('') || '<p>Ingen data tilgjengelig for denne skolen.</p>';
+  const currentSubscribeCount = getSubscribeCount(p.school_name || 'Ukjent skole');
+  const subscribeBar = `
+    <div class="subscribe-wrap">
+      <button id="subscribe-btn" type="button" class="subscribe-btn">Abonner på skoleoppdateringer</button>
+      <span id="subscribe-count" class="subscribe-count">Abonnement-klikk: ${currentSubscribeCount}</span>
+    </div>
+  `;
+  document.getElementById('detail-content').innerHTML = subscribeBar + (sections.join('') || '<p>Ingen data tilgjengelig for denne skolen.</p>');
   const helpBtn = document.getElementById('bully-help-btn');
   if (helpBtn) {
     helpBtn.addEventListener('click', (e) => {
@@ -650,6 +714,14 @@ function renderDetail(p, benchmarks) {
       e.preventDefault();
       e.stopPropagation();
       openHelp('absenceTrend');
+    });
+  }
+  const subscribeBtn = document.getElementById('subscribe-btn');
+  if (subscribeBtn) {
+    subscribeBtn.addEventListener('click', () => {
+      const count = incrementSubscribeCount(p.school_name || 'Ukjent skole');
+      const countEl = document.getElementById('subscribe-count');
+      if (countEl) countEl.textContent = `Abonnement-klikk: ${count}`;
     });
   }
   panel.classList.remove('hidden');
@@ -717,6 +789,43 @@ async function loadBenchmarks() {
   }
   return {};
 }
+
+function initLoginModalHandlers() {
+  const modal = document.getElementById('login-modal');
+  if (!modal) return;
+
+  modal.addEventListener('click', (e) => {
+    if (e.target && e.target.dataset && e.target.dataset.closeLogin === '1') {
+      closeLoginModal();
+      pendingSchoolAction = null;
+    }
+  });
+
+  const cancelBtn = document.getElementById('login-cancel');
+  if (cancelBtn) {
+    cancelBtn.addEventListener('click', () => {
+      closeLoginModal();
+      pendingSchoolAction = null;
+    });
+  }
+
+  const doLogin = (provider) => {
+    localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify({ provider, loginAt: new Date().toISOString() }));
+    closeLoginModal();
+    if (pendingSchoolAction) {
+      const action = pendingSchoolAction;
+      pendingSchoolAction = null;
+      action();
+    }
+  };
+
+  const googleBtn = document.getElementById('login-google');
+  const facebookBtn = document.getElementById('login-facebook');
+  if (googleBtn) googleBtn.addEventListener('click', () => doLogin('google'));
+  if (facebookBtn) facebookBtn.addEventListener('click', () => doLogin('facebook'));
+}
+
+initLoginModalHandlers();
 
 Promise.all([loadSchoolGeoJson(), loadSchoolRows(), loadBenchmarks()]).then(([fc, rows, benchmarks]) => {
   const rowByName = new Map(rows.map((r) => [r.school_name, r]));
@@ -792,7 +901,7 @@ Promise.all([loadSchoolGeoJson(), loadSchoolRows(), loadBenchmarks()]).then(([fc
       marker.on('mouseout', () => marker.setRadius(baseRadius));
       marker.on('click', () => {
         map.flyTo([lat, lon], Math.max(map.getZoom(), 13), { duration: 0.6 });
-        renderDetail(p, benchmarks || {});
+        requireLoginThen(() => renderDetail(p, benchmarks || {}));
       });
       markerEntries.push({ marker, feature: f });
 
@@ -800,7 +909,7 @@ Promise.all([loadSchoolGeoJson(), loadSchoolRows(), loadBenchmarks()]).then(([fc
       li.textContent = `${p.school_name}`;
       li.onclick = () => {
         map.flyTo([lat, lon], 14, { duration: 0.6 });
-        renderDetail(p, benchmarks || {});
+        requireLoginThen(() => renderDetail(p, benchmarks || {}));
       };
       listEl.appendChild(li);
     });

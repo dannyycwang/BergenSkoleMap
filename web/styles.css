@@ -67,3 +67,26 @@ main.detail-open { grid-template-columns: 320px 1fr minmax(700px, 44vw); }
 .subject-meta { padding: 8px 10px; font-size: 0.82rem; color: #334e68; border-top: 1px solid #dfe9f5; border-bottom: 1px solid #dfe9f5; background: #f8fbff; }
 
 .value-sub { margin-top: 2px; font-size: 0.72rem; color: #64748b; }
+
+
+.author-note { margin-top: 12px; padding: 10px; border: 1px solid #d8e4f2; background: #f8fbff; border-radius: 8px; font-size: 0.84rem; color: #334e68; line-height: 1.45; }
+.author-note a { color: #1d4ed8; text-decoration: none; }
+.author-note a:hover { text-decoration: underline; }
+
+.basic-info-table td { text-align: center; }
+.basic-info-table td:first-child { color: #334e68; font-weight: 600; }
+
+.login-modal.hidden { display: none; }
+.login-modal { position: fixed; inset: 0; z-index: 3500; }
+.login-modal-backdrop { position: absolute; inset: 0; background: rgba(15,23,42,.45); }
+.login-modal-card { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: min(460px, calc(100vw - 32px)); background: #fff; border: 1px solid #d8e4f2; border-radius: 12px; padding: 16px; box-shadow: 0 16px 32px rgba(0,0,0,.2); }
+.login-modal-card h3 { margin: 0 0 8px; }
+.login-modal-card p { margin: 0 0 12px; color: #486581; font-size: 0.95rem; }
+.login-actions { display: grid; gap: 8px; }
+.login-btn { border: 1px solid #c7d6e8; border-radius: 8px; padding: 10px; background: #fff; cursor: pointer; font-weight: 600; }
+.login-btn.google { border-color: #ea4335; color: #b42318; }
+.login-btn.facebook { border-color: #1877f2; color: #1149a6; }
+.login-cancel { margin-top: 10px; border: 1px solid #bcccdc; background: #fff; border-radius: 8px; padding: 8px; cursor: pointer; width: 100%; }
+.subscribe-wrap { margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.subscribe-btn { border: 1px solid #16a34a; background: #16a34a; color: #fff; border-radius: 8px; padding: 8px 12px; cursor: pointer; font-weight: 700; }
+.subscribe-count { font-size: 0.86rem; color: #486581; }
