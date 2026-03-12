@@ -663,5 +663,600 @@
     "geocoded_address": null,
     "geocoding_status": "not_found",
     "geocoding_query": null
+  },
+  "Alvøen skole|Janaflaten 31, 5179 Godvik|||allow_name_fallback=False": {
+    "latitude": 60.3652129,
+    "longitude": 5.1871725,
+    "geocoded_address": "31, Janaflaten, Kongshavn, Godvik, Laksevåg, Bergen, Vestland, 5179, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Janaflaten 31, 5179 Godvik, Bergen, Norway"
+  },
+  "Apeltun skole|Apeltunvegen 94, 5238 Rådal|||allow_name_fallback=False": {
+    "latitude": 60.297689,
+    "longitude": 5.342127,
+    "geocoded_address": "94, Apeltunvegen, Fana, Bergen, Vestland, 5238, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Apeltunvegen 94, 5238 Rådal, Bergen, Norway"
+  },
+  "Aurdalslia skole|Aurdalslia 30, 5253 Sandsli|||allow_name_fallback=False": {
+    "latitude": 60.3072352,
+    "longitude": 5.2816406,
+    "geocoded_address": "30, Aurdalslia, Sandsli, Ytrebygda, Bergen, Vestland, 5253, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Aurdalslia 30, 5253 Sandsli, Bergen, Norway"
+  },
+  "Bergen Kristne grunnskole|Øvre Kråkenes 49, 5152 Bønes|||allow_name_fallback=False": {
+    "latitude": 60.3389874,
+    "longitude": 5.3202366,
+    "geocoded_address": "49, Øvre Kråkenes, Haneborg, Bønes, Fyllingsdalen, Bergen, Vestland, 5152, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Øvre Kråkenes 49, 5152 Bønes, Bergen, Norway"
+  },
+  "Bjørgvin montessoriskole|Storetveitvegen 86, 5072 Bergen|||allow_name_fallback=False": {
+    "latitude": 60.349844,
+    "longitude": 5.350759,
+    "geocoded_address": "86, Storetveitvegen, Fantoft, Årstad, Bergen, Vestland, 5072, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Storetveitvegen 86, 5072 Bergen, Bergen, Norway"
+  },
+  "Bjørndalsskogen skole|Bjørndalsskogen 37, 5170 Bjørndalstræ|||allow_name_fallback=False": {
+    "latitude": 60.3478479,
+    "longitude": 5.2435519,
+    "geocoded_address": "37, Bjørndalsskogen, Bjørndalsstølen, Bjørndal, Laksevåg, Bergen, Vestland, 5170, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Bjørndalsskogen 37, 5170 Bjørndalstræ, Bergen, Norway"
+  },
+  "Blokkhaugen skole|Myrdalsvegen 53, 5118 Ulset|||allow_name_fallback=False": {
+    "latitude": 60.4732997,
+    "longitude": 5.3155227,
+    "geocoded_address": "Myrdalsvegen, Ulset, Åsane, Bergen, Vestland, 5130, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Myrdalsvegen 53, 5118 Ulset, Bergen, Norway"
+  },
+  "Breimyra skole|Breimyra 68b, 5134 Flaktveit|||allow_name_fallback=False": {
+    "latitude": 60.4584963,
+    "longitude": 5.3667643,
+    "geocoded_address": "68B, Breimyra, Flaktveit, Åsane, Bergen, Vestland, 5134, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Breimyra 68b, 5134 Flaktveit, Bergen, Norway"
+  },
+  "Bønes skole|Bønesberget 1, 5153 Bønes|||allow_name_fallback=False": {
+    "latitude": 60.3324,
+    "longitude": 5.3086155,
+    "geocoded_address": "1, Bønesberget, Bønes, Fyllingsdalen, Bergen, Vestland, 5153, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Bønesberget 1, 5153 Bønes, Bergen, Norway"
+  },
+  "Christi Krybbe Skoler|Vetrelidsallmenningen 10, 5014 Bergen|||allow_name_fallback=False": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Damsgård skole|Herman Grans vei 2, 5162 Laksevåg|||allow_name_fallback=False": {
+    "latitude": 60.382074,
+    "longitude": 5.301337,
+    "geocoded_address": "2, Herman Grans vei, Damsgård, Laksevåg, Bergen, Vestland, 5162, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Herman Grans vei 2, 5162 Laksevåg, Bergen, Norway"
+  },
+  "Eidsvåg skole|Granlien 1a, 5105 Eidsvåg|||allow_name_fallback=False": {
+    "latitude": 60.437624,
+    "longitude": 5.304566,
+    "geocoded_address": "1A, Granlien, Eidsvågneset, Eidsvåg, Åsane, Bergen, Vestland, 5105, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Granlien 1a, 5105 Eidsvåg, Bergen, Norway"
+  },
+  "Fjellsdalen skole|Fjellsdalen 15, 5155 Bønes|||allow_name_fallback=False": {
+    "latitude": 60.335748,
+    "longitude": 5.294239,
+    "geocoded_address": "15, Fjellsdalen, Bønesberget, Bønes, Fyllingsdalen, Bergen, Vestland, 5155, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Fjellsdalen 15, 5155 Bønes, Bergen, Norway"
+  },
+  "Flaktveit skole|Flaktveitsvingane 17, 5135 Flaktveit|||allow_name_fallback=False": {
+    "latitude": 60.4642341,
+    "longitude": 5.3599888,
+    "geocoded_address": "17, Flaktveitsvingane, Flaktveit, Åsane, Bergen, Vestland, 5135, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Flaktveitsvingane 17, 5135 Flaktveit, Bergen, Norway"
+  },
+  "Fridalen skole|Bøkeveien 19, 5093 Bergen|||allow_name_fallback=False": {
+    "latitude": 60.3633666,
+    "longitude": 5.3598214,
+    "geocoded_address": "19, Bøkeveien, Årstad, Fridalen, Årstad, Bergen, Vestland, 5093, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Bøkeveien 19, 5093 Bergen, Bergen, Norway"
+  },
+  "Garnes skule|Øvre Seimsmark 52. 5264 Garnes|||allow_name_fallback=False": {
+    "latitude": 60.4416229,
+    "longitude": 5.4634354,
+    "geocoded_address": "52, Øvre Seimsmark, Garnes, Bergen, Vestland, 5264, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Øvre Seimsmark 52. 5264 Garnes, Bergen, Norway"
+  },
+  "Garnes ungdomsskule|Garnesvegen 88. 5260 Indre Arna|||allow_name_fallback=False": {
+    "latitude": 60.4402812,
+    "longitude": 5.4609991,
+    "geocoded_address": "88, Garnesvegen, Arna, Bergen, Vestland, 5260, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Garnesvegen 88. 5260 Indre Arna, Bergen, Norway"
+  },
+  "Gimle Oppveksttun skole|St. Olavs vei 20, 5052 Bergen|||allow_name_fallback=False": {
+    "latitude": 60.3714809,
+    "longitude": 5.3538512,
+    "geocoded_address": "20, St. Olavs vei, Kronstad, Årstad, Bergen, Vestland, 5052, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "St. Olavs vei 20, 5052 Bergen, Bergen, Norway"
+  },
+  "Haukedalen skole|Hesthaugvegen 91, 5119 Ulset|||allow_name_fallback=False": {
+    "latitude": 60.4650896,
+    "longitude": 5.302297,
+    "geocoded_address": "91, Hesthaugvegen, Ulset, Åsane, Bergen, Vestland, 5119, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Hesthaugvegen 91, 5119 Ulset, Bergen, Norway"
+  },
+  "Haukeland skole|Stemmeveien 1, 5009 Bergen|||allow_name_fallback=False": {
+    "latitude": 60.3803147,
+    "longitude": 5.3616874,
+    "geocoded_address": "1, Stemmeveien, Haraldsplass, Årstad, Bergenhus, Bergen, Vestland, 5009, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Stemmeveien 1, 5009 Bergen, Bergen, Norway"
+  },
+  "Haukås skole|Leikvangvegen 21, 5111 Breistein|||allow_name_fallback=False": {
+    "latitude": 60.4906885,
+    "longitude": 5.3848378,
+    "geocoded_address": "21, Leikvangvegen, Vestlandsheimen, Breistein, Bergen, Vestland, 5111, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Leikvangvegen 21, 5111 Breistein, Bergen, Norway"
+  },
+  "Hellen skole|Helleveien 118, 5043 Bergen|||allow_name_fallback=False": {
+    "latitude": 60.4259587,
+    "longitude": 5.2982196,
+    "geocoded_address": "118, Helleveien, Biskopshavn, Ytre Sandviken, Nyland, Bergenhus, Bergen, Vestland, 5043, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Helleveien 118, 5043 Bergen, Bergen, Norway"
+  },
+  "Hjellestad skole|Grendatuvegen 23, 5259 Hjellestad|||allow_name_fallback=False": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Holen skole|Øvre Holen 6, 5163 Laksevåg|||allow_name_fallback=False": {
+    "latitude": 60.389466,
+    "longitude": 5.283385,
+    "geocoded_address": "6, Øvre Holen, Laksevåg, Kringsjå, Laksevåg, Bergen, Vestland, 5163, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Øvre Holen 6, 5163 Laksevåg, Bergen, Norway"
+  },
+  "Hop Oppveksttun skole|Kloppedalsvegen 18, 5232 Paradis|||allow_name_fallback=False": {
+    "latitude": 60.3241756,
+    "longitude": 5.343366,
+    "geocoded_address": "18, Kloppedalsvegen, Kloppedal, Nesttun, Fana, Bergen, Vestland, 5232, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Kloppedalsvegen 18, 5232 Paradis, Bergen, Norway"
+  },
+  "Hordvik skole|Midtre Prestavegen 18, 5108 Hordvik|||allow_name_fallback=False": {
+    "latitude": 60.5199117,
+    "longitude": 5.3101912,
+    "geocoded_address": "18, Midtre Prestavegen, Steinstø, Hordvik, Bergen, Vestland, 5108, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Midtre Prestavegen 18, 5108 Hordvik, Bergen, Norway"
+  },
+  "International School Of Bergen avd skole|Sandslihaugen 36, 5254 Sandsli|||allow_name_fallback=False": {
+    "latitude": 60.294801,
+    "longitude": 5.280911,
+    "geocoded_address": "36, Sandslihaugen, Sandsli, Ytrebygda, Bergen, Vestland, 5254, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Sandslihaugen 36, 5254 Sandsli, Bergen, Norway"
+  },
+  "Kaland skole|Osvegen 331, 5229 Kalandseidet|||allow_name_fallback=False": {
+    "latitude": 60.2780161,
+    "longitude": 5.4050109,
+    "geocoded_address": "331, Osvegen, Fana, Bergen, Vestland, 5229, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Osvegen 331, 5229 Kalandseidet, Bergen, Norway"
+  },
+  "Kalvatræet skole|Kalvatræet 37, 5106 Øvre Ervik|||allow_name_fallback=False": {
+    "latitude": 60.4456319,
+    "longitude": 5.3202105,
+    "geocoded_address": "37, Kalvatræet, Ervik, Åsane, Bergen, Vestland, 5106, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Kalvatræet 37, 5106 Øvre Ervik, Bergen, Norway"
+  },
+  "Kirkevoll skole|Fanavegen 314, 5244 Fana|||allow_name_fallback=False": {
+    "latitude": 60.2647719,
+    "longitude": 5.3475781,
+    "geocoded_address": "314, Fanavegen, Fana, Bergen, Vestland, 5244, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Fanavegen 314, 5244 Fana, Bergen, Norway"
+  },
+  "Kjøkkelvik skole|Kjøkkelvikveien 27, 5178 Loddefjord|||allow_name_fallback=False": {
+    "latitude": 60.373487,
+    "longitude": 5.2311344,
+    "geocoded_address": "27, Kjøkkelvikveien, Myra, Kjøkkelvik, Laksevåg, Bergen, Vestland, 5178, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Kjøkkelvikveien 27, 5178 Loddefjord, Bergen, Norway"
+  },
+  "Kringlebotn skole|Kringlebotn 221, 5225 Nesttun|||allow_name_fallback=False": {
+    "latitude": 60.3281843,
+    "longitude": 5.3718837,
+    "geocoded_address": "221, Kringlebotn, Nesttun, Fana, Bergen, Vestland, 5225, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Kringlebotn 221, 5225 Nesttun, Bergen, Norway"
+  },
+  "Krohnengen skole|Professor Dahls gate 35, 5031 Bergen|||allow_name_fallback=False": {
+    "latitude": 60.4004345,
+    "longitude": 5.3281733,
+    "geocoded_address": "35, Professor Dahls gate, Eidemarken, Skuteviken, Bergenhus, Bergen, Vestland, 5031, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Professor Dahls gate 35, 5031 Bergen, Bergen, Norway"
+  },
+  "Krokeide skole|Krokeidevegen 579, 5244 Fana|||allow_name_fallback=False": {
+    "latitude": 60.23197,
+    "longitude": 5.2952773,
+    "geocoded_address": "579, Krokeidevegen, Fana, Bergen, Vestland, 5244, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Krokeidevegen 579, 5244 Fana, Bergen, Norway"
+  },
+  "Kronstad Oppveksttun skole|Edvard Griegs vei 29, 5053 Bergen|||allow_name_fallback=False": {
+    "latitude": 60.3755599,
+    "longitude": 5.3472595,
+    "geocoded_address": "29, Edvard Griegs vei, Kronstad, Årstad, Bergen, Vestland, 5053, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Edvard Griegs vei 29, 5053 Bergen, Bergen, Norway"
+  },
+  "Kyrkjekrinsen skole|Åsamyrane 304, 5131 Nyborg|||allow_name_fallback=False": {
+    "latitude": 60.4755625,
+    "longitude": 5.342712,
+    "geocoded_address": "304, Åsamyrane, Flaktveit, Åsane, Bergen, Vestland, 5131, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Åsamyrane 304, 5131 Nyborg, Bergen, Norway"
+  },
+  "Landås skole|Landåsveien 33b, 5097 Bergen|||allow_name_fallback=False": {
+    "latitude": 60.3628675,
+    "longitude": 5.3729641,
+    "geocoded_address": "Landåsveien, Landåslien, Landås, Årstad, Bergen, Vestland, 5097, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Landåsveien 33b, 5097 Bergen, Bergen, Norway"
+  },
+  "Li skole|Liakroken 29, 5132 Nyborg|||allow_name_fallback=False": {
+    "latitude": 60.4643873,
+    "longitude": 5.3521246,
+    "geocoded_address": "29, Liakroken, Flaktveit, Li, Åsane, Bergen, Vestland, 5132, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Liakroken 29, 5132 Nyborg, Bergen, Norway"
+  },
+  "Liland skole|Lilandsvegen 50, 5258 Blomsterdalen|||allow_name_fallback=False": {
+    "latitude": 60.2861737,
+    "longitude": 5.2458522,
+    "geocoded_address": "50, Lilandsvegen, Liland, Blomsterdalen, Bergen, Vestland, 5258, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Lilandsvegen 50, 5258 Blomsterdalen, Bergen, Norway"
+  },
+  "Loddefjord skole|Elvetun 27, 5172 Loddefjord|||allow_name_fallback=False": {
+    "latitude": 60.3636442,
+    "longitude": 5.2317814,
+    "geocoded_address": "27, Elvetun, Loddefjord, Vadmyra, Laksevåg, Bergen, Vestland, 5172, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Elvetun 27, 5172 Loddefjord, Bergen, Norway"
+  },
+  "Lone skule|Lonaleitet 131. 5268 Haukeland|||allow_name_fallback=False": {
+    "latitude": 60.3767221,
+    "longitude": 5.4556123,
+    "geocoded_address": "131, Lonaleitet, Espeland, Lono, Arna, Bergen, Vestland, 5268, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Lonaleitet 131. 5268 Haukeland, Bergen, Norway"
+  },
+  "Lynghaug skole|Dag Hammaskjölds vei 7, 5144 Fyllingsdalen|||allow_name_fallback=False": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Lyshovden Oppveksttun avd skole|Lillehatten 3, 5148 Fyllingsdalen|||allow_name_fallback=False": {
+    "latitude": 60.343069,
+    "longitude": 5.296019,
+    "geocoded_address": "3, Lillehatten, Ortuflaten, Fyllingsdalen, Bergen, Vestland, 5148, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Lillehatten 3, 5148 Fyllingsdalen, Bergen, Norway"
+  },
+  "Løvås Oppveksttun - skole|Nebbeveien 1, 5144 Fyllingsdalen|||allow_name_fallback=False": {
+    "latitude": 60.3535473,
+    "longitude": 5.2917266,
+    "geocoded_address": "1, Nebbeveien, Sælemyra, Lauvåsen, Fyllingsdalen, Bergen, Vestland, 5144, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Nebbeveien 1, 5144 Fyllingsdalen, Bergen, Norway"
+  },
+  "Mathopen skole|Kongsmyrveien 1, 5174 Mathopen|||allow_name_fallback=False": {
+    "latitude": 60.3341969,
+    "longitude": 5.2102686,
+    "geocoded_address": "1, Kongsmyrveien, Sætre, Mathopen, Laksevåg, Bergen, Vestland, 5174, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Kongsmyrveien 1, 5174 Mathopen, Bergen, Norway"
+  },
+  "Midtun skole|Osvegen 10, 5228 Nesttun|||allow_name_fallback=False": {
+    "latitude": 60.314187,
+    "longitude": 5.357107,
+    "geocoded_address": "10, Osvegen, Nesttun, Fana, Bergen, Vestland, 5228, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Osvegen 10, 5228 Nesttun, Bergen, Norway"
+  },
+  "Minde skole|Grønnestølsveien 22, 5073 Bergen|||allow_name_fallback=False": {
+    "latitude": 60.354725,
+    "longitude": 5.3364761,
+    "geocoded_address": "22, Grønnestølsveien, Grønnestølen, Minde, Årstad, Bergen, Vestland, 5073, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Grønnestølsveien 22, 5073 Bergen, Bergen, Norway"
+  },
+  "Mjølkeråen skole|Marikollen 31b, 5136 Mjølkeråen|||allow_name_fallback=False": {
+    "latitude": 60.4859281,
+    "longitude": 5.2671921,
+    "geocoded_address": "Marikollen, Åsane, Bergen, Vestland, 5136, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Marikollen 31b, 5136 Mjølkeråen, Bergen, Norway"
+  },
+  "Møhlenpris Oppveksttun avd skole|Thormøhlens gate 25, 5006 Bergen|||allow_name_fallback=False": {
+    "latitude": 60.3830943,
+    "longitude": 5.3225736,
+    "geocoded_address": "25, Thormøhlens gate, Møhlenpris, Bergenhus, Bergen, Vestland, 5006, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Thormøhlens gate 25, 5006 Bergen, Bergen, Norway"
+  },
+  "Møllebakken skole|Jørgen Moes gate 26, 5053 Bergen|||allow_name_fallback=False": {
+    "latitude": 60.3781291,
+    "longitude": 5.3390382,
+    "geocoded_address": "26, Jørgen Moes gate, Kronstad, Årstad, Bergen, Vestland, 5053, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Jørgen Moes gate 26, 5053 Bergen, Bergen, Norway"
+  },
+  "Nordnes skole|Nordnesparken 3, 5007 Bergen|||allow_name_fallback=False": {
+    "latitude": 60.3973,
+    "longitude": 5.308174,
+    "geocoded_address": "3, Nordnesparken, Nordnes, Skuteviken, Bergenhus, Bergen, Vestland, 5005, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Nordnesparken 3, 5007 Bergen, Bergen, Norway"
+  },
+  "Norges Toppidrettsgymnas ungdomsskole Bergen AS|Kniksens Plass 1, 5063 Bergen|||allow_name_fallback=False": {
+    "latitude": 60.3671188,
+    "longitude": 5.3589859,
+    "geocoded_address": "1, Kniksens plass, Årstad, Fridalen, Årstad, Bergen, Vestland, 5063, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Kniksens Plass 1, 5063 Bergen, Bergen, Norway"
+  },
+  "Nygårdslien skole|Nygårdslien 3, 5164 Laksevåg|||allow_name_fallback=False": {
+    "latitude": 60.3828757,
+    "longitude": 5.2737184,
+    "geocoded_address": "3, Nygårdslien, Nygård, Laksevåg, Bergen, Vestland, 5164, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Nygårdslien 3, 5164 Laksevåg, Bergen, Norway"
+  },
+  "Olsvik skole|Olsvikåsen 51, 5183 Olsvik|||allow_name_fallback=False": {
+    "latitude": 60.381862,
+    "longitude": 5.2155482,
+    "geocoded_address": "51, Olsvikåsen, Bjørkelia, Olsvik, Laksevåg, Bergen, Vestland, 5183, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Olsvikåsen 51, 5183 Olsvik, Bergen, Norway"
+  },
+  "Paradis skole|Statsminister Michelsens veg 55, 5230 Paradis|||allow_name_fallback=False": {
+    "latitude": 60.338534,
+    "longitude": 5.342555,
+    "geocoded_address": "55, Statsminister Michelsens veg, Paradis, Fana, Bergen, Vestland, 5230, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Statsminister Michelsens veg 55, 5230 Paradis, Bergen, Norway"
+  },
+  "Rolland skole|Åslia 13, 5115 Ulset|||allow_name_fallback=False": {
+    "latitude": 60.4634825,
+    "longitude": 5.3325861,
+    "geocoded_address": "13, Åslia, Nyborg, Åsen, Åsane, Bergen, Vestland, 5115, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Åslia 13, 5115 Ulset, Bergen, Norway"
+  },
+  "Rothaugen skole|Rotthaugsgaten 10, 5033 Bergen|||allow_name_fallback=False": {
+    "latitude": 60.4039948,
+    "longitude": 5.3221058,
+    "geocoded_address": "10, Rotthaugsgaten, Ladegården, Skuteviken, Bergenhus, Bergen, Vestland, 5033, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Rotthaugsgaten 10, 5033 Bergen, Bergen, Norway"
+  },
+  "Rudolf steinerskolen i Bergen skolen|Rieber-Mohns veg 15, 5230 Paradis|||allow_name_fallback=False": {
+    "latitude": 60.3436814,
+    "longitude": 5.3430841,
+    "geocoded_address": "15, Rieber-Mohns veg, Fana, Bergen, Vestland, 5230, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Rieber-Mohns veg 15, 5230 Paradis, Bergen, Norway"
+  },
+  "Rå skole|Steinsvikvegen 393, 5239 Rådal|||allow_name_fallback=False": {
+    "latitude": 60.2966084,
+    "longitude": 5.3234859,
+    "geocoded_address": "393, Steinsvikvegen, Rådal, Folldalen, Ytrebygda, Bergen, Vestland, 5239, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Steinsvikvegen 393, 5239 Rådal, Bergen, Norway"
+  },
+  "Salhus skule|Vikavegen 30, 5107 Salhus|||allow_name_fallback=False": {
+    "latitude": 60.5042348,
+    "longitude": 5.2642978,
+    "geocoded_address": "30, Vikavegen, Salhus, Bergen, Vestland, 5107, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Vikavegen 30, 5107 Salhus, Bergen, Norway"
+  },
+  "Sandgotna skole|Elvetun 18, 5172 Loddefjord|||allow_name_fallback=False": {
+    "latitude": 60.3623913,
+    "longitude": 5.2310002,
+    "geocoded_address": "18, Elvetun, Loddefjord, Vadmyra, Laksevåg, Bergen, Vestland, 5172, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Elvetun 18, 5172 Loddefjord, Bergen, Norway"
+  },
+  "Seljedalen skole|Vestlundveien 50, 5145 Fyllingsdalen|||allow_name_fallback=False": {
+    "latitude": 60.3607766,
+    "longitude": 5.2853893,
+    "geocoded_address": "50, Vestlundveien, Fyllingsdalen, Bergen, Vestland, 5145, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Vestlundveien 50, 5145 Fyllingsdalen, Bergen, Norway"
+  },
+  "Skeie skole|Råtræet 37, 5239 Rådal|||allow_name_fallback=False": {
+    "latitude": 60.286808,
+    "longitude": 5.314631,
+    "geocoded_address": "37, Øvre Råtræet, Rådal, Råtræet, Ytrebygda, Bergen, Vestland, 5239, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Råtræet 37, 5239 Rådal, Bergen, Norway"
+  },
+  "Skjold skole|Fanavegen 59, 5239 Rådal|||allow_name_fallback=False": {
+    "latitude": 60.2949637,
+    "longitude": 5.3252901,
+    "geocoded_address": "Fanavegen, Rådal, Rå, Ytrebygda, Bergen, Vestland, 5239, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Fanavegen 59, 5239 Rådal, Bergen, Norway"
+  },
+  "Slettebakken skole|Vilhelm Bjerknes`vei 15, 5081 Bergen|||allow_name_fallback=False": {
+    "latitude": 60.356268,
+    "longitude": 5.358255,
+    "geocoded_address": "15, Vilhelm Bjerknes' vei, Slettebakken, Årstad, Bergen, Vestland, 5081, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Vilhelm Bjerknes`vei 15, 5081 Bergen, Bergen, Norway"
+  },
+  "Slåtthaug skole|Slåtthaugvegen 38, 5222 Nesttun|||allow_name_fallback=False": {
+    "latitude": 60.3088237,
+    "longitude": 5.3561164,
+    "geocoded_address": "38, Slåtthaugvegen, Nesttun, Fana, Bergen, Vestland, 5222, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Slåtthaugvegen 38, 5222 Nesttun, Bergen, Norway"
+  },
+  "Smørås skole|Nedre Smøråsvegen 28, 5238 Rådal|||allow_name_fallback=False": {
+    "latitude": 60.3001094,
+    "longitude": 5.3519978,
+    "geocoded_address": "28, Nedre Smøråsvegen, Fana, Bergen, Vestland, 5238, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Nedre Smøråsvegen 28, 5238 Rådal, Bergen, Norway"
+  },
+  "St Paul skole|Christies gate 16, 5015 Bergen|||allow_name_fallback=False": {
+    "latitude": 60.3887857,
+    "longitude": 5.3235846,
+    "geocoded_address": "16, Christies gate, Sydnes, Bergenhus, Bergen, Vestland, 5015, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Christies gate 16, 5015 Bergen, Bergen, Norway"
+  },
+  "Steinerskolen på Skjold Helseped Avdeling|Harald Skjolds Veg 32, 5236 Rådal|||allow_name_fallback=False": {
+    "latitude": 60.3101713,
+    "longitude": 5.3290084,
+    "geocoded_address": "32, Harald Skjolds veg, Nesttun, Fana, Bergen, Vestland, 5236, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Harald Skjolds Veg 32, 5236 Rådal, Bergen, Norway"
+  },
+  "Stiftelsen montessoriskolen i Bergen|Torgny Segerstedts vei 27, 5143 Fyllingsdalen|||allow_name_fallback=False": {
+    "latitude": 60.3441351,
+    "longitude": 5.2836392,
+    "geocoded_address": "27, Torgny Segerstedts vei, Ortuflaten, Åsgård, Fyllingsdalen, Bergen, Vestland, 5143, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Torgny Segerstedts vei 27, 5143 Fyllingsdalen, Bergen, Norway"
+  },
+  "Stiftelsen steinerskolen på Skjold|Harald Skjolds Veg 32, 5236 Rådal|||allow_name_fallback=False": {
+    "latitude": 60.3101713,
+    "longitude": 5.3290084,
+    "geocoded_address": "32, Harald Skjolds veg, Nesttun, Fana, Bergen, Vestland, 5236, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Harald Skjolds Veg 32, 5236 Rådal, Bergen, Norway"
+  },
+  "Storetveit skole|Storetveitvegen 125, 5231 Paradis|||allow_name_fallback=False": {
+    "latitude": 60.3459419,
+    "longitude": 5.3471842,
+    "geocoded_address": "125, Storetveitvegen, Fana, Bergen, Vestland, 5231, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Storetveitvegen 125, 5231 Paradis, Bergen, Norway"
+  },
+  "Sædalen skole|Nye Sædalsvegen 190, 5099 Bergen|||allow_name_fallback=False": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "not_found",
+    "geocoding_query": null
+  },
+  "Sælen Oppveksttun avd skole|Torgny Segerstedts vei 4, 5143 Fyllingsdalen|||allow_name_fallback=False": {
+    "latitude": 60.3467746,
+    "longitude": 5.2825582,
+    "geocoded_address": "4, Torgny Segerstedts vei, Sælemyra, Fyllingsdalen, Bergen, Vestland, 5143, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Torgny Segerstedts vei 4, 5143 Fyllingsdalen, Bergen, Norway"
+  },
+  "Søreide skole|Nordeidåsen 5, 5251 Søreidgrend|||allow_name_fallback=False": {
+    "latitude": 60.31804,
+    "longitude": 5.270899,
+    "geocoded_address": "5, Nordeidåsen, Søreidgrenda, Ytrebygda, Bergen, Vestland, 5251, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Nordeidåsen 5, 5251 Søreidgrend, Bergen, Norway"
+  },
+  "Søråshøgda skole|Søråshøgda 301, 5235 Rådal|||allow_name_fallback=False": {
+    "latitude": 60.3027352,
+    "longitude": 5.3191746,
+    "geocoded_address": "301, Søråshøgda, Sørås, Ytrebygda, Bergen, Vestland, 5235, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Søråshøgda 301, 5235 Rådal, Bergen, Norway"
+  },
+  "Tertnes skole|Grønskjeret 5, 5114 Tertnes|||allow_name_fallback=False": {
+    "latitude": 60.4568603,
+    "longitude": 5.2853082,
+    "geocoded_address": "5, Grønskjeret, Tertnes, Åsane, Bergen, Vestland, 5114, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Grønskjeret 5, 5114 Tertnes, Bergen, Norway"
+  },
+  "Trengereid Oppveksttun Avd skule (Nedlagt)||||allow_name_fallback=False": {
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_status": "no_address_in_source",
+    "geocoding_query": null
+  },
+  "Tveiterås skole|Haakon Sæthres veg 42, 5232 Paradis|||allow_name_fallback=False": {
+    "latitude": 60.328027,
+    "longitude": 5.359072,
+    "geocoded_address": "42, Haakon Sæthres veg, Sandalen, Nesttun, Fana, Bergen, Vestland, 5232, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Haakon Sæthres veg 42, 5232 Paradis, Bergen, Norway"
+  },
+  "Ulsetskogen skole|Ulsetskogen 14, 5119 Ulset|||allow_name_fallback=False": {
+    "latitude": 60.4611188,
+    "longitude": 5.3156539,
+    "geocoded_address": "14, Ulsetskogen, Ulset, Åsane, Bergen, Vestland, 5119, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Ulsetskogen 14, 5119 Ulset, Bergen, Norway"
+  },
+  "Ulsmåg skole|Totlandsvegen 53, 5224 Nesttun|||allow_name_fallback=False": {
+    "latitude": 60.314694,
+    "longitude": 5.375845,
+    "geocoded_address": "53, Totlandsvegen, Nesttun, Fana, Bergen, Vestland, 5224, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Totlandsvegen 53, 5224 Nesttun, Bergen, Norway"
+  },
+  "Vadmyra skole|Lyngfaret 121, 5172 Loddefjord|||allow_name_fallback=False": {
+    "latitude": 60.3597373,
+    "longitude": 5.2302565,
+    "geocoded_address": "Lyngfaret, Bjørndalsøyra, Vadmyra, Laksevåg, Bergen, Vestland, 5172, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Lyngfaret 121, 5172 Loddefjord, Bergen, Norway"
+  },
+  "Varden skole|Vardeveien 71, 5141 Fyllingsdalen|||allow_name_fallback=False": {
+    "latitude": 60.3394255,
+    "longitude": 5.2714624,
+    "geocoded_address": "71, Vardeveien, Hesjaholten, Vestre Sælen, Fyllingsdalen, Bergen, Vestland, 5141, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Vardeveien 71, 5141 Fyllingsdalen, Bergen, Norway"
+  },
+  "Ytre Arna skule|Bankvegen 11. 5265 Ytre Arna|||allow_name_fallback=False": {
+    "latitude": 60.4620788,
+    "longitude": 5.4317771,
+    "geocoded_address": "11, Bankvegen, Ytre Arna, Bergen, Vestland, 5265, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Bankvegen 11. 5265 Ytre Arna, Bergen, Norway"
+  },
+  "Ådnamarka skule|Eikhaugen 20. 5262 Arnatveit|||allow_name_fallback=False": {
+    "latitude": 60.4114466,
+    "longitude": 5.4757641,
+    "geocoded_address": "20, Eikhaugen, Arnatveit, Bergen, Vestland, 5262, Norge",
+    "geocoding_status": "matched_nominatim",
+    "geocoding_query": "Eikhaugen 20. 5262 Arnatveit, Bergen, Norway"
   }
 }
