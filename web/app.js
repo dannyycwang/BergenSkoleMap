@@ -31,7 +31,9 @@ function incrementSchoolViewCount(schoolName) {
     lastOpenedAt: new Date().toISOString(),
   };
   stats[schoolName] = next;
-  localStorage.setItem(SCHOOL_VIEW_STORAGE_KEY, JSON.stringify(stats));
+  try {
+    localStorage.setItem(SCHOOL_VIEW_STORAGE_KEY, JSON.stringify(stats));
+  } catch (_) {}
   return next;
 }
 
