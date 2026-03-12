@@ -13,44 +13,7 @@ const escapeHtml = (v) => String(v)
   .replaceAll('"', '&quot;')
   .replaceAll("'", '&#39;');
 
-const AUTH_STORAGE_KEY = 'bergenSkoleMapAuth';
-const SUBSCRIBE_STORAGE_KEY = 'bergenSkoleMapSubscribeClicks';
 const SCHOOL_VIEW_STORAGE_KEY = 'bergenSkoleMapSchoolViews';
-let pendingSchoolAction = null;
-
-function getAuthState() {
-  try {
-    return JSON.parse(localStorage.getItem(AUTH_STORAGE_KEY) || 'null');
-  } catch (_) {
-    return null;
-  }
-}
-
-function isLoggedIn() {
-  const auth = getAuthState();
-  return Boolean(auth && auth.provider);
-}
-
-function closeLoginModal() {
-  const modal = document.getElementById('login-modal');
-  if (modal) modal.classList.add('hidden');
-}
-
-function openLoginModal() {
-  const modal = document.getElementById('login-modal');
-  if (!modal) return;
-  modal.classList.remove('hidden');
-}
-
-function requireLoginThen(runAfterLogin) {
-  if (isLoggedIn()) {
-    runAfterLogin();
-    return;
-  }
-  pendingSchoolAction = runAfterLogin;
-  openLoginModal();
-}
-
 
 function getSchoolViewStats() {
   try {
@@ -70,26 +33,6 @@ function incrementSchoolViewCount(schoolName) {
   stats[schoolName] = next;
   localStorage.setItem(SCHOOL_VIEW_STORAGE_KEY, JSON.stringify(stats));
   return next;
-}
-
-function getSubscribeClicksBySchool() {
-  try {
-    return JSON.parse(localStorage.getItem(SUBSCRIBE_STORAGE_KEY) || '{}');
-  } catch (_) {
-    return {};
-  }
-}
-
-function getSubscribeCount(schoolName) {
-  const clicks = getSubscribeClicksBySchool();
-  return Number(clicks[schoolName] || 0);
-}
-
-function incrementSubscribeCount(schoolName) {
-  const clicks = getSubscribeClicksBySchool();
-  clicks[schoolName] = Number(clicks[schoolName] || 0) + 1;
-  localStorage.setItem(SUBSCRIBE_STORAGE_KEY, JSON.stringify(clicks));
-  return clicks[schoolName];
 }
 
 
@@ -673,15 +616,9 @@ function renderDetail(p, benchmarks) {
       </details>
     `);
   }
-  const currentSubscribeCount = getSubscribeCount(p.school_name || 'Ukjent skole');
   const viewStats = incrementSchoolViewCount(p.school_name || 'Ukjent skole');
-  const subscribeBar = `
-    <div class="subscribe-wrap">
-      <button id="subscribe-btn" type="button" class="subscribe-btn">Abonner på skoleoppdateringer</button>
-      <span id="subscribe-count" class="subscribe-count">Abonnement-klikk: ${currentSubscribeCount} | Visninger: ${viewStats.count}</span>
-    </div>
-  `;
-  document.getElementById('detail-content').innerHTML = subscribeBar + (sections.join('') || '<p>Ingen data tilgjengelig for denne skolen.</p>');
+  const viewsInfo = `<div class="note">Visninger for denne skolen: <strong>${viewStats.count}</strong></div>`;
+  document.getElementById('detail-content').innerHTML = viewsInfo + (sections.join('') || '<p>Ingen data tilgjengelig for denne skolen.</p>');
   const helpBtn = document.getElementById('bully-help-btn');
   if (helpBtn) {
     helpBtn.addEventListener('click', (e) => {
