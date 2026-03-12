@@ -32,6 +32,34 @@ def save_cache(cache: dict):
     CACHE_PATH.write_text(json.dumps(cache, ensure_ascii=False, indent=2), encoding='utf-8')
 
 
+def load_existing_geocoded_rows() -> list[dict]:
+    if OUT_JSON.exists():
+        try:
+            rows = json.loads(OUT_JSON.read_text(encoding='utf-8'))
+            if isinstance(rows, list):
+                return rows
+        except Exception:
+            return []
+    return []
+
+
+def index_existing_coordinates(rows: list[dict]) -> dict[str, dict]:
+    indexed = {}
+    for row in rows:
+        name = row.get('school_name')
+        lat = row.get('latitude')
+        lon = row.get('longitude')
+        if not name or lat is None or lon is None:
+            continue
+        indexed[name] = {
+            'latitude': lat,
+            'longitude': lon,
+            'geocoded_address': row.get('geocoded_address'),
+            'geocoding_query': row.get('geocoding_query'),
+        }
+    return indexed
+
+
 def query_nominatim(q: str):
     params = urllib.parse.urlencode({
         'q': q,
@@ -155,6 +183,8 @@ def main():
         rows = rows[:args.limit]
 
     cache = load_cache()
+    existing_rows = load_existing_geocoded_rows()
+    existing_coords = index_existing_coordinates(existing_rows)
     out = []
     for i, row in enumerate(rows, 1):
         geo = geocode_school(row, cache, allow_name_fallback=args.allow_name_fallback)
@@ -167,6 +197,14 @@ def main():
                 merged['longitude'] = fallback_lon
                 if merged.get('geocoding_status') in {'not_found', 'no_address_in_source'}:
                     merged['geocoding_status'] = 'fallback_from_prepare_data'
+            elif row['school_name'] in existing_coords:
+                prev = existing_coords[row['school_name']]
+                merged['latitude'] = prev['latitude']
+                merged['longitude'] = prev['longitude']
+                merged['geocoded_address'] = prev.get('geocoded_address')
+                merged['geocoding_query'] = prev.get('geocoding_query')
+                if merged.get('geocoding_status') in {'not_found', 'no_address_in_source'}:
+                    merged['geocoding_status'] = 'fallback_from_existing_geocoded'
         out.append(merged)
         print(f"[{i}/{len(rows)}] {row['school_name']}: {merged['geocoding_status']}")
         if not args.dry_run:
@@ -183,7 +221,8 @@ def main():
             w.writerows(out)
 
     matched = sum(1 for r in out if r['geocoding_status'] == 'matched_nominatim')
-    print(f'Schools={len(out)} matched_nominatim={matched} dry_run={args.dry_run}')
+    fallback_existing = sum(1 for r in out if r['geocoding_status'] == 'fallback_from_existing_geocoded')
+    print(f'Schools={len(out)} matched_nominatim={matched} fallback_from_existing_geocoded={fallback_existing} dry_run={args.dry_run}')
 
 
 if __name__ == '__main__':
