@@ -1,33 +1,33 @@
 <!doctype html>
-<html lang="zh-Hant">
+<html lang="no">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bergen 小學地圖</title>
+  <title>Bergen barneskolekart</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <link rel="stylesheet" href="./web/styles.css?v=9" />
+  <link rel="stylesheet" href="./web/styles.css?v=10" />
 </head>
 <body>
   <header>
-    <h1>Bergen 小學互動地圖</h1>
-    <p>可搜尋、篩選、滑動查看，點擊學校顯示詳情</p>
+    <h1>Interaktivt kart over barneskoler i Bergen</h1>
+    <p>Søk, filtrer og klikk på en skole for detaljer</p>
   </header>
 
   <main>
     <aside class="left-panel">
-      <input id="search" type="text" placeholder="搜尋學校名稱..." />
+      <input id="search" type="text" placeholder="Søk etter skolenavn..." />
       <div class="controls">
-        <label>最少學生數：<span id="students-value">0</span></label>
+        <label>Minste antall elever: <span id="students-value">0</span></label>
         <input id="students-range" type="range" min="0" max="800" value="0" />
-        <label>定位狀態：</label>
+        <label>Geokodingsstatus:</label>
         <select id="geo-filter">
-          <option value="all">全部</option>
-          <option value="matched_nominatim">精準定位</option>
-          <option value="fallback_from_prepare_data">備援定位</option>
-          <option value="not_found">地址查無結果</option>
-          <option value="no_address_in_source">缺少地址</option>
+          <option value="all">Alle</option>
+          <option value="matched_nominatim">Presis treff</option>
+          <option value="fallback_approximate_from_prepare_data">Omtrentlig fallback</option>
+          <option value="not_found">Ingen adressetreff</option>
+          <option value="no_address_in_source">Mangler adresse</option>
         </select>
-        <button id="fit-btn" type="button">縮放到目前篩選結果</button>
+        <button id="fit-btn" type="button">Zoom til gjeldende utvalg</button>
       </div>
       <p id="count"></p>
       <div id="stats" class="note"></div>
@@ -38,14 +38,14 @@
 
     <aside id="detail-panel" class="detail-panel hidden">
       <div class="detail-header">
-        <h2 id="detail-title">學校資訊</h2>
+        <h2 id="detail-title">Skoleinformasjon</h2>
         <button id="close-detail" type="button">✕</button>
       </div>
-      <div id="detail-content" class="detail-content">請在地圖上點選學校。</div>
+      <div id="detail-content" class="detail-content">Klikk på en skole i kartet.</div>
     </aside>
   </main>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="./web/app.js?v=9"></script>
+  <script src="./web/app.js?v=10"></script>
 </body>
 </html>
