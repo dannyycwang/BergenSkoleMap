@@ -15,6 +15,7 @@ const escapeHtml = (v) => String(v)
 
 const AUTH_STORAGE_KEY = 'bergenSkoleMapAuth';
 const SUBSCRIBE_STORAGE_KEY = 'bergenSkoleMapSubscribeClicks';
+const SCHOOL_VIEW_STORAGE_KEY = 'bergenSkoleMapSchoolViews';
 let pendingSchoolAction = null;
 
 function getAuthState() {
@@ -48,6 +49,27 @@ function requireLoginThen(runAfterLogin) {
   }
   pendingSchoolAction = runAfterLogin;
   openLoginModal();
+}
+
+
+function getSchoolViewStats() {
+  try {
+    return JSON.parse(localStorage.getItem(SCHOOL_VIEW_STORAGE_KEY) || '{}');
+  } catch (_) {
+    return {};
+  }
+}
+
+function incrementSchoolViewCount(schoolName) {
+  const stats = getSchoolViewStats();
+  const current = stats[schoolName] || { count: 0, lastOpenedAt: null };
+  const next = {
+    count: Number(current.count || 0) + 1,
+    lastOpenedAt: new Date().toISOString(),
+  };
+  stats[schoolName] = next;
+  localStorage.setItem(SCHOOL_VIEW_STORAGE_KEY, JSON.stringify(stats));
+  return next;
 }
 
 function getSubscribeClicksBySchool() {
@@ -298,7 +320,6 @@ function renderComparisonSection(p, benchmarks) {
   if (!vestland && !bergenAll) return '';
 
   const keys = [
-    'src__Alle spørsmøl',
     'src__Er du blitt mobbet av andre elever? skolen de siste månedene?',
     'src__Er du blitt mobbet av voksne? skolen de siste?nedene?',
     'src__Er du blitt mobbet digitalt (mobil, iPad, PC) de siste m?nedene?'
@@ -653,10 +674,11 @@ function renderDetail(p, benchmarks) {
     `);
   }
   const currentSubscribeCount = getSubscribeCount(p.school_name || 'Ukjent skole');
+  const viewStats = incrementSchoolViewCount(p.school_name || 'Ukjent skole');
   const subscribeBar = `
     <div class="subscribe-wrap">
       <button id="subscribe-btn" type="button" class="subscribe-btn">Abonner på skoleoppdateringer</button>
-      <span id="subscribe-count" class="subscribe-count">Abonnement-klikk: ${currentSubscribeCount}</span>
+      <span id="subscribe-count" class="subscribe-count">Abonnement-klikk: ${currentSubscribeCount} | Visninger: ${viewStats.count}</span>
     </div>
   `;
   document.getElementById('detail-content').innerHTML = subscribeBar + (sections.join('') || '<p>Ingen data tilgjengelig for denne skolen.</p>');
